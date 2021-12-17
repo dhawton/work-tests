@@ -1,0 +1,101 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test
+  labels:
+    name: test
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx1
+  labels:
+    app: nginx1
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx1
+  template:
+    metadata:
+      labels:
+        app: nginx1
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx1
+  namespace: test
+  labels:
+    service: nginx1
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: nginx1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpbin
+  labels:
+    app: httpbin
+  namespace: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpbin
+  template:
+    metadata:
+      labels:
+        app: httpbin
+    spec:
+      containers:
+      - name: httpbin
+        image: kennethreitz/httpbin
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpbin
+  namespace: test
+  labels:
+    service: httpbin
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: httpbin
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swissarmy
+  labels:
+    app: swissarmy
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swissarmy
+  template:
+    metadata:
+      labels:
+        app: swissarmy
+    spec:
+      containers:
+      - name: swissarmy
+        image: leodotcloud/swiss-army-knife
