@@ -1,0 +1,40 @@
+apiVersion: networking.mesh.gloo.solo.io/v1
+kind: TrafficPolicy
+metadata:
+  namespace: gloo-mesh
+  name: traffic-policy
+spec:
+  sourceSelector:
+  - kubeWorkloadMatcher:
+      namespaces:
+      - bookinfo
+  destinationSelector:
+  - kubeServiceRefs:
+      services:
+        - clusterName: cluster-1
+          name: reviews
+          namespace: bookinfo
+  policy:
+    trafficShift:
+      destinations:
+        - kubeService:
+            clusterName: cluster-2
+            name: reviews
+            namespace: bookinfo
+            subset:
+              version: v3
+          weight: 75
+        - kubeService:
+            clusterName: cluster-1
+            name: reviews
+            namespace: bookinfo
+            subset:
+              version: v1
+          weight: 15
+        - kubeService:
+            clusterName: cluster-1
+            name: reviews
+            namespace: bookinfo
+            subset:
+              version: v2
+          weight: 10

@@ -1,0 +1,36 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+  name: vs-test
+  namespace: gloo-system
+spec:
+  sslConfig:
+    secretRef:
+      name: vs-tls
+      namespace: gloo-system
+  virtualHost:
+    domains:
+    - '*'
+    routes:
+    - matchers:
+      - prefix: /httpbin
+      name: httpbin
+      routeAction:
+        single:
+          upstream:
+            name: test-httpbin-80
+            namespace: gloo-system
+      options:
+        prefixRewrite: '/'
+    - matchers:
+      - prefix: /nginx
+      name: nginx
+      routeAction:
+        single:
+          upstream:
+            name: test-nginx1-80
+            namespace: gloo-system
+      options:
+        prefixRewrite: '/'
+        
+      
