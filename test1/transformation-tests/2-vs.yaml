@@ -1,0 +1,96 @@
+apiVersion: gateway.solo.io/v1
+kind: VirtualService
+metadata:
+ name: vs-test
+ namespace: gloo-system
+spec:
+  virtualHost:
+    domains:
+    - '*'
+    routes:
+    - matchers:
+      - prefix: /httpbin
+      routeAction:
+        single:
+          upstream:
+            name: test-httpbin-80
+            namespace: gloo-system
+      options:
+        prefixRewrite: '/'
+        transformations:
+          requestTransformation:
+            transformationTemplate:
+              advancedTemplates: true
+              parseBodyBehavior: DontParse
+              extractors:
+                api_key:
+                  body: {}
+                  regex: '[\s\S]*name="api_key"[\s]*(.+)\s+---[\s\S]*'
+                  subgroup: 1
+                api_key2:
+                  body: {}
+                  regex: '.*api_key=([^&]*).*'
+                  subgroup: 1
+              headers:
+                api_key:
+                  text: '{% if not extraction("api_key") == "" %}{{ extraction("api_key") }}{% endif %}{% if extraction("api_key") == "" and extraction("api_key2") != "" %}{{ extraction("api_key2") }}{% endif %}'
+                raw_api_key:
+                  text: '{{ extraction("api_key") }}'
+                raw_api_key2:
+                  text: '{{ extraction("api_key2") }}'
+    - matchers:
+      - prefix: /nginx
+      routeAction:
+        single:
+          upstream:
+            name: test-nginx1-80
+            namespace: gloo-system
+      options:
+        prefixRewrite: '/'
+    - matchers:
+      - prefix: '/h'
+      delegateAction:
+        ref:
+          name: 'h-routes'
+          namespace: gloo-system
+---
+apiVersion: gateway.solo.io/v1
+kind: RouteTable
+metadata:
+  name: 'h-routes'
+  namespace: gloo-system
+spec:
+  routes:
+    - matchers:
+      - prefix: '/h/1'
+      routeAction:
+        single:
+          upstream:
+            name: test-httpbin-80
+            namespace: gloo-system
+      options:
+        prefixRewrite: '/'
+        transformations:
+          requestTransformation:
+            transformationTemplate:
+              extractors:
+                # This extracts the 'foo' query param to an extractor named 'foo'
+                foo:
+                  # The :path pseudo-header contains the URI
+                  header: ':path'
+                  # Use a nested capturing group to extract the query param
+                  regex: '(.*foo=([^&]*).*)'
+                  subgroup: 2
+                # This extracts the 'bar' query param to an extractor named 'bar'
+                bar:
+                  # The :path pseudo-header contains the URI
+                  header: ':path'
+                  # Use a nested capturing group to extract the query param
+                  regex: '(.*bar=([^&]*).*)'
+                  subgroup: 2
+              # Add two new headers with the values of the 'foo' and 'bar' extractions
+              headers:
+                foo:
+                  text: '{{ foo }}'
+                bar:
+                  text: '{{ bar }}'
