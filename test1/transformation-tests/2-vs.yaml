@@ -17,27 +17,42 @@ spec:
             namespace: gloo-system
       options:
         prefixRewrite: '/'
-        transformations:
-          requestTransformation:
-            transformationTemplate:
-              advancedTemplates: true
-              parseBodyBehavior: DontParse
-              extractors:
-                api_key:
-                  body: {}
-                  regex: '[\s\S]*name="api_key"[\s]*(.+)\s+---[\s\S]*'
-                  subgroup: 1
-                api_key2:
-                  body: {}
-                  regex: '.*api_key=([^&]*).*'
-                  subgroup: 1
-              headers:
-                api_key:
-                  text: '{% if not extraction("api_key") == "" %}{{ extraction("api_key") }}{% endif %}{% if extraction("api_key") == "" and extraction("api_key2") != "" %}{{ extraction("api_key2") }}{% endif %}'
-                raw_api_key:
-                  text: '{{ extraction("api_key") }}'
-                raw_api_key2:
-                  text: '{{ extraction("api_key2") }}'
+        stagedTransformations:
+          early:
+            requestTransforms:
+            - clearRouteCache: true
+              matcher:
+                prefix: '/'
+              requestTransformation:
+                transformationTemplate:
+                  extractors:
+                    api_key:
+                      body: {}
+                      regex: '[\s\S]*name="api_key"[\s]*(.+)\s+---[\s\S]*'
+                      subgroup: 1
+                  headers:
+                    api_key:
+                      text: '{{ api_key }}'
+                  ignoreErrorOnParse: true
+                  parseBodyBehavior: DontParse
+                  # advancedTemplates: true
+                  # parseBodyBehavior: DontParse
+                  # extractors:
+                  #   api_key:
+                  #     body: {}
+                  #     regex: '[\s\S]*name="api_key"[\s]*(.+)\s+---[\s\S]*'
+                  #     subgroup: 1
+                  #   api_key2:
+                  #     body: {}
+                  #     regex: '.*api_key=([^&]*).*'
+                  #     subgroup: 1
+                  # headers:
+                  #   api_key:
+                  #     text: '{% if not extraction("api_key") == "" %}{{ extraction("api_key") }}{% endif %}{% if extraction("api_key") == "" and extraction("api_key2") != "" %}{{ extraction("api_key2") }}{% endif %}'
+                  #   raw_api_key:
+                  #     text: '{{ extraction("api_key") }}'
+                  #   raw_api_key2:
+                  #     text: '{{ extraction("api_key2") }}'
     - matchers:
       - prefix: /nginx
       routeAction:
