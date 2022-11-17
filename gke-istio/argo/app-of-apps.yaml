@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: argo
+spec:
+  destination:
+    namespace: argo
+    name: in-cluster
+  project: default
+  source:
+    path: gke-istio/argo/children
+    repoURL: https://github.com/dhawton/work-tests.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  
