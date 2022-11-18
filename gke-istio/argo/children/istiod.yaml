@@ -19,6 +19,14 @@ spec:
     helm:
       values: |
         revision: 1-16-0
+        meshConfig:
+          proxyConfig:
+            proxyMetadata:
+              ISTIO_META_ENABLE_HBONE: "true"
+        pilot:
+          env:
+            PILOT_ENABLE_INBOUND_PASSTHROUGH: "false"
+            PILOT_ENABLE_HBONE: "true"
   syncPolicy:
     automated:
       prune: true
