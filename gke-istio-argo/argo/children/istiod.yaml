@@ -20,7 +20,7 @@ spec:
       values: |
         revision: 1-16-0
         meshConfig:
-          proxyConfig:
+          defaultConfig:
             proxyMetadata:
               ISTIO_META_ENABLE_HBONE: "true"
         pilot:
