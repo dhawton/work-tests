@@ -10,7 +10,7 @@ metadata:
 spec:
   destination:
     namespace: istio-system
-    name: gke_solo-test-236622_us-west1-c_daniel-cluster
+    name: in-cluster
   project: default
   source:
     chart: istiod

@@ -9,7 +9,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "-2"
 spec:
   destination:
-    name: gke_solo-test-236622_us-west1-c_daniel-cluster
+    name: in-cluster
     namespace: istio-ingress
   project: default
   source:
