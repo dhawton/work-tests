@@ -38,7 +38,8 @@ if [[ -z "$SKIP_CREATE" ]]; then
         --no-enable-intra-node-visibility --default-max-pods-per-node "110" --no-enable-master-authorized-networks \
         --addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver --enable-autoupgrade --enable-autorepair \
         --max-surge-upgrade 1 --max-unavailable-upgrade 0 --enable-shielded-nodes --node-locations "us-west1-c" \
-        --workload-pool=solo-test-236622.svc.id.goog
+        --workload-pool=solo-test-236622.svc.id.goog \
+        --node-labels purpose=product_development,team=engineering,created-by=daniel_hawton
 fi
 
 if [[ ! -z "$SKIP_INSTALL" ]]; then

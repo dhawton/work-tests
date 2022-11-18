@@ -27,11 +27,6 @@ spec:
         labels:
           istio.io/rev: 1-12
           istio: ingressgateway
-
-        pilot:
-          env:
-            PILOT_ENABLE_INBOUND_PASSTHROUGH: "false"
-            PILOT_ENABLE_HBONE: "true"
   syncPolicy:
     automated:
       prune: true
