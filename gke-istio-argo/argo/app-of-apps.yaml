@@ -9,7 +9,7 @@ spec:
     name: in-cluster
   project: default
   source:
-    path: gke-istio/argo/children
+    path: gke-istio-argo/argo/children
     repoURL: https://github.com/dhawton/work-tests.git
     targetRevision: master
   syncPolicy:
