@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: lab-istiod-1-16-0
+  name: istiod-1-16-0
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io

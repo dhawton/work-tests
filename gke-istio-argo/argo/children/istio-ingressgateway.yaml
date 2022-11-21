@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: lab-istio-ingressgateway
+  name: istio-ingressgateway
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -28,8 +28,6 @@ spec:
           istio.io/rev: 1-12
           istio: ingressgateway
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    automated: {}
     syncOptions:
     - CreateNamespace=true
