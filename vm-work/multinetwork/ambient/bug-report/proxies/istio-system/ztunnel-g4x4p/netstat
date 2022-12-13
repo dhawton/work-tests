@@ -1,0 +1,23 @@
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:15090           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 0.0.0.0:15090           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 0.0.0.0:15021           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 0.0.0.0:15021           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 0.0.0.0:15008           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 0.0.0.0:15008           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 0.0.0.0:15001           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 0.0.0.0:15001           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 0.0.0.0:15006           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 0.0.0.0:15006           0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 127.0.0.1:15000         0.0.0.0:*               LISTEN      16/envoy            
+tcp        0      0 127.0.0.1:15004         0.0.0.0:*               LISTEN      1/pilot-agent       
+tcp        0      0 10.72.1.10:44024        10.76.5.126:15012       ESTABLISHED 1/pilot-agent       
+tcp        0      0 10.72.1.10:44026        10.76.5.126:15012       ESTABLISHED 1/pilot-agent       
+tcp6       0      0 :::15020                :::*                    LISTEN      1/pilot-agent       
+tcp6       0      0 10.72.1.10:15020        10.72.1.1:42272         TIME_WAIT   -                   
+tcp6       0      0 10.72.1.10:15020        10.72.1.1:42270         TIME_WAIT   -                   
+tcp6       0      0 10.72.1.10:15020        10.72.1.1:42278         TIME_WAIT   -                   
+tcp6       0      0 10.72.1.10:15020        10.72.1.1:42276         TIME_WAIT   -                   
+tcp6       0      0 10.72.1.10:15020        10.72.1.1:42274         TIME_WAIT   -                   
+tcp6       0      0 10.72.1.10:15020        10.72.1.1:42268         TIME_WAIT   -                   

@@ -1,0 +1,416 @@
+Name:         istio-eastwestgateway-76f8655d4b-zj8dq
+Namespace:    istio-system
+Priority:     0
+Node:         gke-daniel-nonambient-default-pool-1cbe874a-clgb/10.128.15.196
+Start Time:   Tue, 11 Oct 2022 08:56:05 -0600
+Labels:       app=istio-eastwestgateway
+              chart=gateways
+              heritage=Tiller
+              install.operator.istio.io/owning-resource=unknown
+              istio=eastwestgateway
+              istio.io/rev=default
+              operator.istio.io/component=IngressGateways
+              pod-template-hash=76f8655d4b
+              release=istio
+              service.istio.io/canonical-name=istio-eastwestgateway
+              service.istio.io/canonical-revision=latest
+              sidecar.istio.io/inject=true
+              topology.istio.io/network=kube-network
+Annotations:  inject.istio.io/templates: gateway
+              prometheus.io/path: /stats/prometheus
+              prometheus.io/port: 15020
+              prometheus.io/scrape: true
+              proxy.istio.io/overrides:
+                {"containers":[{"name":"istio-proxy","ports":[{"containerPort":15021,"protocol":"TCP"},{"containerPort":15443,"protocol":"TCP"},{"containe...
+              sidecar.istio.io/inject: true
+              sidecar.istio.io/status:
+                {"initContainers":null,"containers":["istio-proxy"],"volumes":["workload-socket","workload-certs","istio-envoy","istio-data","istio-podinf...
+Status:       Running
+IP:           10.48.0.7
+IPs:
+  IP:           10.48.0.7
+Controlled By:  ReplicaSet/istio-eastwestgateway-76f8655d4b
+Containers:
+  istio-proxy:
+    Container ID:  containerd://9fb14d07005c212ea1904fc8eb6e0bbe2eba6db3d7a9828df381f20e264adbba
+    Image:         docker.io/istio/proxyv2:1.14.4
+    Image ID:      docker.io/istio/proxyv2@sha256:84097c49cca23b93f4f77db6f6f41505eb4a20be401af39d72f2601da5a35537
+    Ports:         15021/TCP, 15443/TCP, 15012/TCP, 15017/TCP, 15090/TCP
+    Host Ports:    0/TCP, 0/TCP, 0/TCP, 0/TCP, 0/TCP
+    Args:
+      proxy
+      router
+      --domain
+      $(POD_NAMESPACE).svc.cluster.local
+      --proxyLogLevel=warning
+      --proxyComponentLogLevel=misc:error
+      --log_output_level=default:info
+    State:          Running
+      Started:      Tue, 11 Oct 2022 08:56:06 -0600
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Readiness:  http-get http://:15021/healthz/ready delay=1s timeout=3s period=2s #success=1 #failure=30
+    Environment:
+      JWT_POLICY:                         third-party-jwt
+      PILOT_CERT_PROVIDER:                istiod
+      CA_ADDR:                            istiod.istio-system.svc:15012
+      POD_NAME:                           istio-eastwestgateway-76f8655d4b-zj8dq (v1:metadata.name)
+      POD_NAMESPACE:                      istio-system (v1:metadata.namespace)
+      INSTANCE_IP:                         (v1:status.podIP)
+      SERVICE_ACCOUNT:                     (v1:spec.serviceAccountName)
+      HOST_IP:                             (v1:status.hostIP)
+      PROXY_CONFIG:                       {"meshId":"mesh1"}
+                                          
+      ISTIO_META_POD_PORTS:               [
+                                              {"containerPort":15021,"protocol":"TCP"}
+                                              ,{"containerPort":15443,"protocol":"TCP"}
+                                              ,{"containerPort":15012,"protocol":"TCP"}
+                                              ,{"containerPort":15017,"protocol":"TCP"}
+                                              ,{"name":"http-envoy-prom","containerPort":15090,"protocol":"TCP"}
+                                          ]
+      ISTIO_META_APP_CONTAINERS:          
+      ISTIO_META_INTERCEPTION_MODE:       REDIRECT
+      ISTIO_META_WORKLOAD_NAME:           istio-eastwestgateway
+      ISTIO_META_OWNER:                   kubernetes://apis/apps/v1/namespaces/istio-system/deployments/istio-eastwestgateway
+      ISTIO_META_MESH_ID:                 mesh1
+      TRUST_DOMAIN:                       cluster.local
+      ISTIO_META_REQUESTED_NETWORK_VIEW:  kube-network
+      ISTIO_META_UNPRIVILEGED_POD:        true
+      ISTIO_META_CLUSTER_ID:              cluster1
+      ISTIO_META_NETWORK:                 kube-network
+    Mounts:
+      /etc/istio/ingressgateway-ca-certs from ingressgateway-ca-certs (ro)
+      /etc/istio/ingressgateway-certs from ingressgateway-certs (ro)
+      /etc/istio/pod from istio-podinfo (rw)
+      /etc/istio/proxy from istio-envoy (rw)
+      /var/lib/istio/data from istio-data (rw)
+      /var/run/secrets/istio from istiod-ca-cert (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-7fnkf (ro)
+      /var/run/secrets/tokens from istio-token (rw)
+      /var/run/secrets/workload-spiffe-credentials from workload-certs (rw)
+      /var/run/secrets/workload-spiffe-uds from workload-socket (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  workload-socket:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  workload-certs:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  istio-envoy:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     Memory
+    SizeLimit:  <unset>
+  istio-data:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  istio-podinfo:
+    Type:  DownwardAPI (a volume populated by information about the pod)
+    Items:
+      metadata.labels -> labels
+      metadata.annotations -> annotations
+  istio-token:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  43200
+  istiod-ca-cert:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      istio-ca-root-cert
+    Optional:  false
+  ingressgateway-certs:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  istio-ingressgateway-certs
+    Optional:    true
+  ingressgateway-ca-certs:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  istio-ingressgateway-ca-certs
+    Optional:    true
+  kube-api-access-7fnkf:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  48m   default-scheduler  Successfully assigned istio-system/istio-eastwestgateway-76f8655d4b-zj8dq to gke-daniel-nonambient-default-pool-1cbe874a-clgb
+  Normal  Pulling    48m   kubelet            Pulling image "docker.io/istio/proxyv2:1.14.4"
+  Normal  Pulled     48m   kubelet            Successfully pulled image "docker.io/istio/proxyv2:1.14.4" in 65.216038ms
+  Normal  Created    48m   kubelet            Created container istio-proxy
+  Normal  Started    48m   kubelet            Started container istio-proxy
+
+
+Name:         istio-ingressgateway-78657896c5-nl846
+Namespace:    istio-system
+Priority:     0
+Node:         gke-daniel-nonambient-default-pool-1cbe874a-clgb/10.128.15.196
+Start Time:   Tue, 11 Oct 2022 08:55:53 -0600
+Labels:       app=istio-ingressgateway
+              chart=gateways
+              heritage=Tiller
+              install.operator.istio.io/owning-resource=unknown
+              istio=ingressgateway
+              istio.io/rev=default
+              operator.istio.io/component=IngressGateways
+              pod-template-hash=78657896c5
+              release=istio
+              service.istio.io/canonical-name=istio-ingressgateway
+              service.istio.io/canonical-revision=latest
+              sidecar.istio.io/inject=false
+Annotations:  prometheus.io/path: /stats/prometheus
+              prometheus.io/port: 15020
+              prometheus.io/scrape: true
+              sidecar.istio.io/inject: false
+Status:       Running
+IP:           10.48.0.6
+IPs:
+  IP:           10.48.0.6
+Controlled By:  ReplicaSet/istio-ingressgateway-78657896c5
+Containers:
+  istio-proxy:
+    Container ID:  containerd://1b6532c31e0a44e45805f69d009d76a4cd36016a5e8fd5ac7ed3c7760a48d75f
+    Image:         docker.io/istio/proxyv2:1.14.4
+    Image ID:      docker.io/istio/proxyv2@sha256:84097c49cca23b93f4f77db6f6f41505eb4a20be401af39d72f2601da5a35537
+    Ports:         15021/TCP, 8080/TCP, 8443/TCP, 15090/TCP
+    Host Ports:    0/TCP, 0/TCP, 0/TCP, 0/TCP
+    Args:
+      proxy
+      router
+      --domain
+      $(POD_NAMESPACE).svc.cluster.local
+      --proxyLogLevel=warning
+      --proxyComponentLogLevel=misc:error
+      --log_output_level=default:info
+    State:          Running
+      Started:      Tue, 11 Oct 2022 08:55:56 -0600
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:      100m
+      memory:   128Mi
+    Readiness:  http-get http://:15021/healthz/ready delay=1s timeout=1s period=2s #success=1 #failure=30
+    Environment:
+      JWT_POLICY:                   third-party-jwt
+      PILOT_CERT_PROVIDER:          istiod
+      CA_ADDR:                      istiod.istio-system.svc:15012
+      NODE_NAME:                     (v1:spec.nodeName)
+      POD_NAME:                     istio-ingressgateway-78657896c5-nl846 (v1:metadata.name)
+      POD_NAMESPACE:                istio-system (v1:metadata.namespace)
+      INSTANCE_IP:                   (v1:status.podIP)
+      HOST_IP:                       (v1:status.hostIP)
+      SERVICE_ACCOUNT:               (v1:spec.serviceAccountName)
+      ISTIO_META_WORKLOAD_NAME:     istio-ingressgateway
+      ISTIO_META_OWNER:             kubernetes://apis/apps/v1/namespaces/istio-system/deployments/istio-ingressgateway
+      ISTIO_META_MESH_ID:           mesh1
+      TRUST_DOMAIN:                 cluster.local
+      ISTIO_META_UNPRIVILEGED_POD:  true
+      ISTIO_META_NETWORK:           kube-network
+      ISTIO_META_CLUSTER_ID:        cluster1
+    Mounts:
+      /etc/istio/config from config-volume (rw)
+      /etc/istio/ingressgateway-ca-certs from ingressgateway-ca-certs (ro)
+      /etc/istio/ingressgateway-certs from ingressgateway-certs (ro)
+      /etc/istio/pod from podinfo (rw)
+      /etc/istio/proxy from istio-envoy (rw)
+      /var/lib/istio/data from istio-data (rw)
+      /var/run/secrets/istio from istiod-ca-cert (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-whqxd (ro)
+      /var/run/secrets/tokens from istio-token (ro)
+      /var/run/secrets/workload-spiffe-credentials from workload-certs (rw)
+      /var/run/secrets/workload-spiffe-uds from workload-socket (rw)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  workload-socket:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  workload-certs:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  istiod-ca-cert:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      istio-ca-root-cert
+    Optional:  false
+  podinfo:
+    Type:  DownwardAPI (a volume populated by information about the pod)
+    Items:
+      metadata.labels -> labels
+      metadata.annotations -> annotations
+  istio-envoy:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  istio-data:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  istio-token:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  43200
+  config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      istio
+    Optional:  true
+  ingressgateway-certs:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  istio-ingressgateway-certs
+    Optional:    true
+  ingressgateway-ca-certs:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  istio-ingressgateway-ca-certs
+    Optional:    true
+  kube-api-access-whqxd:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  48m                default-scheduler  Successfully assigned istio-system/istio-ingressgateway-78657896c5-nl846 to gke-daniel-nonambient-default-pool-1cbe874a-clgb
+  Normal   Pulling    48m                kubelet            Pulling image "docker.io/istio/proxyv2:1.14.4"
+  Normal   Pulled     48m                kubelet            Successfully pulled image "docker.io/istio/proxyv2:1.14.4" in 2.85097289s
+  Normal   Created    48m                kubelet            Created container istio-proxy
+  Normal   Started    48m                kubelet            Started container istio-proxy
+  Warning  Unhealthy  48m (x3 over 48m)  kubelet            Readiness probe failed: Get "http://10.48.0.6:15021/healthz/ready": dial tcp 10.48.0.6:15021: connect: connection refused
+
+
+Name:         istiod-696647845f-lwwhg
+Namespace:    istio-system
+Priority:     0
+Node:         gke-daniel-nonambient-default-pool-1cbe874a-h5nv/10.128.15.197
+Start Time:   Tue, 11 Oct 2022 08:55:46 -0600
+Labels:       app=istiod
+              install.operator.istio.io/owning-resource=unknown
+              istio=pilot
+              istio.io/rev=default
+              operator.istio.io/component=Pilot
+              pod-template-hash=696647845f
+              sidecar.istio.io/inject=false
+Annotations:  prometheus.io/port: 15014
+              prometheus.io/scrape: true
+              sidecar.istio.io/inject: false
+Status:       Running
+IP:           10.48.1.8
+IPs:
+  IP:           10.48.1.8
+Controlled By:  ReplicaSet/istiod-696647845f
+Containers:
+  discovery:
+    Container ID:  containerd://28c885ac3bec636128e1fc25fbeebee6c50e58c15ccb2ff7a393258f17d37f60
+    Image:         docker.io/istio/pilot:1.14.4
+    Image ID:      docker.io/istio/pilot@sha256:fa1b41a966e93d17a0b8178f66a804b1c0a6247934bbe7757474658ff42a3094
+    Ports:         8080/TCP, 15010/TCP, 15017/TCP
+    Host Ports:    0/TCP, 0/TCP, 0/TCP
+    Args:
+      discovery
+      --monitoringAddr=:15014
+      --log_output_level=default:info
+      --domain
+      cluster.local
+      --keepaliveMaxServerConnectionAge
+      30m
+    State:          Running
+      Started:      Tue, 11 Oct 2022 08:55:50 -0600
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:      500m
+      memory:   2Gi
+    Readiness:  http-get http://:8080/ready delay=1s timeout=5s period=3s #success=1 #failure=3
+    Environment:
+      REVISION:                                      default
+      JWT_POLICY:                                    third-party-jwt
+      PILOT_CERT_PROVIDER:                           istiod
+      POD_NAME:                                      istiod-696647845f-lwwhg (v1:metadata.name)
+      POD_NAMESPACE:                                 istio-system (v1:metadata.namespace)
+      SERVICE_ACCOUNT:                                (v1:spec.serviceAccountName)
+      KUBECONFIG:                                    /var/run/secrets/remote/config
+      ENABLE_LEGACY_FSGROUP_INJECTION:               false
+      PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION:  true
+      PILOT_ENABLE_WORKLOAD_ENTRY_HEALTHCHECKS:      true
+      PILOT_TRACE_SAMPLING:                          1
+      PILOT_ENABLE_PROTOCOL_SNIFFING_FOR_OUTBOUND:   true
+      PILOT_ENABLE_PROTOCOL_SNIFFING_FOR_INBOUND:    true
+      ISTIOD_ADDR:                                   istiod.istio-system.svc:15012
+      PILOT_ENABLE_ANALYSIS:                         false
+      CLUSTER_ID:                                    cluster1
+    Mounts:
+      /etc/cacerts from cacerts (ro)
+      /var/run/secrets/istio-dns from local-certs (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-kktb5 (ro)
+      /var/run/secrets/remote from istio-kubeconfig (ro)
+      /var/run/secrets/tokens from istio-token (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  local-certs:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     Memory
+    SizeLimit:  <unset>
+  istio-token:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  43200
+  cacerts:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  cacerts
+    Optional:    true
+  istio-kubeconfig:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  istio-kubeconfig
+    Optional:    true
+  kube-api-access-kktb5:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age   From               Message
+  ----     ------     ----  ----               -------
+  Normal   Scheduled  48m   default-scheduler  Successfully assigned istio-system/istiod-696647845f-lwwhg to gke-daniel-nonambient-default-pool-1cbe874a-h5nv
+  Normal   Pulling    48m   kubelet            Pulling image "docker.io/istio/pilot:1.14.4"
+  Normal   Pulled     48m   kubelet            Successfully pulled image "docker.io/istio/pilot:1.14.4" in 3.497197659s
+  Normal   Created    48m   kubelet            Created container discovery
+  Normal   Started    48m   kubelet            Started container discovery
+  Warning  Unhealthy  48m   kubelet            Readiness probe failed: Get "http://10.48.1.8:8080/ready": dial tcp 10.48.1.8:8080: connect: connection refused

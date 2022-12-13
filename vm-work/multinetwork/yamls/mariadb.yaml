@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb
+  labels:
+    app: mariadb-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb-client
+  template:
+    metadata:
+      labels:
+        app: mariadb-client
+    spec:
+      containers:
+      - name: client
+        image: mariadb:10-jammy
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: MARIADB_ROOT_PASSWORD
+          value: secret12345

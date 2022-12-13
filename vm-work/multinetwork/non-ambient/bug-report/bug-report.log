@@ -1,0 +1,324 @@
+2022-10-11T15:44:21.760670Z	info	STARTING kubectl config current-context
+2022-10-11T15:44:21.794194Z	info	COMPLETED kubectl config current-context
+2022-10-11T15:44:21.794234Z	info	
+Target cluster context: gke_solo-test-236622_us-central1-c_daniel-nonambient
+
+
+2022-10-11T15:44:21.794268Z	info	Running with the following config: 
+
+istio-namespace: istio-system
+full-secrets: false
+timeout (mins): 30
+include: {  }
+exclude: { Namespaces: kube-node-lease,kube-public,kube-system,local-path-storage }
+end-time: 2022-10-11 09:44:21.760536048 -0600 MDT
+
+
+
+2022-10-11T15:44:21.796581Z	info	
+Cluster endpoint: https://34.134.58.87
+
+2022-10-11T15:44:22.879205Z	info	CLI version:
+version.BuildInfo{Version:"1.14.4", GitRevision:"ae45319de579a92b01e216b4a5af822d4416e413", GolangVersion:"go1.18.6", BuildStatus:"Clean", GitTag:"1.14.4"}
+
+The following Istio control plane revisions/versions were found in the cluster:
+Revision default:
+&version.MeshInfo{
+    {
+        Component: "pilot",
+        Info:      version.BuildInfo{Version:"1.14.4", GitRevision:"ae45319de579a92b01e216b4a5af822d4416e413", GolangVersion:"", BuildStatus:"Clean", GitTag:"1.14.4"},
+    },
+}
+
+The following proxy revisions/versions were found in the cluster:
+Revision default: Versions {1.14.4, 1.14.0}
+
+2022-10-11T15:44:22.879322Z	info	Cluster resource tree:
+
+istio-system
+  istio-eastwestgateway
+    istio-eastwestgateway-76f8655d4b-zj8dq
+      istio-proxy
+  istio-ingressgateway
+    istio-ingressgateway-78657896c5-nl846
+      istio-proxy
+  istiod
+    istiod-696647845f-lwwhg
+      discovery
+sample
+  helloworld-v1
+    helloworld-v1-77cb56d4b4-dfttf
+      helloworld
+      istio-proxy
+  helloworld-v2
+    helloworld-v2-79bf565586-jfd78
+      helloworld
+      istio-proxy
+
+
+
+2022-10-11T15:44:22.879356Z	info	
+
+Fetching proxy logs for the following containers:
+
+istio-system/istio-eastwestgateway/istio-eastwestgateway-76f8655d4b-zj8dq/istio-proxy
+istio-system/istio-ingressgateway/istio-ingressgateway-78657896c5-nl846/istio-proxy
+istio-system/istiod/istiod-696647845f-lwwhg/discovery
+sample/helloworld-v1/helloworld-v1-77cb56d4b4-dfttf/helloworld
+sample/helloworld-v1/helloworld-v1-77cb56d4b4-dfttf/istio-proxy
+sample/helloworld-v2/helloworld-v2-79bf565586-jfd78/helloworld
+sample/helloworld-v2/helloworld-v2-79bf565586-jfd78/istio-proxy
+
+2022-10-11T15:44:22.879362Z	info	
+Fetching Istio control plane information from cluster.
+
+
+2022-10-11T15:44:22.879365Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetK8sResources
+2022-10-11T15:44:22.879370Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetCRs
+2022-10-11T15:44:22.879372Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetEvents
+2022-10-11T15:44:22.879374Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetClusterInfo
+2022-10-11T15:44:22.879376Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetNodeInfo
+2022-10-11T15:44:22.879377Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetSecrets
+2022-10-11T15:44:22.879380Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetDescribePods
+2022-10-11T15:44:22.879383Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2022-10-11T15:44:22.879385Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2022-10-11T15:44:22.879395Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2022-10-11T15:44:22.879397Z	info	Waiting on logs istio-eastwestgateway-76f8655d4b-zj8dq
+2022-10-11T15:44:22.879401Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2022-10-11T15:44:22.879408Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2022-10-11T15:44:22.879415Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2022-10-11T15:44:22.879417Z	info	Waiting on logs istio-ingressgateway-78657896c5-nl846
+2022-10-11T15:44:22.879420Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetIstiodInfo
+2022-10-11T15:44:22.879422Z	info	Waiting on logs istiod-696647845f-lwwhg
+2022-10-11T15:44:22.879425Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2022-10-11T15:44:22.879430Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2022-10-11T15:44:22.879433Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2022-10-11T15:44:22.879436Z	info	Waiting on logs helloworld-v1-77cb56d4b4-dfttf
+2022-10-11T15:44:22.879441Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2022-10-11T15:44:22.879444Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2022-10-11T15:44:22.879457Z	info	Waiting on istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2022-10-11T15:44:22.879437Z	info	STARTING PodExec istio-system/istio-eastwestgateway-76f8655d4b-zj8dq/istio-proxy:find /var/lib/istio -name core.*
+2022-10-11T15:44:22.879480Z	info	STARTING ProxyGet sample/helloworld-v2-79bf565586-jfd78:certs
+2022-10-11T15:44:22.879489Z	info	Getting logs for istio-system/istio-ingressgateway-78657896c5-nl846/istio-proxy...
+2022-10-11T15:44:22.879488Z	info	Getting logs for istio-system/istio-eastwestgateway-76f8655d4b-zj8dq/istio-proxy...
+2022-10-11T15:44:22.879507Z	info	STARTING PodLogs istio-system/istio-ingressgateway-78657896c5-nl846/istio-proxy
+2022-10-11T15:44:22.879511Z	info	STARTING PodLogs istio-system/istio-eastwestgateway-76f8655d4b-zj8dq/istio-proxy
+2022-10-11T15:44:22.879522Z	info	STARTING kubectl config current-context
+2022-10-11T15:44:22.879459Z	info	Waiting on logs helloworld-v2-79bf565586-jfd78
+2022-10-11T15:44:22.879553Z	info	Getting logs for sample/helloworld-v1-77cb56d4b4-dfttf/istio-proxy...
+2022-10-11T15:44:22.879576Z	info	Getting logs for sample/helloworld-v2-79bf565586-jfd78/istio-proxy...
+2022-10-11T15:44:22.879567Z	info	Getting logs for istio-system/istiod-696647845f-lwwhg/discovery...
+2022-10-11T15:44:22.879582Z	info	STARTING PodExec istio-system/istio-ingressgateway-78657896c5-nl846/istio-proxy:netstat -natpw
+2022-10-11T15:44:22.879648Z	info	STARTING PodExec istio-system/istio-ingressgateway-78657896c5-nl846/istio-proxy:find /var/lib/istio -name core.*
+2022-10-11T15:44:22.879665Z	info	STARTING ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:certs
+2022-10-11T15:44:22.879721Z	info	STARTING PodExec istio-system/istio-eastwestgateway-76f8655d4b-zj8dq/istio-proxy:netstat -natpw
+2022-10-11T15:44:22.879817Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:certs
+2022-10-11T15:44:22.913288Z	info	COMPLETED kubectl config current-context
+2022-10-11T15:44:22.980253Z	info	STARTING kubectl get secrets --all-namespaces
+2022-10-11T15:44:23.080366Z	info	STARTING PodExec sample/helloworld-v1-77cb56d4b4-dfttf/istio-proxy:find /var/lib/istio -name core.*
+2022-10-11T15:44:23.083713Z	info	COMPLETED PodLogs istio-system/istio-ingressgateway-78657896c5-nl846/istio-proxy
+2022-10-11T15:44:23.083788Z	info	Done with logs istio-ingressgateway-78657896c5-nl846
+2022-10-11T15:44:23.086285Z	info	COMPLETED PodLogs istio-system/istio-eastwestgateway-76f8655d4b-zj8dq/istio-proxy
+2022-10-11T15:44:23.086344Z	info	Done with logs istio-eastwestgateway-76f8655d4b-zj8dq
+2022-10-11T15:44:23.105788Z	info	COMPLETED kubectl get secrets --all-namespaces
+2022-10-11T15:44:23.105870Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetSecrets
+2022-10-11T15:44:23.173357Z	info	COMPLETED PodExec istio-system/istio-eastwestgateway-76f8655d4b-zj8dq/istio-proxy:find /var/lib/istio -name core.*
+2022-10-11T15:44:23.173380Z	info	istio-system/istio-eastwestgateway-76f8655d4b-zj8dq/istio-proxy has 0 coredumps
+2022-10-11T15:44:23.173383Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2022-10-11T15:44:23.180328Z	info	STARTING PodExec sample/helloworld-v1-77cb56d4b4-dfttf/istio-proxy:netstat -natpw
+2022-10-11T15:44:23.192098Z	info	COMPLETED ProxyGet sample/helloworld-v2-79bf565586-jfd78:certs
+2022-10-11T15:44:23.197256Z	info	COMPLETED ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:certs
+2022-10-11T15:44:23.198037Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:certs
+2022-10-11T15:44:23.205320Z	info	COMPLETED PodExec istio-system/istio-ingressgateway-78657896c5-nl846/istio-proxy:netstat -natpw
+2022-10-11T15:44:23.205425Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2022-10-11T15:44:23.210069Z	info	COMPLETED PodExec istio-system/istio-eastwestgateway-76f8655d4b-zj8dq/istio-proxy:netstat -natpw
+2022-10-11T15:44:23.210146Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2022-10-11T15:44:23.233175Z	info	COMPLETED PodExec istio-system/istio-ingressgateway-78657896c5-nl846/istio-proxy:find /var/lib/istio -name core.*
+2022-10-11T15:44:23.233275Z	info	istio-system/istio-ingressgateway-78657896c5-nl846/istio-proxy has 0 coredumps
+2022-10-11T15:44:23.233292Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2022-10-11T15:44:23.271994Z	info	COMPLETED PodExec sample/helloworld-v1-77cb56d4b4-dfttf/istio-proxy:find /var/lib/istio -name core.*
+2022-10-11T15:44:23.272015Z	info	sample/helloworld-v1-77cb56d4b4-dfttf/istio-proxy has 0 coredumps
+2022-10-11T15:44:23.272018Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2022-10-11T15:44:23.280057Z	info	STARTING kubectl get --all-namespaces all,namespaces,jobs,ingresses,endpoints,customresourcedefinitions,configmaps,events,mutatingwebhookconfigurations,validatingwebhookconfigurations -o yaml
+2022-10-11T15:44:23.340203Z	info	COMPLETED PodExec sample/helloworld-v1-77cb56d4b4-dfttf/istio-proxy:netstat -natpw
+2022-10-11T15:44:23.340303Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2022-10-11T15:44:23.380346Z	info	STARTING ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:certs
+2022-10-11T15:44:23.480184Z	info	STARTING PodLogs sample/helloworld-v1-77cb56d4b4-dfttf/istio-proxy
+2022-10-11T15:44:23.528405Z	info	COMPLETED PodLogs sample/helloworld-v1-77cb56d4b4-dfttf/istio-proxy
+2022-10-11T15:44:23.528526Z	info	Done with logs helloworld-v1-77cb56d4b4-dfttf
+2022-10-11T15:44:23.579933Z	info	STARTING kubectl describe nodes
+2022-10-11T15:44:23.596889Z	info	COMPLETED ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:certs
+2022-10-11T15:44:23.680128Z	info	STARTING PodExec sample/helloworld-v2-79bf565586-jfd78/istio-proxy:find /var/lib/istio -name core.*
+2022-10-11T15:44:23.779519Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/adsz
+2022-10-11T15:44:23.880215Z	info	STARTING PodLogs sample/helloworld-v2-79bf565586-jfd78/istio-proxy
+2022-10-11T15:44:23.880494Z	info	COMPLETED PodExec sample/helloworld-v2-79bf565586-jfd78/istio-proxy:find /var/lib/istio -name core.*
+2022-10-11T15:44:23.880503Z	info	sample/helloworld-v2-79bf565586-jfd78/istio-proxy has 0 coredumps
+2022-10-11T15:44:23.880506Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetCoredumps
+2022-10-11T15:44:23.950011Z	info	COMPLETED PodLogs sample/helloworld-v2-79bf565586-jfd78/istio-proxy
+2022-10-11T15:44:23.950098Z	info	Done with logs helloworld-v2-79bf565586-jfd78
+2022-10-11T15:44:23.979647Z	info	STARTING PodExec sample/helloworld-v2-79bf565586-jfd78/istio-proxy:netstat -natpw
+2022-10-11T15:44:24.079306Z	info	STARTING kubectl get customresourcedefinitions --no-headers
+2022-10-11T15:44:24.120494Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/adsz
+2022-10-11T15:44:24.170036Z	info	COMPLETED PodExec sample/helloworld-v2-79bf565586-jfd78/istio-proxy:netstat -natpw
+2022-10-11T15:44:24.170146Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetNetstat
+2022-10-11T15:44:24.180145Z	info	STARTING PodLogs istio-system/istiod-696647845f-lwwhg/discovery
+2022-10-11T15:44:24.264131Z	info	COMPLETED PodLogs istio-system/istiod-696647845f-lwwhg/discovery
+2022-10-11T15:44:24.264929Z	info	Done with logs istiod-696647845f-lwwhg
+2022-10-11T15:44:24.280283Z	info	STARTING kubectl describe pods -n istio-system
+2022-10-11T15:44:24.336718Z	info	COMPLETED kubectl get customresourcedefinitions --no-headers
+2022-10-11T15:44:24.363343Z	info	COMPLETED kubectl describe nodes
+2022-10-11T15:44:24.363420Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetNodeInfo
+2022-10-11T15:44:24.379405Z	info	STARTING kubectl get events --all-namespaces -o wide
+2022-10-11T15:44:24.479656Z	info	STARTING kubectl version
+2022-10-11T15:44:24.548155Z	info	COMPLETED kubectl get events --all-namespaces -o wide
+2022-10-11T15:44:24.548918Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetEvents
+2022-10-11T15:44:24.579695Z	info	STARTING ProxyGet sample/helloworld-v2-79bf565586-jfd78:clusters
+2022-10-11T15:44:24.596546Z	info	COMPLETED kubectl version
+2022-10-11T15:44:24.596626Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetClusterInfo
+2022-10-11T15:44:24.679743Z	info	STARTING ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:clusters
+2022-10-11T15:44:24.779642Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:clusters
+2022-10-11T15:44:24.812361Z	info	COMPLETED kubectl describe pods -n istio-system
+2022-10-11T15:44:24.812443Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetDescribePods
+2022-10-11T15:44:24.829987Z	info	COMPLETED ProxyGet sample/helloworld-v2-79bf565586-jfd78:clusters
+2022-10-11T15:44:24.880195Z	info	STARTING ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:clusters
+2022-10-11T15:44:24.904743Z	info	COMPLETED ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:clusters
+2022-10-11T15:44:24.979510Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/syncz
+2022-10-11T15:44:25.024011Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:clusters
+2022-10-11T15:44:25.079995Z	info	STARTING kubectl get --all-namespaces authorizationpolicies.security.istio.io,backendconfigs.cloud.google.com,capacityrequests.internal.autoscaling.gke.io,destinationrules.networking.istio.io,envoyfilters.networking.istio.io,frontendconfigs.networking.gke.io,gatewayclasses.gateway.networking.k8s.io,gateways.gateway.networking.k8s.io,gateways.networking.istio.io,httproutes.gateway.networking.k8s.io,istiooperators.install.istio.io,managedcertificates.networking.gke.io,memberships.hub.gke.io,peerauthentications.security.istio.io,proxyconfigs.networking.istio.io,referencepolicies.gateway.networking.k8s.io,requestauthentications.security.istio.io,serviceattachments.networking.gke.io,serviceentries.networking.istio.io,servicenetworkendpointgroups.networking.gke.io,sidecars.networking.istio.io,storagestates.migration.k8s.io,storageversionmigrations.migration.k8s.io,tcproutes.gateway.networking.k8s.io,telemetries.telemetry.istio.io,updateinfos.nodemanagement.gke.io,virtualservices.networking.istio.io,volumesnapshotclasses.snapshot.storage.k8s.io,volumesnapshotcontents.snapshot.storage.k8s.io,volumesnapshots.snapshot.storage.k8s.io,wasmplugins.extensions.istio.io,workloadentries.networking.istio.io,workloadgroups.networking.istio.io -o yaml
+2022-10-11T15:44:25.179633Z	info	STARTING ProxyGet sample/helloworld-v2-79bf565586-jfd78:config_dump?include_eds
+2022-10-11T15:44:25.179781Z	info	COMPLETED ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:clusters
+2022-10-11T15:44:25.260719Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/syncz
+2022-10-11T15:44:25.279803Z	info	STARTING ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:config_dump?include_eds
+2022-10-11T15:44:25.380305Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:config_dump?include_eds
+2022-10-11T15:44:25.480105Z	info	STARTING ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:config_dump?include_eds
+2022-10-11T15:44:25.580190Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/registryz
+2022-10-11T15:44:25.821854Z	info	COMPLETED kubectl get --all-namespaces all,namespaces,jobs,ingresses,endpoints,customresourcedefinitions,configmaps,events,mutatingwebhookconfigurations,validatingwebhookconfigurations -o yaml
+2022-10-11T15:44:25.823689Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetK8sResources
+2022-10-11T15:44:25.933774Z	info	COMPLETED ProxyGet sample/helloworld-v2-79bf565586-jfd78:config_dump?include_eds
+2022-10-11T15:44:25.933804Z	info	STARTING ProxyGet sample/helloworld-v2-79bf565586-jfd78:listeners
+2022-10-11T15:44:25.951796Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:config_dump?include_eds
+2022-10-11T15:44:25.951821Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:listeners
+2022-10-11T15:44:25.967403Z	info	COMPLETED ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:config_dump?include_eds
+2022-10-11T15:44:25.967428Z	info	STARTING ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:listeners
+2022-10-11T15:44:26.020006Z	info	COMPLETED ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:config_dump?include_eds
+2022-10-11T15:44:26.020027Z	info	STARTING ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:listeners
+2022-10-11T15:44:26.083070Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/registryz
+2022-10-11T15:44:26.083092Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/endpointz
+2022-10-11T15:44:26.218020Z	info	COMPLETED ProxyGet sample/helloworld-v2-79bf565586-jfd78:listeners
+2022-10-11T15:44:26.218047Z	info	STARTING ProxyGet sample/helloworld-v2-79bf565586-jfd78:memory
+2022-10-11T15:44:26.230726Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:listeners
+2022-10-11T15:44:26.273833Z	info	COMPLETED ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:listeners
+2022-10-11T15:44:26.280153Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:memory
+2022-10-11T15:44:26.288949Z	info	COMPLETED ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:listeners
+2022-10-11T15:44:26.379480Z	info	STARTING ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:memory
+2022-10-11T15:44:26.392433Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/endpointz
+2022-10-11T15:44:26.401787Z	info	COMPLETED ProxyGet sample/helloworld-v2-79bf565586-jfd78:memory
+2022-10-11T15:44:26.453170Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:memory
+2022-10-11T15:44:26.479974Z	info	STARTING ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:memory
+2022-10-11T15:44:26.563360Z	info	COMPLETED ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:memory
+2022-10-11T15:44:26.579804Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/instancesz
+2022-10-11T15:44:26.663774Z	info	COMPLETED ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:memory
+2022-10-11T15:44:26.679463Z	info	STARTING ProxyGet sample/helloworld-v2-79bf565586-jfd78:server_info
+2022-10-11T15:44:26.779819Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:server_info
+2022-10-11T15:44:26.817978Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/instancesz
+2022-10-11T15:44:26.879552Z	info	STARTING ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:server_info
+2022-10-11T15:44:26.902542Z	info	COMPLETED ProxyGet sample/helloworld-v2-79bf565586-jfd78:server_info
+2022-10-11T15:44:26.980268Z	info	STARTING ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:server_info
+2022-10-11T15:44:27.046939Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:server_info
+2022-10-11T15:44:27.080312Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/endpointShardz
+2022-10-11T15:44:27.111423Z	info	COMPLETED ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:server_info
+2022-10-11T15:44:27.177070Z	info	COMPLETED ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:server_info
+2022-10-11T15:44:27.180272Z	info	STARTING ProxyGet sample/helloworld-v2-79bf565586-jfd78:stats/prometheus
+2022-10-11T15:44:27.279525Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:stats/prometheus
+2022-10-11T15:44:27.316095Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/endpointShardz
+2022-10-11T15:44:27.380305Z	info	STARTING ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:stats/prometheus
+2022-10-11T15:44:27.414164Z	info	COMPLETED ProxyGet sample/helloworld-v2-79bf565586-jfd78:stats/prometheus
+2022-10-11T15:44:27.471822Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:stats/prometheus
+2022-10-11T15:44:27.480020Z	info	STARTING ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:stats/prometheus
+2022-10-11T15:44:27.565571Z	info	COMPLETED ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:stats/prometheus
+2022-10-11T15:44:27.579817Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/configz
+2022-10-11T15:44:27.680144Z	info	STARTING ProxyGet sample/helloworld-v2-79bf565586-jfd78:runtime
+2022-10-11T15:44:27.683804Z	info	COMPLETED ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:stats/prometheus
+2022-10-11T15:44:27.779546Z	info	STARTING ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:runtime
+2022-10-11T15:44:27.816092Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/configz
+2022-10-11T15:44:27.861718Z	info	COMPLETED ProxyGet sample/helloworld-v2-79bf565586-jfd78:runtime
+2022-10-11T15:44:27.862171Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2022-10-11T15:44:27.880302Z	info	STARTING ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:runtime
+2022-10-11T15:44:27.980280Z	info	STARTING ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:runtime
+2022-10-11T15:44:28.005161Z	info	COMPLETED ProxyGet istio-system/istio-ingressgateway-78657896c5-nl846:runtime
+2022-10-11T15:44:28.005825Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2022-10-11T15:44:28.079451Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/cachez
+2022-10-11T15:44:28.231446Z	info	COMPLETED ProxyGet istio-system/istio-eastwestgateway-76f8655d4b-zj8dq:runtime
+2022-10-11T15:44:28.231834Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2022-10-11T15:44:28.303602Z	info	COMPLETED ProxyGet sample/helloworld-v1-77cb56d4b4-dfttf:runtime
+2022-10-11T15:44:28.303971Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetProxyInfo
+2022-10-11T15:44:28.430264Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/cachez
+2022-10-11T15:44:28.430286Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/resourcesz
+2022-10-11T15:44:28.662516Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/resourcesz
+2022-10-11T15:44:28.662543Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/authorizationz
+2022-10-11T15:44:28.898978Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/authorizationz
+2022-10-11T15:44:28.898999Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/push_status
+2022-10-11T15:44:29.049649Z	info	COMPLETED kubectl get --all-namespaces authorizationpolicies.security.istio.io,backendconfigs.cloud.google.com,capacityrequests.internal.autoscaling.gke.io,destinationrules.networking.istio.io,envoyfilters.networking.istio.io,frontendconfigs.networking.gke.io,gatewayclasses.gateway.networking.k8s.io,gateways.gateway.networking.k8s.io,gateways.networking.istio.io,httproutes.gateway.networking.k8s.io,istiooperators.install.istio.io,managedcertificates.networking.gke.io,memberships.hub.gke.io,peerauthentications.security.istio.io,proxyconfigs.networking.istio.io,referencepolicies.gateway.networking.k8s.io,requestauthentications.security.istio.io,serviceattachments.networking.gke.io,serviceentries.networking.istio.io,servicenetworkendpointgroups.networking.gke.io,sidecars.networking.istio.io,storagestates.migration.k8s.io,storageversionmigrations.migration.k8s.io,tcproutes.gateway.networking.k8s.io,telemetries.telemetry.istio.io,updateinfos.nodemanagement.gke.io,virtualservices.networking.istio.io,volumesnapshotclasses.snapshot.storage.k8s.io,volumesnapshotcontents.snapshot.storage.k8s.io,volumesnapshots.snapshot.storage.k8s.io,wasmplugins.extensions.istio.io,workloadentries.networking.istio.io,workloadgroups.networking.istio.io -o yaml
+2022-10-11T15:44:29.050419Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetCRs
+2022-10-11T15:44:29.129412Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/push_status
+2022-10-11T15:44:29.129436Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/inject
+2022-10-11T15:44:29.366614Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/inject
+2022-10-11T15:44:29.366638Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/mesh
+2022-10-11T15:44:29.567702Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/mesh
+2022-10-11T15:44:29.567732Z	info	STARTING PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/networkz
+2022-10-11T15:44:29.791087Z	info	COMPLETED PodExec istio-system/istiod-696647845f-lwwhg/discovery:pilot-discovery request GET debug/networkz
+2022-10-11T15:44:29.792661Z	info	Done with istio.io/istio/tools/bug-report/pkg/content.GetIstiodInfo
+2022-10-11T15:44:29.792697Z	info	Running istio analyze on all namespaces and report as below:
+2022-10-11T15:44:30.924243Z	info	Executed analyzers:
+2022-10-11T15:44:30.924266Z	info		: annotations.K8sAnalyzer
+2022-10-11T15:44:30.924268Z	info		: auth.AuthorizationPoliciesAnalyzer
+2022-10-11T15:44:30.924270Z	info		: deployment.MultiServiceAnalyzer
+2022-10-11T15:44:30.924271Z	info		: applicationUID.Analyzer
+2022-10-11T15:44:30.924272Z	info		: deprecation.DeprecationAnalyzer
+2022-10-11T15:44:30.924274Z	info		: gateway.IngressGatewayPortAnalyzer
+2022-10-11T15:44:30.924275Z	info		: gateway.CertificateAnalyzer
+2022-10-11T15:44:30.924277Z	info		: gateway.SecretAnalyzer
+2022-10-11T15:44:30.924278Z	info		: gateway.ConflictingGatewayAnalyzer
+2022-10-11T15:44:30.924280Z	info		: injection.Analyzer
+2022-10-11T15:44:30.924281Z	info		: injection.ImageAnalyzer
+2022-10-11T15:44:30.924283Z	info		: injection.ImageAutoAnalyzer
+2022-10-11T15:44:30.924284Z	info		: meshnetworks.MeshNetworksAnalyzer
+2022-10-11T15:44:30.924285Z	info		: service.PortNameAnalyzer
+2022-10-11T15:44:30.924287Z	info		: sidecar.DefaultSelectorAnalyzer
+2022-10-11T15:44:30.924288Z	info		: sidecar.SelectorAnalyzer
+2022-10-11T15:44:30.924289Z	info		: virtualservice.ConflictingMeshGatewayHostsAnalyzer
+2022-10-11T15:44:30.924291Z	info		: virtualservice.DestinationHostAnalyzer
+2022-10-11T15:44:30.924292Z	info		: virtualservice.DestinationRuleAnalyzer
+2022-10-11T15:44:30.924294Z	info		: virtualservice.GatewayAnalyzer
+2022-10-11T15:44:30.924295Z	info		: virtualservice.JWTClaimRouteAnalyzer
+2022-10-11T15:44:30.924297Z	info		: virtualservice.RegexAnalyzer
+2022-10-11T15:44:30.924298Z	info		: destinationrule.CaCertificateAnalyzer
+2022-10-11T15:44:30.924299Z	info		: serviceentry.Analyzer
+2022-10-11T15:44:30.924301Z	info		: webhook.Analyzer
+2022-10-11T15:44:30.924302Z	info		: envoyfilter.EnvoyPatchAnalyzer
+2022-10-11T15:44:30.924304Z	info		: schema.ValidationAnalyzer.WasmPlugin
+2022-10-11T15:44:30.924305Z	info		: schema.ValidationAnalyzer.MeshConfig
+2022-10-11T15:44:30.924307Z	info		: schema.ValidationAnalyzer.MeshNetworks
+2022-10-11T15:44:30.924308Z	info		: schema.ValidationAnalyzer.DestinationRule
+2022-10-11T15:44:30.924310Z	info		: schema.ValidationAnalyzer.EnvoyFilter
+2022-10-11T15:44:30.924311Z	info		: schema.ValidationAnalyzer.Gateway
+2022-10-11T15:44:30.924312Z	info		: schema.ValidationAnalyzer.ServiceEntry
+2022-10-11T15:44:30.924314Z	info		: schema.ValidationAnalyzer.Sidecar
+2022-10-11T15:44:30.924320Z	info		: schema.ValidationAnalyzer.VirtualService
+2022-10-11T15:44:30.924322Z	info		: schema.ValidationAnalyzer.WorkloadEntry
+2022-10-11T15:44:30.924323Z	info		: schema.ValidationAnalyzer.WorkloadGroup
+2022-10-11T15:44:30.924324Z	info		: schema.ValidationAnalyzer.ProxyConfig
+2022-10-11T15:44:30.924326Z	info		: schema.ValidationAnalyzer.AuthorizationPolicy
+2022-10-11T15:44:30.924327Z	info		: schema.ValidationAnalyzer.PeerAuthentication
+2022-10-11T15:44:30.924328Z	info		: schema.ValidationAnalyzer.RequestAuthentication
+2022-10-11T15:44:30.924330Z	info		: schema.ValidationAnalyzer.Telemetry
+2022-10-11T15:44:30.924347Z	info	
+Analysis Report:
+
+2022-10-11T15:44:30.924355Z	info	Warning [IST0146] (Deployment istio-system/istio-eastwestgateway) Deployment istio-eastwestgateway contains `image: auto` but does not match any Istio injection webhook selectors.
+Info [IST0102] (Namespace default) The namespace is not enabled for Istio injection. Run 'kubectl label namespace default istio-injection=enabled' to enable it, or 'kubectl label namespace default istio-injection=disabled' to explicitly mark it as not needing injection.
+Info [IST0102] (Namespace test) The namespace is not enabled for Istio injection. Run 'kubectl label namespace test istio-injection=enabled' to enable it, or 'kubectl label namespace test istio-injection=disabled' to explicitly mark it as not needing injection.
+2022-10-11T15:44:30.924358Z	info	
+
+2022-10-11T15:44:30.924500Z	info	Creating an archive at /home/daniel/work/vm-work/multinetwork/non-ambient/bug-report.tar.gz.
+

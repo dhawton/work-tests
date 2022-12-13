@@ -1,0 +1,7 @@
+42c1a867-4e53-46e7-979e-9cb21bd53a2e::0.0.0.0:15090
+e2b29cf2-b6c3-4f92-b705-37e348c10629::0.0.0.0:15021
+ztunnel_outbound::0.0.0.0:15001
+ztunnel_inbound::0.0.0.0:15008
+ztunnel_inbound_plaintext::0.0.0.0:15006
+outbound_tunnel_lis_spiffe://cluster.local/ns/ambient/sa/default::envoy://outbound_tunnel_lis_spiffe://cluster.local/ns/ambient/sa/default/
+outbound_tunnel_lis_spiffe://cluster.local/ns/ambient/sa/sleep::envoy://outbound_tunnel_lis_spiffe://cluster.local/ns/ambient/sa/sleep/

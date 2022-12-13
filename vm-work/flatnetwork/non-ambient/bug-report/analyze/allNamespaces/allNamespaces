@@ -1,0 +1,3 @@
+Warning [IST0146] (Deployment istio-system/istio-eastwestgateway) Deployment istio-eastwestgateway contains `image: auto` but does not match any Istio injection webhook selectors.
+Info [IST0102] (Namespace default) The namespace is not enabled for Istio injection. Run 'kubectl label namespace default istio-injection=enabled' to enable it, or 'kubectl label namespace default istio-injection=disabled' to explicitly mark it as not needing injection.
+Info [IST0102] (Namespace test) The namespace is not enabled for Istio injection. Run 'kubectl label namespace test istio-injection=enabled' to enable it, or 'kubectl label namespace test istio-injection=disabled' to explicitly mark it as not needing injection.

@@ -1,0 +1,79 @@
+2022-10-11T15:20:53.867472Z	info	FLAG: --concurrency="2"
+2022-10-11T15:20:53.867515Z	info	FLAG: --domain="sample.svc.cluster.local"
+2022-10-11T15:20:53.867523Z	info	FLAG: --help="false"
+2022-10-11T15:20:53.867527Z	info	FLAG: --log_as_json="false"
+2022-10-11T15:20:53.867532Z	info	FLAG: --log_caller=""
+2022-10-11T15:20:53.867536Z	info	FLAG: --log_output_level="default:info"
+2022-10-11T15:20:53.867566Z	info	FLAG: --log_rotate=""
+2022-10-11T15:20:53.867571Z	info	FLAG: --log_rotate_max_age="30"
+2022-10-11T15:20:53.867576Z	info	FLAG: --log_rotate_max_backups="1000"
+2022-10-11T15:20:53.867580Z	info	FLAG: --log_rotate_max_size="104857600"
+2022-10-11T15:20:53.867585Z	info	FLAG: --log_stacktrace_level="default:none"
+2022-10-11T15:20:53.867613Z	info	FLAG: --log_target="[stdout]"
+2022-10-11T15:20:53.867663Z	info	FLAG: --meshConfig="./etc/istio/config/mesh"
+2022-10-11T15:20:53.867668Z	info	FLAG: --outlierLogPath=""
+2022-10-11T15:20:53.867672Z	info	FLAG: --proxyComponentLogLevel="misc:error"
+2022-10-11T15:20:53.867691Z	info	FLAG: --proxyLogLevel="warning"
+2022-10-11T15:20:53.867700Z	info	FLAG: --serviceCluster="istio-proxy"
+2022-10-11T15:20:53.867705Z	info	FLAG: --stsPort="0"
+2022-10-11T15:20:53.867709Z	info	FLAG: --templateFile=""
+2022-10-11T15:20:53.867713Z	info	FLAG: --tokenManagerPlugin="GoogleTokenExchange"
+2022-10-11T15:20:53.867757Z	info	FLAG: --vklog="0"
+2022-10-11T15:20:53.867767Z	info	Version 1.16-dev-c316bcfa85b05391c196f004a15d1ccdc3b80697-dirty-Clean
+2022-10-11T15:20:53.867968Z	info	running as uid=1337 gid=1337
+2022-10-11T15:20:53.870535Z	info	Maximum file descriptors (ulimit -n): 1048576
+2022-10-11T15:20:53.870825Z	info	Proxy role	ips=[10.72.0.10] type=sidecar id=helloworld-v2-79bf565586-z9hsr.sample domain=sample.svc.cluster.local
+2022-10-11T15:20:53.870947Z	info	Apply proxy config from env {"proxyMetadata":{"ISTIO_META_ENABLE_HBONE":"true"},"meshId":"mesh1"}
+
+2022-10-11T15:20:53.873803Z	info	Effective config: binaryPath: /usr/local/bin/envoy
+concurrency: 2
+configPath: ./etc/istio/proxy
+controlPlaneAuthPolicy: MUTUAL_TLS
+discoveryAddress: istiod.istio-system.svc:15012
+drainDuration: 45s
+meshId: mesh1
+parentShutdownDuration: 60s
+proxyAdminPort: 15000
+proxyMetadata:
+  ISTIO_META_ENABLE_HBONE: "true"
+serviceCluster: istio-proxy
+statNameLength: 189
+statusPort: 15020
+terminationDrainDuration: 5s
+tracing:
+  zipkin:
+    address: zipkin.istio-system:9411
+
+2022-10-11T15:20:53.873839Z	info	JWT policy is third-party-jwt
+2022-10-11T15:20:53.873844Z	info	using credential fetcher of JWT type in cluster.local trust domain
+2022-10-11T15:20:53.879318Z	info	platform detected is GCP
+2022-10-11T15:20:53.879634Z	info	Workload SDS socket not found. Starting Istio SDS Server
+2022-10-11T15:20:53.879660Z	info	CA Endpoint istiod.istio-system.svc:15012, provider Citadel
+2022-10-11T15:20:53.879758Z	info	Using CA istiod.istio-system.svc:15012 cert with certs: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:20:53.879971Z	info	citadelclient	Citadel client using custom root cert: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:20:53.881096Z	info	Opening status port 15020
+2022-10-11T15:20:53.908259Z	info	ads	All caches have been synced up in 94.380034ms, marking server ready
+2022-10-11T15:20:53.918629Z	info	xdsproxy	Initializing with upstream address "istiod.istio-system.svc:15012" and cluster "cluster1"
+2022-10-11T15:20:53.919770Z	info	sds	Starting SDS grpc server
+2022-10-11T15:20:53.920095Z	info	starting Http service at 127.0.0.1:15004
+2022-10-11T15:20:53.942663Z	warn	Error fetching GCP Metadata property gcp_gce_instance_created_by: metadata: GCE metadata "instance/attributes/created-by" not defined
+2022-10-11T15:20:53.944639Z	warn	Error fetching GCP Metadata property gcp_gce_instance_template: metadata: GCE metadata "instance/attributes/instance-template" not defined
+2022-10-11T15:20:53.953102Z	warn	Error fetching GCP Metadata property gcp_gce_instance: metadata: GCE metadata "instance/name" not defined
+2022-10-11T15:20:53.977008Z	info	Pilot SAN: [istiod.istio-system.svc]
+2022-10-11T15:20:53.979286Z	info	Starting proxy agent
+2022-10-11T15:20:53.979390Z	info	starting
+2022-10-11T15:20:53.979480Z	info	Envoy command: [-c etc/istio/proxy/envoy-rev.json --drain-time-s 45 --drain-strategy immediate --parent-shutdown-time-s 60 --local-address-ip-version v4 --file-flush-interval-msec 1000 --disable-hot-restart --log-format %Y-%m-%dT%T.%fZ	%l	envoy %n	%v -l warning --component-log-level misc:error --concurrency 2]
+2022-10-11T15:20:54.149385Z	info	xdsproxy	connected to upstream XDS server: istiod.istio-system.svc:15012
+2022-10-11T15:20:54.220862Z	info	ads	ADS: new connection for node:helloworld-v2-79bf565586-z9hsr.sample-1
+2022-10-11T15:20:54.566812Z	info	cache	generated new workload certificate	latency=658.114875ms ttl=23h59m59.433202372s resource=default
+2022-10-11T15:20:54.566853Z	info	cache	Root cert has changed, start rotating root cert
+2022-10-11T15:20:54.566870Z	info	ads	XDS: Incremental Pushing:0 ConnectedEndpoints:1 Version:
+2022-10-11T15:20:54.567041Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.43296711s
+2022-10-11T15:20:54.567060Z	info	cache	returned workload certificate from cache	ttl=23h59m59.432942888s
+2022-10-11T15:20:54.567413Z	info	ads	SDS: PUSH request for node:helloworld-v2-79bf565586-z9hsr.sample resources:1 size:4.0kB resource:default
+2022-10-11T15:20:54.571401Z	info	ads	ADS: new connection for node:helloworld-v2-79bf565586-z9hsr.sample-2
+2022-10-11T15:20:54.571541Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.428465447s
+2022-10-11T15:20:54.571741Z	info	ads	SDS: PUSH request for node:helloworld-v2-79bf565586-z9hsr.sample resources:1 size:1.1kB resource:ROOTCA
+2022-10-11T15:20:55.271392Z	info	Readiness succeeded in 1.47260674s
+2022-10-11T15:20:55.271998Z	info	Envoy proxy is ready
+

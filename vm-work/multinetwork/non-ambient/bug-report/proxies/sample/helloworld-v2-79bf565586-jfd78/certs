@@ -1,0 +1,498 @@
+{
+ "certificates": [
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  },
+  {
+   "ca_cert": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "f19eab55bdd4b0fe22bd7a9526248798",
+     "subject_alt_names": [],
+     "days_until_expiration": "3649",
+     "valid_from": "2022-10-11T14:55:51Z",
+     "expiration_time": "2032-10-08T14:55:51Z"
+    }
+   ],
+   "cert_chain": [
+    {
+     "path": "\u003cinline\u003e",
+     "serial_number": "5854909998fc97f369eb9599277be0b7",
+     "subject_alt_names": [
+      {
+       "uri": "spiffe://cluster.local/ns/sample/sa/default"
+      }
+     ],
+     "days_until_expiration": "0",
+     "valid_from": "2022-10-11T14:55:23Z",
+     "expiration_time": "2022-10-12T14:57:23Z"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,3586 @@
+apiVersion: v1
+items:
+- apiVersion: gateway.networking.k8s.io/v1alpha2
+  kind: GatewayClass
+  metadata:
+    creationTimestamp: "2022-10-11T15:16:59Z"
+    generation: 1
+    name: gke-l7-gxlb
+    resourceVersion: "3686"
+    uid: bdc637fa-6d78-403b-909f-3f4862005203
+  spec:
+    controllerName: networking.gke.io/gateway
+  status:
+    conditions:
+    - lastTransitionTime: "2022-10-11T15:16:59Z"
+      message: ""
+      reason: Accepted
+      status: "True"
+      type: Accepted
+- apiVersion: gateway.networking.k8s.io/v1alpha2
+  kind: GatewayClass
+  metadata:
+    creationTimestamp: "2022-10-11T15:16:59Z"
+    generation: 1
+    name: gke-l7-rilb
+    resourceVersion: "3687"
+    uid: 6e2ba12c-088b-4754-a635-b6ec6677eb8e
+  spec:
+    controllerName: networking.gke.io/gateway
+  status:
+    conditions:
+    - lastTransitionTime: "2022-10-11T15:16:59Z"
+      message: ""
+      reason: Accepted
+      status: "True"
+      type: Accepted
+- apiVersion: gateway.networking.k8s.io/v1alpha2
+  kind: GatewayClass
+  metadata:
+    creationTimestamp: "2022-10-11T15:16:54Z"
+    generation: 1
+    name: istio
+    resourceVersion: "3636"
+    uid: dedbf446-5e6b-42db-80d9-676c1fe57b55
+  spec:
+    controllerName: istio.io/gateway-controller
+    description: The default Istio GatewayClass
+  status:
+    conditions:
+    - lastTransitionTime: "2022-10-11T15:16:54Z"
+      message: Handled by Istio controller
+      observedGeneration: 1
+      reason: Accepted
+      status: "True"
+      type: Accepted
+- apiVersion: networking.istio.io/v1beta1
+  kind: Gateway
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"Gateway","metadata":{"annotations":{},"name":"cross-network-gateway","namespace":"istio-system"},"spec":{"selector":{"istio":"eastwestgateway"},"servers":[{"hosts":["*.local"],"port":{"name":"tls","number":15443,"protocol":"TLS"},"tls":{"mode":"AUTO_PASSTHROUGH"}}]}}
+    creationTimestamp: "2022-10-11T15:17:31Z"
+    generation: 1
+    name: cross-network-gateway
+    namespace: istio-system
+    resourceVersion: "4124"
+    uid: fb656dcd-583e-47f9-b7a3-2366c1c9a71b
+  spec:
+    selector:
+      istio: eastwestgateway
+    servers:
+    - hosts:
+      - '*.local'
+      port:
+        name: tls
+        number: 15443
+        protocol: TLS
+      tls:
+        mode: AUTO_PASSTHROUGH
+- apiVersion: networking.istio.io/v1beta1
+  kind: Gateway
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"Gateway","metadata":{"annotations":{},"name":"istiod-gateway","namespace":"istio-system"},"spec":{"selector":{"istio":"eastwestgateway"},"servers":[{"hosts":["*"],"port":{"name":"tls-istiod","number":15012,"protocol":"tls"},"tls":{"mode":"PASSTHROUGH"}},{"hosts":["*"],"port":{"name":"tls-istiodwebhook","number":15017,"protocol":"tls"},"tls":{"mode":"PASSTHROUGH"}}]}}
+    creationTimestamp: "2022-10-11T15:17:31Z"
+    generation: 1
+    name: istiod-gateway
+    namespace: istio-system
+    resourceVersion: "4116"
+    uid: bc036f94-c017-442e-b051-26c2912a9a30
+  spec:
+    selector:
+      istio: eastwestgateway
+    servers:
+    - hosts:
+      - '*'
+      port:
+        name: tls-istiod
+        number: 15012
+        protocol: tls
+      tls:
+        mode: PASSTHROUGH
+    - hosts:
+      - '*'
+      port:
+        name: tls-istiodwebhook
+        number: 15017
+        protocol: tls
+      tls:
+        mode: PASSTHROUGH
+- apiVersion: install.istio.io/v1alpha1
+  kind: IstioOperator
+  metadata:
+    annotations:
+      install.istio.io/ignoreReconcile: "true"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"install.istio.io/v1alpha1","kind":"IstioOperator","metadata":{"annotations":{"install.istio.io/ignoreReconcile":"true"},"creationTimestamp":null,"name":"installed-state-eastwest","namespace":"istio-system"},"spec":{"components":{"base":{"enabled":false},"cni":{"enabled":false,"namespace":"kube-system"},"egressGateways":[{"enabled":false,"name":"istio-egressgateway"}],"ingressGateways":[{"enabled":true,"k8s":{"env":[{"name":"ISTIO_META_REQUESTED_NETWORK_VIEW","value":"kube-network"}],"service":{"ports":[{"name":"status-port","port":15021,"targetPort":15021},{"name":"tls","port":15443,"targetPort":15443},{"name":"tls-istiod","port":15012,"targetPort":15012},{"name":"tls-webhook","port":15017,"targetPort":15017}]}},"label":{"app":"istio-eastwestgateway","istio":"eastwestgateway","topology.istio.io/network":"kube-network"},"name":"istio-eastwestgateway"},{"enabled":false,"name":"istio-ingressgateway"}],"istiodRemote":{"enabled":false},"pilot":{"enabled":false}},"hub":"docker.io/istio","meshConfig":{"defaultConfig":{"proxyMetadata":{}},"enablePrometheusMerge":true},"profile":"empty","tag":"c316bcfa85b05391c196f004a15d1ccdc3b80697-dirty","values":{"base":{"enableCRDTemplates":false,"validationURL":""},"defaultRevision":"","gateways":{"istio-egressgateway":{"autoscaleEnabled":true,"env":{},"name":"istio-egressgateway","secretVolumes":[{"mountPath":"/etc/istio/egressgateway-certs","name":"egressgateway-certs","secretName":"istio-egressgateway-certs"},{"mountPath":"/etc/istio/egressgateway-ca-certs","name":"egressgateway-ca-certs","secretName":"istio-egressgateway-ca-certs"}],"type":"ClusterIP"},"istio-ingressgateway":{"autoscaleEnabled":true,"env":{},"injectionTemplate":"gateway","name":"istio-ingressgateway","secretVolumes":[{"mountPath":"/etc/istio/ingressgateway-certs","name":"ingressgateway-certs","secretName":"istio-ingressgateway-certs"},{"mountPath":"/etc/istio/ingressgateway-ca-certs","name":"ingressgateway-ca-certs","secretName":"istio-ingressgateway-ca-certs"}],"type":"LoadBalancer"}},"global":{"configValidation":true,"defaultNodeSelector":{},"defaultPodDisruptionBudget":{"enabled":true},"defaultResources":{"requests":{"cpu":"10m"}},"imagePullPolicy":"","imagePullSecrets":[],"istioNamespace":"istio-system","istiod":{"enableAnalysis":false},"jwtPolicy":"third-party-jwt","logAsJson":false,"logging":{"level":"default:info"},"meshNetworks":{},"mountMtlsCerts":false,"multiCluster":{"clusterName":"","enabled":false},"network":"kube-network","omitSidecarInjectorConfigMap":false,"oneNamespace":false,"operatorManageWebhooks":false,"pilotCertProvider":"istiod","priorityClassName":"","proxy":{"autoInject":"enabled","clusterDomain":"cluster.local","componentLogLevel":"misc:error","enableCoreDump":false,"excludeIPRanges":"","excludeInboundPorts":"","excludeOutboundPorts":"","image":"proxyv2","includeIPRanges":"*","logLevel":"warning","privileged":false,"readinessFailureThreshold":30,"readinessInitialDelaySeconds":1,"readinessPeriodSeconds":2,"resources":{"limits":{"cpu":"2000m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}},"statusPort":15020,"tracer":"zipkin"},"proxy_init":{"image":"proxyv2","resources":{"limits":{"cpu":"2000m","memory":"1024Mi"},"requests":{"cpu":"10m","memory":"10Mi"}}},"sds":{"token":{"aud":"istio-ca"}},"sts":{"servicePort":0},"tracer":{"datadog":{},"lightstep":{},"stackdriver":{},"zipkin":{}},"useMCP":false},"istiodRemote":{"injectionURL":""},"pilot":{"autoscaleEnabled":true,"autoscaleMax":5,"autoscaleMin":1,"configMap":true,"cpu":{"targetAverageUtilization":80},"deploymentLabels":null,"enableProtocolSniffingForInbound":true,"enableProtocolSniffingForOutbound":true,"env":{},"image":"pilot","keepaliveMaxServerConnectionAge":"30m","nodeSelector":{},"podLabels":{},"replicaCount":1,"traceSampling":1},"telemetry":{"enabled":true,"v2":{"enabled":true,"metadataExchange":{"wasmEnabled":false},"prometheus":{"enabled":true,"wasmEnabled":false},"stackdriver":{"configOverride":{},"enabled":false,"logging":false,"monitoring":false,"topology":false}}}}}}
+    creationTimestamp: "2022-10-11T15:17:30Z"
+    generation: 1
+    name: installed-state-eastwest
+    namespace: istio-system
+    resourceVersion: "4099"
+    uid: 21bf1cb8-3b1f-427e-8530-c9635b158f31
+  spec:
+    components:
+      base:
+        enabled: false
+      cni:
+        enabled: false
+        namespace: kube-system
+      egressGateways:
+      - enabled: false
+        name: istio-egressgateway
+      ingressGateways:
+      - enabled: true
+        k8s:
+          env:
+          - name: ISTIO_META_REQUESTED_NETWORK_VIEW
+            value: kube-network
+          service:
+            ports:
+            - name: status-port
+              port: 15021
+              targetPort: 15021
+            - name: tls
+              port: 15443
+              targetPort: 15443
+            - name: tls-istiod
+              port: 15012
+              targetPort: 15012
+            - name: tls-webhook
+              port: 15017
+              targetPort: 15017
+        label:
+          app: istio-eastwestgateway
+          istio: eastwestgateway
+          topology.istio.io/network: kube-network
+        name: istio-eastwestgateway
+      - enabled: false
+        name: istio-ingressgateway
+      istiodRemote:
+        enabled: false
+      pilot:
+        enabled: false
+    hub: docker.io/istio
+    meshConfig:
+      defaultConfig:
+        proxyMetadata: {}
+      enablePrometheusMerge: true
+    profile: empty
+    tag: c316bcfa85b05391c196f004a15d1ccdc3b80697-dirty
+    values:
+      base:
+        enableCRDTemplates: false
+        validationURL: ""
+      defaultRevision: ""
+      gateways:
+        istio-egressgateway:
+          autoscaleEnabled: true
+          env: {}
+          name: istio-egressgateway
+          secretVolumes:
+          - mountPath: /etc/istio/egressgateway-certs
+            name: egressgateway-certs
+            secretName: istio-egressgateway-certs
+          - mountPath: /etc/istio/egressgateway-ca-certs
+            name: egressgateway-ca-certs
+            secretName: istio-egressgateway-ca-certs
+          type: ClusterIP
+        istio-ingressgateway:
+          autoscaleEnabled: true
+          env: {}
+          injectionTemplate: gateway
+          name: istio-ingressgateway
+          secretVolumes:
+          - mountPath: /etc/istio/ingressgateway-certs
+            name: ingressgateway-certs
+            secretName: istio-ingressgateway-certs
+          - mountPath: /etc/istio/ingressgateway-ca-certs
+            name: ingressgateway-ca-certs
+            secretName: istio-ingressgateway-ca-certs
+          type: LoadBalancer
+      global:
+        configValidation: true
+        defaultNodeSelector: {}
+        defaultPodDisruptionBudget:
+          enabled: true
+        defaultResources:
+          requests:
+            cpu: 10m
+        imagePullPolicy: ""
+        imagePullSecrets: []
+        istioNamespace: istio-system
+        istiod:
+          enableAnalysis: false
+        jwtPolicy: third-party-jwt
+        logAsJson: false
+        logging:
+          level: default:info
+        meshNetworks: {}
+        mountMtlsCerts: false
+        multiCluster:
+          clusterName: ""
+          enabled: false
+        network: kube-network
+        omitSidecarInjectorConfigMap: false
+        oneNamespace: false
+        operatorManageWebhooks: false
+        pilotCertProvider: istiod
+        priorityClassName: ""
+        proxy:
+          autoInject: enabled
+          clusterDomain: cluster.local
+          componentLogLevel: misc:error
+          enableCoreDump: false
+          excludeIPRanges: ""
+          excludeInboundPorts: ""
+          excludeOutboundPorts: ""
+          image: proxyv2
+          includeIPRanges: '*'
+          logLevel: warning
+          privileged: false
+          readinessFailureThreshold: 30
+          readinessInitialDelaySeconds: 1
+          readinessPeriodSeconds: 2
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 1024Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          statusPort: 15020
+          tracer: zipkin
+        proxy_init:
+          image: proxyv2
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 1024Mi
+            requests:
+              cpu: 10m
+              memory: 10Mi
+        sds:
+          token:
+            aud: istio-ca
+        sts:
+          servicePort: 0
+        tracer:
+          datadog: {}
+          lightstep: {}
+          stackdriver: {}
+          zipkin: {}
+        useMCP: false
+      istiodRemote:
+        injectionURL: ""
+      pilot:
+        autoscaleEnabled: true
+        autoscaleMax: 5
+        autoscaleMin: 1
+        configMap: true
+        cpu:
+          targetAverageUtilization: 80
+        deploymentLabels: null
+        enableProtocolSniffingForInbound: true
+        enableProtocolSniffingForOutbound: true
+        env: {}
+        image: pilot
+        keepaliveMaxServerConnectionAge: 30m
+        nodeSelector: {}
+        podLabels: {}
+        replicaCount: 1
+        traceSampling: 1
+      telemetry:
+        enabled: true
+        v2:
+          enabled: true
+          metadataExchange:
+            wasmEnabled: false
+          prometheus:
+            enabled: true
+            wasmEnabled: false
+          stackdriver:
+            configOverride: {}
+            enabled: false
+            logging: false
+            monitoring: false
+            topology: false
+- apiVersion: install.istio.io/v1alpha1
+  kind: IstioOperator
+  metadata:
+    annotations:
+      install.istio.io/ignoreReconcile: "true"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"install.istio.io/v1alpha1","kind":"IstioOperator","metadata":{"annotations":{"install.istio.io/ignoreReconcile":"true"},"creationTimestamp":null,"name":"installed-state-istio","namespace":"istio-system"},"spec":{"components":{"base":{"enabled":true},"cni":{"enabled":true,"namespace":"kube-system"},"egressGateways":[{"enabled":false,"name":"istio-egressgateway"}],"ingressGateways":[{"enabled":true,"name":"istio-ingressgateway"}],"istiodRemote":{"enabled":false},"pilot":{"enabled":true,"k8s":{"env":[{"name":"PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION","value":"true"},{"name":"PILOT_ENABLE_WORKLOAD_ENTRY_HEALTHCHECKS","value":"true"}]}}},"hub":"dhawton","meshConfig":{"ambientMesh":{"mode":"DEFAULT"},"defaultConfig":{"proxyMetadata":{"ISTIO_META_ENABLE_HBONE":"true"}},"defaultProviders":{"metrics":["prometheus"]},"enablePrometheusMerge":true,"extensionProviders":[{"name":"prometheus","prometheus":{}}]},"profile":"ambient","tag":"ambient","values":{"base":{"enableCRDTemplates":false,"validationURL":""},"cni":{"logLevel":"debug","privileged":true},"defaultRevision":"","gateways":{"istio-egressgateway":{"autoscaleEnabled":true,"env":{},"name":"istio-egressgateway","secretVolumes":[{"mountPath":"/etc/istio/egressgateway-certs","name":"egressgateway-certs","secretName":"istio-egressgateway-certs"},{"mountPath":"/etc/istio/egressgateway-ca-certs","name":"egressgateway-ca-certs","secretName":"istio-egressgateway-ca-certs"}],"type":"ClusterIP"},"istio-ingressgateway":{"autoscaleEnabled":true,"env":{},"name":"istio-ingressgateway","secretVolumes":[{"mountPath":"/etc/istio/ingressgateway-certs","name":"ingressgateway-certs","secretName":"istio-ingressgateway-certs"},{"mountPath":"/etc/istio/ingressgateway-ca-certs","name":"ingressgateway-ca-certs","secretName":"istio-ingressgateway-ca-certs"}],"type":"LoadBalancer"}},"global":{"configValidation":true,"defaultNodeSelector":{},"defaultPodDisruptionBudget":{"enabled":true},"defaultResources":{"requests":{"cpu":"10m"}},"imagePullPolicy":"","imagePullSecrets":[],"istioNamespace":"istio-system","istiod":{"enableAnalysis":false},"jwtPolicy":"third-party-jwt","logAsJson":false,"logging":{"level":"default:info"},"meshID":"mesh1","meshNetworks":{},"mountMtlsCerts":false,"multiCluster":{"clusterName":"cluster1","enabled":false},"network":"kube-network","omitSidecarInjectorConfigMap":false,"oneNamespace":false,"operatorManageWebhooks":false,"pilotCertProvider":"istiod","priorityClassName":"","proxy":{"autoInject":"enabled","clusterDomain":"cluster.local","componentLogLevel":"misc:error","enableCoreDump":false,"excludeIPRanges":"","excludeInboundPorts":"","excludeOutboundPorts":"","image":"proxyv2","includeIPRanges":"*","logLevel":"warning","privileged":false,"readinessFailureThreshold":30,"readinessInitialDelaySeconds":1,"readinessPeriodSeconds":2,"resources":{"limits":{"cpu":"2000m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}},"statusPort":15020,"tracer":"zipkin"},"proxy_init":{"image":"proxyv2","resources":{"limits":{"cpu":"2000m","memory":"1024Mi"},"requests":{"cpu":"10m","memory":"10Mi"}}},"sds":{"token":{"aud":"istio-ca"}},"sts":{"servicePort":0},"tracer":{"datadog":{},"lightstep":{},"stackdriver":{},"zipkin":{}},"useMCP":false},"istiodRemote":{"injectionURL":""},"pilot":{"autoscaleEnabled":true,"autoscaleMax":5,"autoscaleMin":1,"configMap":true,"cpu":{"targetAverageUtilization":80},"deploymentLabels":null,"enableProtocolSniffingForInbound":true,"enableProtocolSniffingForOutbound":true,"env":{"ENABLE_AUTO_SNI":"true","PILOT_ENABLE_INBOUND_PASSTHROUGH":"false","PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION":true,"PILOT_ENABLE_WORKLOAD_ENTRY_HEALTHCHECKS":true,"VERIFY_CERTIFICATE_AT_CLIENT":"true"},"image":"pilot","keepaliveMaxServerConnectionAge":"30m","nodeSelector":{},"podLabels":{},"replicaCount":1,"traceSampling":1},"telemetry":{"enabled":false,"v2":{"enabled":false,"metadataExchange":{"wasmEnabled":false},"prometheus":{"enabled":true,"wasmEnabled":false},"stackdriver":{"configOverride":{},"enabled":false,"logging":false,"monitoring":false,"topology":false}}}}}}
+    creationTimestamp: "2022-10-11T15:17:22Z"
+    generation: 1
+    name: installed-state-istio
+    namespace: istio-system
+    resourceVersion: "3984"
+    uid: 6a237a2c-5b4d-485f-891e-aba6411dfe99
+  spec:
+    components:
+      base:
+        enabled: true
+      cni:
+        enabled: true
+        namespace: kube-system
+      egressGateways:
+      - enabled: false
+        name: istio-egressgateway
+      ingressGateways:
+      - enabled: true
+        name: istio-ingressgateway
+      istiodRemote:
+        enabled: false
+      pilot:
+        enabled: true
+        k8s:
+          env:
+          - name: PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION
+            value: "true"
+          - name: PILOT_ENABLE_WORKLOAD_ENTRY_HEALTHCHECKS
+            value: "true"
+    hub: dhawton
+    meshConfig:
+      ambientMesh:
+        mode: DEFAULT
+      defaultConfig:
+        proxyMetadata:
+          ISTIO_META_ENABLE_HBONE: "true"
+      defaultProviders:
+        metrics:
+        - prometheus
+      enablePrometheusMerge: true
+      extensionProviders:
+      - name: prometheus
+        prometheus: {}
+    profile: ambient
+    tag: ambient
+    values:
+      base:
+        enableCRDTemplates: false
+        validationURL: ""
+      cni:
+        logLevel: debug
+        privileged: true
+      defaultRevision: ""
+      gateways:
+        istio-egressgateway:
+          autoscaleEnabled: true
+          env: {}
+          name: istio-egressgateway
+          secretVolumes:
+          - mountPath: /etc/istio/egressgateway-certs
+            name: egressgateway-certs
+            secretName: istio-egressgateway-certs
+          - mountPath: /etc/istio/egressgateway-ca-certs
+            name: egressgateway-ca-certs
+            secretName: istio-egressgateway-ca-certs
+          type: ClusterIP
+        istio-ingressgateway:
+          autoscaleEnabled: true
+          env: {}
+          name: istio-ingressgateway
+          secretVolumes:
+          - mountPath: /etc/istio/ingressgateway-certs
+            name: ingressgateway-certs
+            secretName: istio-ingressgateway-certs
+          - mountPath: /etc/istio/ingressgateway-ca-certs
+            name: ingressgateway-ca-certs
+            secretName: istio-ingressgateway-ca-certs
+          type: LoadBalancer
+      global:
+        configValidation: true
+        defaultNodeSelector: {}
+        defaultPodDisruptionBudget:
+          enabled: true
+        defaultResources:
+          requests:
+            cpu: 10m
+        imagePullPolicy: ""
+        imagePullSecrets: []
+        istioNamespace: istio-system
+        istiod:
+          enableAnalysis: false
+        jwtPolicy: third-party-jwt
+        logAsJson: false
+        logging:
+          level: default:info
+        meshID: mesh1
+        meshNetworks: {}
+        mountMtlsCerts: false
+        multiCluster:
+          clusterName: cluster1
+          enabled: false
+        network: kube-network
+        omitSidecarInjectorConfigMap: false
+        oneNamespace: false
+        operatorManageWebhooks: false
+        pilotCertProvider: istiod
+        priorityClassName: ""
+        proxy:
+          autoInject: enabled
+          clusterDomain: cluster.local
+          componentLogLevel: misc:error
+          enableCoreDump: false
+          excludeIPRanges: ""
+          excludeInboundPorts: ""
+          excludeOutboundPorts: ""
+          image: proxyv2
+          includeIPRanges: '*'
+          logLevel: warning
+          privileged: false
+          readinessFailureThreshold: 30
+          readinessInitialDelaySeconds: 1
+          readinessPeriodSeconds: 2
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 1024Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          statusPort: 15020
+          tracer: zipkin
+        proxy_init:
+          image: proxyv2
+          resources:
+            limits:
+              cpu: 2000m
+              memory: 1024Mi
+            requests:
+              cpu: 10m
+              memory: 10Mi
+        sds:
+          token:
+            aud: istio-ca
+        sts:
+          servicePort: 0
+        tracer:
+          datadog: {}
+          lightstep: {}
+          stackdriver: {}
+          zipkin: {}
+        useMCP: false
+      istiodRemote:
+        injectionURL: ""
+      pilot:
+        autoscaleEnabled: true
+        autoscaleMax: 5
+        autoscaleMin: 1
+        configMap: true
+        cpu:
+          targetAverageUtilization: 80
+        deploymentLabels: null
+        enableProtocolSniffingForInbound: true
+        enableProtocolSniffingForOutbound: true
+        env:
+          ENABLE_AUTO_SNI: "true"
+          PILOT_ENABLE_INBOUND_PASSTHROUGH: "false"
+          PILOT_ENABLE_WORKLOAD_ENTRY_AUTOREGISTRATION: true
+          PILOT_ENABLE_WORKLOAD_ENTRY_HEALTHCHECKS: true
+          VERIFY_CERTIFICATE_AT_CLIENT: "true"
+        image: pilot
+        keepaliveMaxServerConnectionAge: 30m
+        nodeSelector: {}
+        podLabels: {}
+        replicaCount: 1
+        traceSampling: 1
+      telemetry:
+        enabled: false
+        v2:
+          enabled: false
+          metadataExchange:
+            wasmEnabled: false
+          prometheus:
+            enabled: true
+            wasmEnabled: false
+          stackdriver:
+            configOverride: {}
+            enabled: false
+            logging: false
+            monitoring: false
+            topology: false
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:21Z"
+    generation: 1
+    name: apiservices.apiregistration.k8s.io
+    resourceVersion: "18731"
+    uid: 37046567-a36b-4d70-b46e-463ffbc00e17
+  spec:
+    resource:
+      group: apiregistration.k8s.io
+      resource: apiservices
+  status:
+    currentStorageVersionHash: InPBPD7+PqM=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - InPBPD7+PqM=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:13Z"
+    generation: 1
+    name: authorizationpolicies.security.istio.io
+    resourceVersion: "13598"
+    uid: 88a95405-d2bb-4e9a-ba82-58e6e83325e6
+  spec:
+    resource:
+      group: security.istio.io
+      resource: authorizationpolicies
+  status:
+    currentStorageVersionHash: djwd/cy0e/E=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - djwd/cy0e/E=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:55Z"
+    generation: 1
+    name: backendconfigs.cloud.google.com
+    resourceVersion: "13384"
+    uid: cbf0d9ad-b77c-4e55-9f86-2991c1a04d03
+  spec:
+    resource:
+      group: cloud.google.com
+      resource: backendconfigs
+  status:
+    currentStorageVersionHash: iT6Z2sUMGkM=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - iT6Z2sUMGkM=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:04Z"
+    generation: 1
+    name: capacityrequests.internal.autoscaling.gke.io
+    resourceVersion: "13449"
+    uid: 1633ac96-a750-4d34-9db5-b04aaea915d6
+  spec:
+    resource:
+      group: internal.autoscaling.gke.io
+      resource: capacityrequests
+  status:
+    currentStorageVersionHash: ctXw/5qaaTc=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - ctXw/5qaaTc=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:31Z"
+    generation: 1
+    name: certificatesigningrequests.certificates.k8s.io
+    resourceVersion: "18797"
+    uid: 08dae3cb-6417-453d-b798-f1d563cddafb
+  spec:
+    resource:
+      group: certificates.k8s.io
+      resource: certificatesigningrequests
+  status:
+    currentStorageVersionHash: 95fRKMXA+00=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - 95fRKMXA+00=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:40Z"
+    generation: 1
+    name: clusterrolebindings.rbac.authorization.k8s.io
+    resourceVersion: "13281"
+    uid: 183863b1-f60f-4c59-9530-bdcf79f016c6
+  spec:
+    resource:
+      group: rbac.authorization.k8s.io
+      resource: clusterrolebindings
+  status:
+    currentStorageVersionHash: 48tpQ8gZHFc=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - 48tpQ8gZHFc=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:39Z"
+    generation: 1
+    name: clusterroles.rbac.authorization.k8s.io
+    resourceVersion: "13289"
+    uid: eb766035-3145-4a5a-b595-da97ad4e33b9
+  spec:
+    resource:
+      group: rbac.authorization.k8s.io
+      resource: clusterroles
+  status:
+    currentStorageVersionHash: bYE5ZWDrJ44=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - bYE5ZWDrJ44=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:10Z"
+    generation: 1
+    name: configmaps
+    resourceVersion: "18682"
+    uid: c7bf9143-74a9-4427-98e4-800f033a261e
+  spec:
+    resource:
+      resource: configmaps
+  status:
+    currentStorageVersionHash: qFsyl6wFWjQ=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - qFsyl6wFWjQ=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:22Z"
+    generation: 1
+    name: controllerrevisions.apps
+    resourceVersion: "18741"
+    uid: a91d0bd2-761b-4cf3-a734-d115bec83a42
+  spec:
+    resource:
+      group: apps
+      resource: controllerrevisions
+  status:
+    currentStorageVersionHash: 85nkx63pcBU=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - 85nkx63pcBU=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:30Z"
+    generation: 1
+    name: cronjobs.batch
+    resourceVersion: "18794"
+    uid: 39e95f38-cfb1-44f1-8ec7-1f4aa33d2683
+  spec:
+    resource:
+      group: batch
+      resource: cronjobs
+  status:
+    currentStorageVersionHash: sd5LIXh4Fjs=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - sd5LIXh4Fjs=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:41Z"
+    generation: 1
+    name: csidrivers.storage.k8s.io
+    resourceVersion: "13292"
+    uid: c0add183-8f3d-4081-8236-b182093e3589
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: csidrivers
+  status:
+    currentStorageVersionHash: hL6j/rwBV5w=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - hL6j/rwBV5w=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:43Z"
+    generation: 1
+    name: csinodes.storage.k8s.io
+    resourceVersion: "13306"
+    uid: 085c71ab-58d0-4b41-8eba-c6b6581c5b7f
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: csinodes
+  status:
+    currentStorageVersionHash: Pe62DkZtjuo=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - Pe62DkZtjuo=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:44Z"
+    generation: 1
+    name: csistoragecapacities.storage.k8s.io
+    resourceVersion: "13318"
+    uid: 1e768f98-7b73-472f-927b-d96ea4ea90bd
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: csistoragecapacities
+  status:
+    currentStorageVersionHash: 4as6MA/kOg0=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - 4as6MA/kOg0=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:48Z"
+    generation: 1
+    name: customresourcedefinitions.apiextensions.k8s.io
+    resourceVersion: "13337"
+    uid: 880413ca-a59f-4a01-bffe-3c6123da0c58
+  spec:
+    resource:
+      group: apiextensions.k8s.io
+      resource: customresourcedefinitions
+  status:
+    currentStorageVersionHash: jfWCUB31mvA=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - jfWCUB31mvA=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:24Z"
+    generation: 1
+    name: daemonsets.apps
+    resourceVersion: "18749"
+    uid: 5badf22f-0815-4a32-9e51-b745664b7383
+  spec:
+    resource:
+      group: apps
+      resource: daemonsets
+  status:
+    currentStorageVersionHash: dd7pWHUlMKQ=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - dd7pWHUlMKQ=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:23Z"
+    generation: 1
+    name: deployments.apps
+    resourceVersion: "18762"
+    uid: b05c1a4f-2b0b-4428-a423-95ffc584a1a0
+  spec:
+    resource:
+      group: apps
+      resource: deployments
+  status:
+    currentStorageVersionHash: 8aSe+NMegvE=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - 8aSe+NMegvE=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:07Z"
+    generation: 1
+    name: destinationrules.networking.istio.io
+    resourceVersion: "13537"
+    uid: 8e2b0f27-cf18-4c67-81ed-772c3e0d1992
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: destinationrules
+  status:
+    currentStorageVersionHash: RTFbwVKZLVo=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - RTFbwVKZLVo=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:18Z"
+    generation: 1
+    name: endpoints
+    resourceVersion: "18708"
+    uid: 23f0de52-4789-4b60-bc3c-0ada8ee50ef7
+  spec:
+    resource:
+      resource: endpoints
+  status:
+    currentStorageVersionHash: fWeeMqaN/OA=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - fWeeMqaN/OA=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:52Z"
+    generation: 1
+    name: endpointslices.discovery.k8s.io
+    resourceVersion: "13365"
+    uid: e22221ee-b1f5-446a-a3fd-cf5aeeb88f6f
+  spec:
+    resource:
+      group: discovery.k8s.io
+      resource: endpointslices
+  status:
+    currentStorageVersionHash: Nx3SIv6I0mE=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - Nx3SIv6I0mE=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:12Z"
+    generation: 1
+    name: envoyfilters.networking.istio.io
+    resourceVersion: "13580"
+    uid: ed6a2d6b-3a29-49a9-b9b4-ba0554f25996
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: envoyfilters
+  status:
+    currentStorageVersionHash: cC04AzOKdkE=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - cC04AzOKdkE=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:20Z"
+    generation: 1
+    name: events
+    resourceVersion: "18661"
+    uid: 0533a4fa-3188-4427-9567-72560d3e0945
+  spec:
+    resource:
+      resource: events
+  status:
+    currentStorageVersionHash: r2yiGXH7wu8=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - r2yiGXH7wu8=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:27Z"
+    generation: 1
+    name: events.events.k8s.io
+    resourceVersion: "18770"
+    uid: d3caf213-a827-49df-b1f8-dbd9a5206126
+  spec:
+    resource:
+      group: events.k8s.io
+      resource: events
+  status:
+    currentStorageVersionHash: r2yiGXH7wu8=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - r2yiGXH7wu8=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:54Z"
+    generation: 1
+    name: flowschemas.flowcontrol.apiserver.k8s.io
+    resourceVersion: "13371"
+    uid: 963300a2-5356-4fcd-b2b7-7d9a69733928
+  spec:
+    resource:
+      group: flowcontrol.apiserver.k8s.io
+      resource: flowschemas
+  status:
+    currentStorageVersionHash: 9bSnTLYweJ0=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - 9bSnTLYweJ0=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:00Z"
+    generation: 1
+    name: frontendconfigs.networking.gke.io
+    resourceVersion: "13413"
+    uid: 5f81b6ae-ee06-45a3-8416-90a6464cb143
+  spec:
+    resource:
+      group: networking.gke.io
+      resource: frontendconfigs
+  status:
+    currentStorageVersionHash: VvPxTD2ZFfI=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - VvPxTD2ZFfI=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:58Z"
+    generation: 1
+    name: gatewayclasses.gateway.networking.k8s.io
+    resourceVersion: "13521"
+    uid: 847daf73-cd56-4def-bd0d-b3be311dbb06
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: gatewayclasses
+  status:
+    currentStorageVersionHash: afDskkXm8z0=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - afDskkXm8z0=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:59Z"
+    generation: 1
+    name: gateways.gateway.networking.k8s.io
+    resourceVersion: "13482"
+    uid: 6edd4898-b251-405d-b534-a191e4720c88
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: gateways
+  status:
+    currentStorageVersionHash: 1zkICwncQeU=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - 1zkICwncQeU=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:05Z"
+    generation: 1
+    name: gateways.networking.istio.io
+    resourceVersion: "13553"
+    uid: dd241b9f-a23d-4276-8ba0-512e36b67317
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: gateways
+  status:
+    currentStorageVersionHash: /mjmih7j52A=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - /mjmih7j52A=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:28Z"
+    generation: 1
+    name: horizontalpodautoscalers.autoscaling
+    resourceVersion: "18775"
+    uid: 7bc87d59-18e1-4a5a-8c09-90aea234a51f
+  spec:
+    resource:
+      group: autoscaling
+      resource: horizontalpodautoscalers
+  status:
+    currentStorageVersionHash: oQlkt7f5j/A=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - oQlkt7f5j/A=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:02Z"
+    generation: 1
+    name: httproutes.gateway.networking.k8s.io
+    resourceVersion: "13508"
+    uid: d3b2804b-03d3-4390-8179-7c36f2854271
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: httproutes
+  status:
+    currentStorageVersionHash: GuB96/fFRWc=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - GuB96/fFRWc=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:34Z"
+    generation: 1
+    name: ingressclasses.networking.k8s.io
+    resourceVersion: "18802"
+    uid: 47d76f02-2df8-4c88-8d49-aad735efc109
+  spec:
+    resource:
+      group: networking.k8s.io
+      resource: ingressclasses
+  status:
+    currentStorageVersionHash: l/iqIbDgFyQ=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - l/iqIbDgFyQ=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:32Z"
+    generation: 1
+    name: ingresses.networking.k8s.io
+    resourceVersion: "18815"
+    uid: c0cf8b3e-feaa-4c77-a70e-5e06aa7452aa
+  spec:
+    resource:
+      group: networking.k8s.io
+      resource: ingresses
+  status:
+    currentStorageVersionHash: 39NQlfNR+bo=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - 39NQlfNR+bo=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:53Z"
+    generation: 1
+    name: istiooperators.install.istio.io
+    resourceVersion: "13445"
+    uid: 60978f91-58dd-4455-bfe0-7295addc49ca
+  spec:
+    resource:
+      group: install.istio.io
+      resource: istiooperators
+  status:
+    currentStorageVersionHash: PrVcyWYRXSk=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - PrVcyWYRXSk=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:29Z"
+    generation: 1
+    name: jobs.batch
+    resourceVersion: "18786"
+    uid: 96950a43-51d9-4106-840a-de7b4d53dfe9
+  spec:
+    resource:
+      group: batch
+      resource: jobs
+  status:
+    currentStorageVersionHash: mudhfqk/qZY=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - mudhfqk/qZY=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:50Z"
+    generation: 1
+    name: leases.coordination.k8s.io
+    resourceVersion: "13352"
+    uid: 09b4e1c5-2163-41e7-b95c-724e79645bc0
+  spec:
+    resource:
+      group: coordination.k8s.io
+      resource: leases
+  status:
+    currentStorageVersionHash: gqkMMb/YqFM=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - gqkMMb/YqFM=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:13Z"
+    generation: 1
+    name: limitranges
+    resourceVersion: "18656"
+    uid: 04d59407-fad3-4e5d-8a45-a6f5aca14114
+  spec:
+    resource:
+      resource: limitranges
+  status:
+    currentStorageVersionHash: EBKMFVe6cwo=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - EBKMFVe6cwo=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:57Z"
+    generation: 1
+    name: managedcertificates.networking.gke.io
+    resourceVersion: "13401"
+    uid: b1c71e2d-4cef-4ed4-a3b3-fae4ff518758
+  spec:
+    resource:
+      group: networking.gke.io
+      resource: managedcertificates
+  status:
+    currentStorageVersionHash: FD3rYAFSqMY=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - FD3rYAFSqMY=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:56Z"
+    generation: 1
+    name: memberships.hub.gke.io
+    resourceVersion: "13386"
+    uid: dfa458bc-73d3-4ac9-918b-20bf6bc80777
+  spec:
+    resource:
+      group: hub.gke.io
+      resource: memberships
+  status:
+    currentStorageVersionHash: ID/RDO2GyFE=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - ID/RDO2GyFE=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:47Z"
+    generation: 1
+    name: mutatingwebhookconfigurations.admissionregistration.k8s.io
+    resourceVersion: "13328"
+    uid: a8470098-4a87-4aeb-bd60-fe53feb8bfe5
+  spec:
+    resource:
+      group: admissionregistration.k8s.io
+      resource: mutatingwebhookconfigurations
+  status:
+    currentStorageVersionHash: Sqi0GUgDaX0=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - Sqi0GUgDaX0=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:08Z"
+    generation: 1
+    name: namespaces
+    resourceVersion: "18692"
+    uid: d2fecd9f-bf0c-491f-8f47-f3259f632c77
+  spec:
+    resource:
+      resource: namespaces
+  status:
+    currentStorageVersionHash: Q3oi5N2YM8M=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - Q3oi5N2YM8M=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:33Z"
+    generation: 1
+    name: networkpolicies.networking.k8s.io
+    resourceVersion: "18808"
+    uid: f3968550-d0fe-453c-b94b-66e28611a33e
+  spec:
+    resource:
+      group: networking.k8s.io
+      resource: networkpolicies
+  status:
+    currentStorageVersionHash: YpfwF18m1G8=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - YpfwF18m1G8=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:14Z"
+    generation: 1
+    name: nodes
+    resourceVersion: "18643"
+    uid: c1fdd0d5-c86b-433d-ba03-70e3f2ee9f00
+  spec:
+    resource:
+      resource: nodes
+  status:
+    currentStorageVersionHash: XwShjMxG9Fs=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - XwShjMxG9Fs=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:14Z"
+    generation: 1
+    name: peerauthentications.security.istio.io
+    resourceVersion: "13587"
+    uid: dacbaa0a-1211-48fd-b1ae-a0a81e713726
+  spec:
+    resource:
+      group: security.istio.io
+      resource: peerauthentications
+  status:
+    currentStorageVersionHash: 0IW8zQBF4Qc=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - 0IW8zQBF4Qc=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:17Z"
+    generation: 1
+    name: persistentvolumeclaims
+    resourceVersion: "18704"
+    uid: cb9b00bd-f179-4287-bc97-a143c14dac3a
+  spec:
+    resource:
+      resource: persistentvolumeclaims
+  status:
+    currentStorageVersionHash: QWTyNDq0dC4=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - QWTyNDq0dC4=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:11Z"
+    generation: 1
+    name: persistentvolumes
+    resourceVersion: "18687"
+    uid: a73e3ec3-fad1-4f68-a57c-e2e27f2969f3
+  spec:
+    resource:
+      resource: persistentvolumes
+  status:
+    currentStorageVersionHash: HN/zwEC+JgM=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - HN/zwEC+JgM=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:35Z"
+    generation: 1
+    name: poddisruptionbudgets.policy
+    resourceVersion: "13253"
+    uid: 8f004f04-e27f-4dca-b62f-c2f45ccfae7c
+  spec:
+    resource:
+      group: policy
+      resource: poddisruptionbudgets
+  status:
+    currentStorageVersionHash: 6BGBu0kpHtk=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - 6BGBu0kpHtk=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:09Z"
+    generation: 1
+    name: pods
+    resourceVersion: "18699"
+    uid: 96b26c8b-1905-4291-a6ac-3ea594878079
+  spec:
+    resource:
+      resource: pods
+  status:
+    currentStorageVersionHash: xPOwRZ+Yhw8=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - xPOwRZ+Yhw8=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:36Z"
+    generation: 1
+    name: podsecuritypolicies.policy
+    resourceVersion: "13261"
+    uid: 3720580c-6916-4de6-b875-fabe23318c15
+  spec:
+    resource:
+      group: policy
+      resource: podsecuritypolicies
+  status:
+    currentStorageVersionHash: khBLobUXkqA=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - khBLobUXkqA=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:07Z"
+    generation: 1
+    name: podtemplates
+    resourceVersion: "18642"
+    uid: 2da632a7-5813-44ee-93d4-7c57030769d3
+  spec:
+    resource:
+      resource: podtemplates
+  status:
+    currentStorageVersionHash: LIXB2x4IFpk=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - LIXB2x4IFpk=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:49Z"
+    generation: 1
+    name: priorityclasses.scheduling.k8s.io
+    resourceVersion: "13342"
+    uid: 6d8a830b-70b6-4a1a-968c-906db0f96568
+  spec:
+    resource:
+      group: scheduling.k8s.io
+      resource: priorityclasses
+  status:
+    currentStorageVersionHash: 1QwjyaZjj3Y=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - 1QwjyaZjj3Y=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:53Z"
+    generation: 1
+    name: prioritylevelconfigurations.flowcontrol.apiserver.k8s.io
+    resourceVersion: "13377"
+    uid: 28035619-1abc-4c22-9989-18dca6192e39
+  spec:
+    resource:
+      group: flowcontrol.apiserver.k8s.io
+      resource: prioritylevelconfigurations
+  status:
+    currentStorageVersionHash: BFVwf8eYnsw=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - BFVwf8eYnsw=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:08Z"
+    generation: 1
+    name: proxyconfigs.networking.istio.io
+    resourceVersion: "13564"
+    uid: 89015de7-ea76-44ff-b33e-2bbc70b5544e
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: proxyconfigs
+  status:
+    currentStorageVersionHash: kPQjAU3oP18=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - kPQjAU3oP18=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:03Z"
+    generation: 1
+    name: referencepolicies.gateway.networking.k8s.io
+    resourceVersion: "13495"
+    uid: e8bf3425-080f-4f13-8997-44a443a779ea
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: referencepolicies
+  status:
+    currentStorageVersionHash: JkdzLgJd5z0=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - JkdzLgJd5z0=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:25Z"
+    generation: 1
+    name: replicasets.apps
+    resourceVersion: "18735"
+    uid: 09d27ae5-ba27-46e4-b72d-71fa58a0f4b9
+  spec:
+    resource:
+      group: apps
+      resource: replicasets
+  status:
+    currentStorageVersionHash: P1RzHs8/mWQ=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - P1RzHs8/mWQ=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:19Z"
+    generation: 1
+    name: replicationcontrollers
+    resourceVersion: "18650"
+    uid: 7cf2c1b2-ad44-4f28-b406-2c7f60857155
+  spec:
+    resource:
+      resource: replicationcontrollers
+  status:
+    currentStorageVersionHash: Jond2If31h0=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - Jond2If31h0=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:15Z"
+    generation: 1
+    name: requestauthentications.security.istio.io
+    resourceVersion: "13591"
+    uid: 692a0839-5427-4175-b8c5-b4533d1ac0d2
+  spec:
+    resource:
+      group: security.istio.io
+      resource: requestauthentications
+  status:
+    currentStorageVersionHash: mr+dytYVwr8=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - mr+dytYVwr8=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:15Z"
+    generation: 1
+    name: resourcequotas
+    resourceVersion: "18644"
+    uid: 317f27dd-36f2-42d1-920f-2bf25a933179
+  spec:
+    resource:
+      resource: resourcequotas
+  status:
+    currentStorageVersionHash: 8uhSgffRX6w=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - 8uhSgffRX6w=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:37Z"
+    generation: 1
+    name: rolebindings.rbac.authorization.k8s.io
+    resourceVersion: "13277"
+    uid: 06cae182-733b-4137-a0f4-389ab7b5c1d9
+  spec:
+    resource:
+      group: rbac.authorization.k8s.io
+      resource: rolebindings
+  status:
+    currentStorageVersionHash: eGsCzGH6b1g=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - eGsCzGH6b1g=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:38Z"
+    generation: 1
+    name: roles.rbac.authorization.k8s.io
+    resourceVersion: "13272"
+    uid: 28c3eead-939d-447e-8e20-c0d30c160650
+  spec:
+    resource:
+      group: rbac.authorization.k8s.io
+      resource: roles
+  status:
+    currentStorageVersionHash: 7FuwZcIIItM=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - 7FuwZcIIItM=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:51Z"
+    generation: 1
+    name: runtimeclasses.node.k8s.io
+    resourceVersion: "13357"
+    uid: feb0a796-77d3-4be2-9d32-184575599a73
+  spec:
+    resource:
+      group: node.k8s.io
+      resource: runtimeclasses
+  status:
+    currentStorageVersionHash: WQTu1GL3T2Q=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - WQTu1GL3T2Q=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:07Z"
+    generation: 1
+    name: secrets
+    resourceVersion: "18727"
+    uid: d6dce244-89c0-428e-92ae-737574f19ee8
+  spec:
+    resource:
+      resource: secrets
+  status:
+    currentStorageVersionHash: S6u1pOWzb84=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - S6u1pOWzb84=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:12Z"
+    generation: 1
+    name: serviceaccounts
+    resourceVersion: "18715"
+    uid: 7c11d186-674a-4661-add1-9645efd3f116
+  spec:
+    resource:
+      resource: serviceaccounts
+  status:
+    currentStorageVersionHash: pbx9ZvyFpBE=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - pbx9ZvyFpBE=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:58Z"
+    generation: 1
+    name: serviceattachments.networking.gke.io
+    resourceVersion: "13397"
+    uid: ba37423c-ea11-4cfe-922f-3d25dbbf0d1d
+  spec:
+    resource:
+      group: networking.gke.io
+      resource: serviceattachments
+  status:
+    currentStorageVersionHash: VBkvQmd+kPU=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - VBkvQmd+kPU=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:04Z"
+    generation: 1
+    name: serviceentries.networking.istio.io
+    resourceVersion: "13543"
+    uid: 795a1734-d2a2-44ef-9108-0e27c322b7ce
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: serviceentries
+  status:
+    currentStorageVersionHash: tY6rFaYqFTs=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - tY6rFaYqFTs=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:59Z"
+    generation: 1
+    name: servicenetworkendpointgroups.networking.gke.io
+    resourceVersion: "13406"
+    uid: b5c7c1b5-0fca-4b9e-a182-57887b3999a0
+  spec:
+    resource:
+      group: networking.gke.io
+      resource: servicenetworkendpointgroups
+  status:
+    currentStorageVersionHash: jrELN7g4fSY=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - jrELN7g4fSY=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:16Z"
+    generation: 1
+    name: services
+    resourceVersion: "18670"
+    uid: 0ed5b6b9-8b29-4415-b574-f65f55937178
+  spec:
+    resource:
+      resource: services
+  status:
+    currentStorageVersionHash: 0/CO1lhkEBI=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - 0/CO1lhkEBI=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:06Z"
+    generation: 1
+    name: sidecars.networking.istio.io
+    resourceVersion: "13532"
+    uid: fb7765ec-b1c1-4782-ad5d-b48b56ede75d
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: sidecars
+  status:
+    currentStorageVersionHash: nU5Up7P+Lx0=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - nU5Up7P+Lx0=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:26Z"
+    generation: 1
+    name: statefulsets.apps
+    resourceVersion: "18746"
+    uid: 5b121bf8-af76-4d05-90cd-fb99b3ecf981
+  spec:
+    resource:
+      group: apps
+      resource: statefulsets
+  status:
+    currentStorageVersionHash: H+vl74LkKdo=
+    lastHeartbeatTime: "2022-10-11T15:43:18Z"
+    persistedStorageVersionHashes:
+    - H+vl74LkKdo=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:45Z"
+    generation: 1
+    name: storageclasses.storage.k8s.io
+    resourceVersion: "13311"
+    uid: ebe766b4-a602-44ca-8215-00ff35df9a47
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: storageclasses
+  status:
+    currentStorageVersionHash: K+m6uJwbjGY=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - K+m6uJwbjGY=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:05Z"
+    generation: 1
+    name: storagestates.migration.k8s.io
+    resourceVersion: "13459"
+    uid: 723f68ac-ef59-4d1e-bbcb-c15945f0f9b4
+  spec:
+    resource:
+      group: migration.k8s.io
+      resource: storagestates
+  status:
+    currentStorageVersionHash: 7abAo0yHdNM=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - 7abAo0yHdNM=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:06Z"
+    generation: 1
+    name: storageversionmigrations.migration.k8s.io
+    resourceVersion: "13461"
+    uid: c3453ec4-db43-465e-914d-88cee49f6bc1
+  spec:
+    resource:
+      group: migration.k8s.io
+      resource: storageversionmigrations
+  status:
+    currentStorageVersionHash: X3bkZSayqxI=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - X3bkZSayqxI=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:57Z"
+    generation: 1
+    name: tcproutes.gateway.networking.k8s.io
+    resourceVersion: "13514"
+    uid: 471a2d51-7223-4d40-8276-d9af2753b4b8
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: tcproutes
+  status:
+    currentStorageVersionHash: k9E81kPUuvg=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - k9E81kPUuvg=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:56Z"
+    generation: 1
+    name: telemetries.telemetry.istio.io
+    resourceVersion: "13475"
+    uid: 2d54eaf7-ec91-473a-94ac-6ba91bdb1081
+  spec:
+    resource:
+      group: telemetry.istio.io
+      resource: telemetries
+  status:
+    currentStorageVersionHash: d44J/hig0n8=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - d44J/hig0n8=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:01Z"
+    generation: 1
+    name: tlsroutes.gateway.networking.k8s.io
+    resourceVersion: "13504"
+    uid: 73ccf92c-e1d4-47a6-91f3-7b75c2a6fad7
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: tlsroutes
+  status:
+    currentStorageVersionHash: kQZ3xp5aqec=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - kQZ3xp5aqec=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:00Z"
+    generation: 1
+    name: udproutes.gateway.networking.k8s.io
+    resourceVersion: "13488"
+    uid: f56d5538-61f7-4476-b8a9-fb1ee7cc4cf9
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: udproutes
+  status:
+    currentStorageVersionHash: YqvulKGUtWU=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - YqvulKGUtWU=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:07Z"
+    generation: 1
+    name: updateinfos.nodemanagement.gke.io
+    resourceVersion: "13468"
+    uid: fdc765fd-cde1-4301-9d78-626e4f9e6c61
+  spec:
+    resource:
+      group: nodemanagement.gke.io
+      resource: updateinfos
+  status:
+    currentStorageVersionHash: QtwKBHoi/B8=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - QtwKBHoi/B8=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:46Z"
+    generation: 1
+    name: validatingwebhookconfigurations.admissionregistration.k8s.io
+    resourceVersion: "13320"
+    uid: 06acfc24-8ef1-4bd1-a395-acc33774b494
+  spec:
+    resource:
+      group: admissionregistration.k8s.io
+      resource: validatingwebhookconfigurations
+  status:
+    currentStorageVersionHash: B0wHjQmsGNk=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - B0wHjQmsGNk=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:11Z"
+    generation: 1
+    name: virtualservices.networking.istio.io
+    resourceVersion: "13549"
+    uid: 33820242-0c40-4877-bd69-ab77c1888eeb
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: virtualservices
+  status:
+    currentStorageVersionHash: OQjiBwfKPL4=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - OQjiBwfKPL4=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:42Z"
+    generation: 1
+    name: volumeattachments.storage.k8s.io
+    resourceVersion: "13299"
+    uid: 52d23bfb-aeb7-468a-87b6-9933421bb391
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: volumeattachments
+  status:
+    currentStorageVersionHash: tJx/ezt6UDU=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - tJx/ezt6UDU=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:01Z"
+    generation: 1
+    name: volumesnapshotclasses.snapshot.storage.k8s.io
+    resourceVersion: "13433"
+    uid: afc885bf-1ad8-4c43-a76a-3d19e8727ba1
+  spec:
+    resource:
+      group: snapshot.storage.k8s.io
+      resource: volumesnapshotclasses
+  status:
+    currentStorageVersionHash: agjrTDFWe0I=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - agjrTDFWe0I=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:03Z"
+    generation: 1
+    name: volumesnapshotcontents.snapshot.storage.k8s.io
+    resourceVersion: "13428"
+    uid: 75e63704-f55e-4ef4-b79f-2b325c011786
+  spec:
+    resource:
+      group: snapshot.storage.k8s.io
+      resource: volumesnapshotcontents
+  status:
+    currentStorageVersionHash: ksBm2JR3lFg=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - ksBm2JR3lFg=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:02Z"
+    generation: 1
+    name: volumesnapshots.snapshot.storage.k8s.io
+    resourceVersion: "13422"
+    uid: 0af7a9c6-0f7e-4fbe-9f96-4d32bbef6d8c
+  spec:
+    resource:
+      group: snapshot.storage.k8s.io
+      resource: volumesnapshots
+  status:
+    currentStorageVersionHash: CBkCoNN1OpA=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - CBkCoNN1OpA=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:52Z"
+    generation: 1
+    name: wasmplugins.extensions.istio.io
+    resourceVersion: "13440"
+    uid: dcab8258-0a95-4a53-a3c6-bbafdca38427
+  spec:
+    resource:
+      group: extensions.istio.io
+      resource: wasmplugins
+  status:
+    currentStorageVersionHash: mM+Qow77fbg=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - mM+Qow77fbg=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:09Z"
+    generation: 1
+    name: workloadentries.networking.istio.io
+    resourceVersion: "13526"
+    uid: 7c1e7a55-16e4-4492-87d8-a909b695fc0c
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: workloadentries
+  status:
+    currentStorageVersionHash: ZyZMEVHubgI=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - ZyZMEVHubgI=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageState
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:10Z"
+    generation: 1
+    name: workloadgroups.networking.istio.io
+    resourceVersion: "13567"
+    uid: 7a4d5fa2-caa3-4646-903b-440ed2c50290
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: workloadgroups
+  status:
+    currentStorageVersionHash: tPPh8TtfDAQ=
+    lastHeartbeatTime: "2022-10-11T15:33:18Z"
+    persistedStorageVersionHashes:
+    - tPPh8TtfDAQ=
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:20Z"
+    generateName: apiservices.apiregistration.k8s.io-
+    generation: 1
+    name: apiservices.apiregistration.k8s.io-d62dh
+    resourceVersion: "2101"
+    uid: bd065b36-4f0f-4a05-a08e-b7dc5c0ceefe
+  spec:
+    resource:
+      group: apiregistration.k8s.io
+      resource: apiservices
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:27Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:13Z"
+    generateName: authorizationpolicies.security.istio.io-
+    generation: 1
+    name: authorizationpolicies.security.istio.io-k9vxz
+    resourceVersion: "8143"
+    uid: 664bdf21-01c3-4cc2-bba3-9204ac7f6cde
+  spec:
+    resource:
+      group: security.istio.io
+      resource: authorizationpolicies
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:14Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:54Z"
+    generateName: backendconfigs.cloud.google.com-
+    generation: 1
+    name: backendconfigs.cloud.google.com-9k5pf
+    resourceVersion: "4833"
+    uid: 802446a1-efad-4e02-b4e2-ec8bae30b802
+  spec:
+    resource:
+      group: cloud.google.com
+      resource: backendconfigs
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:38Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:03Z"
+    generateName: capacityrequests.internal.autoscaling.gke.io-
+    generation: 1
+    name: capacityrequests.internal.autoscaling.gke.io-zzdj7
+    resourceVersion: "4153"
+    uid: bc9e5ffa-0bf3-4ff7-b7ab-49a465ec8892
+  spec:
+    resource:
+      group: internal.autoscaling.gke.io
+      resource: capacityrequests
+      version: v1alpha1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:33Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:30Z"
+    generateName: certificatesigningrequests.certificates.k8s.io-
+    generation: 1
+    name: certificatesigningrequests.certificates.k8s.io-bnfj9
+    resourceVersion: "4409"
+    uid: ca746333-0c5b-4a4f-8472-328c6de6601c
+  spec:
+    resource:
+      group: certificates.k8s.io
+      resource: certificatesigningrequests
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:56Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:39Z"
+    generateName: clusterrolebindings.rbac.authorization.k8s.io-
+    generation: 1
+    name: clusterrolebindings.rbac.authorization.k8s.io-sjzv4
+    resourceVersion: "3174"
+    uid: bb281216-6a26-46b3-af56-27b803a96d23
+  spec:
+    resource:
+      group: rbac.authorization.k8s.io
+      resource: clusterrolebindings
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:16:16Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:38Z"
+    generateName: clusterroles.rbac.authorization.k8s.io-
+    generation: 1
+    name: clusterroles.rbac.authorization.k8s.io-lgghx
+    resourceVersion: "2459"
+    uid: 410eb99b-2b9c-4d8a-9fcc-88aad5a08692
+  spec:
+    resource:
+      group: rbac.authorization.k8s.io
+      resource: clusterroles
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:58Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:09Z"
+    generateName: configmaps-
+    generation: 1
+    name: configmaps-npjhb
+    resourceVersion: "1970"
+    uid: fc848d1b-15b0-455a-b2de-de2d65cd387e
+  spec:
+    resource:
+      resource: configmaps
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:17Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:21Z"
+    generateName: controllerrevisions.apps-
+    generation: 1
+    name: controllerrevisions.apps-4x6j6
+    resourceVersion: "4437"
+    uid: ca1660a0-9c14-4f26-b78e-dcbb5d67b0b0
+  spec:
+    resource:
+      group: apps
+      resource: controllerrevisions
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:59Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:29Z"
+    generateName: cronjobs.batch-
+    generation: 1
+    name: cronjobs.batch-hjrfv
+    resourceVersion: "4452"
+    uid: 288f440e-5140-4b3b-b916-886a40773786
+  spec:
+    resource:
+      group: batch
+      resource: cronjobs
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:00Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:40Z"
+    generateName: csidrivers.storage.k8s.io-
+    generation: 1
+    name: csidrivers.storage.k8s.io-jx5lf
+    resourceVersion: "4480"
+    uid: 030312c9-3dac-42a8-8bf0-069f2f55423b
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: csidrivers
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:03Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:42Z"
+    generateName: csinodes.storage.k8s.io-
+    generation: 1
+    name: csinodes.storage.k8s.io-qzz5r
+    resourceVersion: "4239"
+    uid: 38adc783-1f97-4e1e-ba13-72d7364ca7d4
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: csinodes
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:40Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:43Z"
+    generateName: csistoragecapacities.storage.k8s.io-
+    generation: 1
+    name: csistoragecapacities.storage.k8s.io-2jmz6
+    resourceVersion: "4322"
+    uid: 880dade8-afc8-49a5-b0b8-738e8f5ae2f4
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: csistoragecapacities
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:47Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:47Z"
+    generateName: customresourcedefinitions.apiextensions.k8s.io-
+    generation: 1
+    name: customresourcedefinitions.apiextensions.k8s.io-c5qtz
+    resourceVersion: "4540"
+    uid: 1d2f0b3c-c397-4bb5-ab50-136134d73627
+  spec:
+    resource:
+      group: apiextensions.k8s.io
+      resource: customresourcedefinitions
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:09Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:23Z"
+    generateName: daemonsets.apps-
+    generation: 1
+    name: daemonsets.apps-vr7sc
+    resourceVersion: "4065"
+    uid: bcdeb0d8-93b3-4d80-883a-5e930112abe8
+  spec:
+    resource:
+      group: apps
+      resource: daemonsets
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:27Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:22Z"
+    generateName: deployments.apps-
+    generation: 1
+    name: deployments.apps-ltntm
+    resourceVersion: "4701"
+    uid: 8bd4403a-41d5-40b3-876c-f6948a17d1de
+  spec:
+    resource:
+      group: apps
+      resource: deployments
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:25Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:07Z"
+    generateName: destinationrules.networking.istio.io-
+    generation: 1
+    name: destinationrules.networking.istio.io-fm6d6
+    resourceVersion: "8047"
+    uid: 9e73f4c5-0f1a-428d-9eda-fcada6451b7e
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: destinationrules
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:07Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:17Z"
+    generateName: endpoints-
+    generation: 1
+    name: endpoints-745jj
+    resourceVersion: "1991"
+    uid: 17289b1a-9089-46df-8aa5-eae15320c728
+  spec:
+    resource:
+      resource: endpoints
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:19Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:51Z"
+    generateName: endpointslices.discovery.k8s.io-
+    generation: 1
+    name: endpointslices.discovery.k8s.io-tctqt
+    resourceVersion: "4351"
+    uid: faafc4a2-ba6b-4a28-b278-972eb40d7b23
+  spec:
+    resource:
+      group: discovery.k8s.io
+      resource: endpointslices
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:50Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:12Z"
+    generateName: envoyfilters.networking.istio.io-
+    generation: 1
+    name: envoyfilters.networking.istio.io-ndln4
+    resourceVersion: "8188"
+    uid: 3cbd9d77-6543-4e63-8b62-41a7582f24db
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: envoyfilters
+      version: v1alpha3
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:18Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:19Z"
+    generateName: events-
+    generation: 1
+    name: events-7cszl
+    resourceVersion: "2958"
+    uid: 5734185c-0425-4247-a6cb-3ecff9bb66cb
+  spec:
+    resource:
+      resource: events
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:15:53Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:26Z"
+    generateName: events.events.k8s.io-
+    generation: 1
+    name: events.events.k8s.io-ljwkg
+    resourceVersion: "3919"
+    uid: e977c781-f6e5-4091-b98c-626dc6d5939b
+  spec:
+    resource:
+      group: events.k8s.io
+      resource: events
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:17Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:53Z"
+    generateName: flowschemas.flowcontrol.apiserver.k8s.io-
+    generation: 1
+    name: flowschemas.flowcontrol.apiserver.k8s.io-qmjz6
+    resourceVersion: "4397"
+    uid: 5d858b48-7241-4a3e-8d58-091b40a44250
+  spec:
+    resource:
+      group: flowcontrol.apiserver.k8s.io
+      resource: flowschemas
+      version: v1beta2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:55Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:59Z"
+    generateName: frontendconfigs.networking.gke.io-
+    generation: 1
+    name: frontendconfigs.networking.gke.io-zzxjv
+    resourceVersion: "4459"
+    uid: 1c8d0887-d151-47b6-b6c5-56bbfa13f564
+  spec:
+    resource:
+      group: networking.gke.io
+      resource: frontendconfigs
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:02Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:58Z"
+    generateName: gatewayclasses.gateway.networking.k8s.io-
+    generation: 1
+    name: gatewayclasses.gateway.networking.k8s.io-lz5n4
+    resourceVersion: "7919"
+    uid: 48f520ee-8574-495d-801b-5c7ecdce37a1
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: gatewayclasses
+      version: v1alpha2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:23:58Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:59Z"
+    generateName: gateways.gateway.networking.k8s.io-
+    generation: 1
+    name: gateways.gateway.networking.k8s.io-nmgwn
+    resourceVersion: "7935"
+    uid: dce9e9c2-f38d-44f9-a1a0-f15b2bb02fde
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: gateways
+      version: v1alpha2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:23:59Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:05Z"
+    generateName: gateways.networking.istio.io-
+    generation: 1
+    name: gateways.networking.istio.io-njsbt
+    resourceVersion: "8027"
+    uid: abda2ef0-3216-4879-9fc0-4dc5a8d3e29f
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: gateways
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:06Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:27Z"
+    generateName: horizontalpodautoscalers.autoscaling-
+    generation: 1
+    name: horizontalpodautoscalers.autoscaling-hcsmq
+    resourceVersion: "3181"
+    uid: c8e63166-334a-49e4-af80-8a2780a80aa2
+  spec:
+    resource:
+      group: autoscaling
+      resource: horizontalpodautoscalers
+      version: v2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:16:17Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:02Z"
+    generateName: httproutes.gateway.networking.k8s.io-
+    generation: 1
+    name: httproutes.gateway.networking.k8s.io-wcjvl
+    resourceVersion: "7972"
+    uid: e3ce0c6d-26cf-45c3-9193-74494c2290f8
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: httproutes
+      version: v1alpha2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:02Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:33Z"
+    generateName: ingressclasses.networking.k8s.io-
+    generation: 1
+    name: ingressclasses.networking.k8s.io-86vwd
+    resourceVersion: "4118"
+    uid: 80e57330-3fe6-4bc6-8ea8-93509cf63545
+  spec:
+    resource:
+      group: networking.k8s.io
+      resource: ingressclasses
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:31Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:31Z"
+    generateName: ingresses.networking.k8s.io-
+    generation: 1
+    name: ingresses.networking.k8s.io-zfmd7
+    resourceVersion: "4180"
+    uid: 64c5c0b8-f49b-4219-b605-947deb9f04ea
+  spec:
+    resource:
+      group: networking.k8s.io
+      resource: ingresses
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:35Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:52Z"
+    generateName: istiooperators.install.istio.io-
+    generation: 1
+    name: istiooperators.install.istio.io-zlbm7
+    resourceVersion: "7858"
+    uid: 42d8140b-2980-40aa-b4cb-594480e7e5d2
+  spec:
+    resource:
+      group: install.istio.io
+      resource: istiooperators
+      version: v1alpha1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:23:53Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:28Z"
+    generateName: jobs.batch-
+    generation: 1
+    name: jobs.batch-7sz6q
+    resourceVersion: "3004"
+    uid: 183f7cb1-ce31-46ce-9584-fbbfb18b45f0
+  spec:
+    resource:
+      group: batch
+      resource: jobs
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:15:57Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:49Z"
+    generateName: leases.coordination.k8s.io-
+    generation: 1
+    name: leases.coordination.k8s.io-9hhhf
+    resourceVersion: "4292"
+    uid: 50f479dd-bb1c-481a-9d19-e802e256e7a2
+  spec:
+    resource:
+      group: coordination.k8s.io
+      resource: leases
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:45Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:12Z"
+    generateName: limitranges-
+    generation: 1
+    name: limitranges-4hplz
+    resourceVersion: "2995"
+    uid: e391f4c5-c648-4514-90c9-abd73c531aee
+  spec:
+    resource:
+      resource: limitranges
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:15:56Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:56Z"
+    generateName: managedcertificates.networking.gke.io-
+    generation: 1
+    name: managedcertificates.networking.gke.io-6c7qs
+    resourceVersion: "4201"
+    uid: 7cc41a91-046d-4c0b-911d-92a10ceb4f12
+  spec:
+    resource:
+      group: networking.gke.io
+      resource: managedcertificates
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:37Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:55Z"
+    generateName: memberships.hub.gke.io-
+    generation: 1
+    name: memberships.hub.gke.io-zz2r7
+    resourceVersion: "4334"
+    uid: 943582b3-9941-4838-bf37-8603a22a0f11
+  spec:
+    resource:
+      group: hub.gke.io
+      resource: memberships
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:48Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:46Z"
+    generateName: mutatingwebhookconfigurations.admissionregistration.k8s.io-
+    generation: 1
+    name: mutatingwebhookconfigurations.admissionregistration.k8s.ioqzf76
+    resourceVersion: "4307"
+    uid: 67e6e751-f353-4b3d-b8d9-9a9c51cc6b84
+  spec:
+    resource:
+      group: admissionregistration.k8s.io
+      resource: mutatingwebhookconfigurations
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:46Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:07Z"
+    generateName: namespaces-
+    generation: 1
+    name: namespaces-678z4
+    resourceVersion: "1841"
+    uid: 5a591772-63da-43d4-9939-4a67c7440563
+  spec:
+    resource:
+      resource: namespaces
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:09Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:32Z"
+    generateName: networkpolicies.networking.k8s.io-
+    generation: 1
+    name: networkpolicies.networking.k8s.io-7lqhg
+    resourceVersion: "2239"
+    uid: 35f5deab-8c78-4d35-8780-d50c4d4fa9d4
+  spec:
+    resource:
+      group: networking.k8s.io
+      resource: networkpolicies
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:38Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:13Z"
+    generateName: nodes-
+    generation: 1
+    name: nodes-5h4gp
+    resourceVersion: "3963"
+    uid: a52aa99e-5bc1-4c77-ac32-13848f895f16
+  spec:
+    resource:
+      resource: nodes
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:20Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:14Z"
+    generateName: peerauthentications.security.istio.io-
+    generation: 1
+    name: peerauthentications.security.istio.io-thhk6
+    resourceVersion: "8159"
+    uid: f3142de4-b4c6-485f-8328-b859c9ffa637
+  spec:
+    resource:
+      group: security.istio.io
+      resource: peerauthentications
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:16Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:16Z"
+    generateName: persistentvolumeclaims-
+    generation: 1
+    name: persistentvolumeclaims-lcx8f
+    resourceVersion: "3935"
+    uid: f83b4876-025b-4d56-aaec-102efcf48d5c
+  spec:
+    resource:
+      resource: persistentvolumeclaims
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:18Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:10Z"
+    generateName: persistentvolumes-
+    generation: 1
+    name: persistentvolumes-mhh2s
+    resourceVersion: "1929"
+    uid: 8c707996-1a49-4629-abd6-d250817074fc
+  spec:
+    resource:
+      resource: persistentvolumes
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:13Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:34Z"
+    generateName: poddisruptionbudgets.policy-
+    generation: 1
+    name: poddisruptionbudgets.policy-6kjql
+    resourceVersion: "3195"
+    uid: 9698e01d-4a11-4095-acda-f86146ccb55e
+  spec:
+    resource:
+      group: policy
+      resource: poddisruptionbudgets
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:16:18Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:08Z"
+    generateName: pods-
+    generation: 1
+    name: pods-vwqql
+    resourceVersion: "1888"
+    uid: 14248fe6-4545-4d34-bf0c-f09d91f31645
+  spec:
+    resource:
+      resource: pods
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:12Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:35Z"
+    generateName: podsecuritypolicies.policy-
+    generation: 1
+    name: podsecuritypolicies.policy-v96fm
+    resourceVersion: "2982"
+    uid: cb3a1928-15b4-4f8e-bcc7-51241bfede6c
+  spec:
+    resource:
+      group: policy
+      resource: podsecuritypolicies
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:15:55Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:07Z"
+    generateName: podtemplates-
+    generation: 1
+    name: podtemplates-lsjkq
+    resourceVersion: "1819"
+    uid: 95de68d8-1261-4704-acdf-af2a3d81acef
+  spec:
+    resource:
+      resource: podtemplates
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:07Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:48Z"
+    generateName: priorityclasses.scheduling.k8s.io-
+    generation: 1
+    name: priorityclasses.scheduling.k8s.io-g7l92
+    resourceVersion: "4084"
+    uid: 4a6bdf4d-d5b4-4d47-9f74-f08fa127cb36
+  spec:
+    resource:
+      group: scheduling.k8s.io
+      resource: priorityclasses
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:28Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:52Z"
+    generateName: prioritylevelconfigurations.flowcontrol.apiserver.k8s.io-
+    generation: 1
+    name: prioritylevelconfigurations.flowcontrol.apiserver.k8s.io-cfvnk
+    resourceVersion: "4101"
+    uid: 5719b3f3-8c5f-4cb6-a84b-f1681ad3b575
+  spec:
+    resource:
+      group: flowcontrol.apiserver.k8s.io
+      resource: prioritylevelconfigurations
+      version: v1beta2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:30Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:08Z"
+    generateName: proxyconfigs.networking.istio.io-
+    generation: 1
+    name: proxyconfigs.networking.istio.io-zt5cl
+    resourceVersion: "8059"
+    uid: b5402187-ea3c-4409-9237-2606fb2be2d1
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: proxyconfigs
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:08Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:03Z"
+    generateName: referencepolicies.gateway.networking.k8s.io-
+    generation: 1
+    name: referencepolicies.gateway.networking.k8s.io-qwmdz
+    resourceVersion: "7995"
+    uid: e3451303-63fe-483f-99b4-d9a13b50b125
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: referencepolicies
+      version: v1alpha2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:04Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:24Z"
+    generateName: replicasets.apps-
+    generation: 1
+    name: replicasets.apps-f2flc
+    resourceVersion: "4224"
+    uid: 9c0e673b-9e0a-4366-9c8e-1b7fcb800a08
+  spec:
+    resource:
+      group: apps
+      resource: replicasets
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:39Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:18Z"
+    generateName: replicationcontrollers-
+    generation: 1
+    name: replicationcontrollers-nrc5t
+    resourceVersion: "4191"
+    uid: e89ae929-3547-4d5c-852e-42f79936caa0
+  spec:
+    resource:
+      resource: replicationcontrollers
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:36Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:15Z"
+    generateName: requestauthentications.security.istio.io-
+    generation: 1
+    name: requestauthentications.security.istio.io-hvtrl
+    resourceVersion: "8171"
+    uid: 6521b6c4-622c-42b7-b5ac-22dbe532c59f
+  spec:
+    resource:
+      group: security.istio.io
+      resource: requestauthentications
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:17Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:14Z"
+    generateName: resourcequotas-
+    generation: 1
+    name: resourcequotas-7qn7b
+    resourceVersion: "2119"
+    uid: a89bba2c-f988-4f00-84e6-7353bd3c8f74
+  spec:
+    resource:
+      resource: resourcequotas
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:28Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:36Z"
+    generateName: rolebindings.rbac.authorization.k8s.io-
+    generation: 1
+    name: rolebindings.rbac.authorization.k8s.io-j9cqp
+    resourceVersion: "3990"
+    uid: 654c28e6-33d3-4d65-ad98-964364fd72a7
+  spec:
+    resource:
+      group: rbac.authorization.k8s.io
+      resource: rolebindings
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:23Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:37Z"
+    generateName: roles.rbac.authorization.k8s.io-
+    generation: 1
+    name: roles.rbac.authorization.k8s.io-7m2cd
+    resourceVersion: "3231"
+    uid: 7abcfc3e-489b-4c09-a0b0-620ffc392895
+  spec:
+    resource:
+      group: rbac.authorization.k8s.io
+      resource: roles
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:16:22Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:50Z"
+    generateName: runtimeclasses.node.k8s.io-
+    generation: 1
+    name: runtimeclasses.node.k8s.io-wrb8f
+    resourceVersion: "3944"
+    uid: 8fc08cff-bcde-41af-874a-aca1e9f690fe
+  spec:
+    resource:
+      group: node.k8s.io
+      resource: runtimeclasses
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:19Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:07Z"
+    generateName: secrets-
+    generation: 1
+    name: secrets-v2wnl
+    resourceVersion: "2008"
+    uid: 44813543-0430-4ef8-89e5-8251c77a9fca
+  spec:
+    resource:
+      resource: secrets
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:20Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:11Z"
+    generateName: serviceaccounts-
+    generation: 1
+    name: serviceaccounts-nggzb
+    resourceVersion: "2222"
+    uid: 9e44aea5-5b74-4893-95c0-61ab5b7eb3e2
+  spec:
+    resource:
+      resource: serviceaccounts
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:14:37Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:57Z"
+    generateName: serviceattachments.networking.gke.io-
+    generation: 1
+    name: serviceattachments.networking.gke.io-99xcl
+    resourceVersion: "3017"
+    uid: a67a2af2-f16b-4026-9035-9d9e60c8dfb8
+  spec:
+    resource:
+      group: networking.gke.io
+      resource: serviceattachments
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:15:59Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:04Z"
+    generateName: serviceentries.networking.istio.io-
+    generation: 1
+    name: serviceentries.networking.istio.io-rqmcz
+    resourceVersion: "8012"
+    uid: aa317777-45fb-4d7d-a494-e484a270b90d
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: serviceentries
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:05Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:58Z"
+    generateName: servicenetworkendpointgroups.networking.gke.io-
+    generation: 1
+    name: servicenetworkendpointgroups.networking.gke.io-qnt2j
+    resourceVersion: "4561"
+    uid: c7cfc8ae-2acf-4550-9cb7-90d1b3c21e4e
+  spec:
+    resource:
+      group: networking.gke.io
+      resource: servicenetworkendpointgroups
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:10Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:15Z"
+    generateName: services-
+    generation: 1
+    name: services-6khpw
+    resourceVersion: "4169"
+    uid: 1291b06b-d73e-47fa-a5f4-32243378d8f1
+  spec:
+    resource:
+      resource: services
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:34Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:06Z"
+    generateName: sidecars.networking.istio.io-
+    generation: 1
+    name: sidecars.networking.istio.io-vfk5b
+    resourceVersion: "8130"
+    uid: 864032d0-5b17-4fdb-8e31-e8b631d3012f
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: sidecars
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:13Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:25Z"
+    generateName: statefulsets.apps-
+    generation: 1
+    name: statefulsets.apps-kfhs8
+    resourceVersion: "4144"
+    uid: 062ffcff-4969-4e11-a063-90373db8c532
+  spec:
+    resource:
+      group: apps
+      resource: statefulsets
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:32Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:44Z"
+    generateName: storageclasses.storage.k8s.io-
+    generation: 1
+    name: storageclasses.storage.k8s.io-5zjxz
+    resourceVersion: "4848"
+    uid: f9e86950-b080-43d0-bffb-56cb8b4cef4d
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: storageclasses
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:40Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:04Z"
+    generateName: storagestates.migration.k8s.io-
+    generation: 1
+    name: storagestates.migration.k8s.io-zmhrn
+    resourceVersion: "4663"
+    uid: 75f20c0d-1006-43f5-94a6-d31286f275fe
+  spec:
+    resource:
+      group: migration.k8s.io
+      resource: storagestates
+      version: v1alpha1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:22Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:05Z"
+    generateName: storageversionmigrations.migration.k8s.io-
+    generation: 1
+    name: storageversionmigrations.migration.k8s.io-v95w6
+    resourceVersion: "4818"
+    uid: 5de5be48-8a95-4a07-9e21-0dbe9876da06
+  spec:
+    resource:
+      group: migration.k8s.io
+      resource: storageversionmigrations
+      version: v1alpha1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:37Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:57Z"
+    generateName: tcproutes.gateway.networking.k8s.io-
+    generation: 1
+    name: tcproutes.gateway.networking.k8s.io-dqf25
+    resourceVersion: "7909"
+    uid: 2ede4579-01ad-4287-82c2-66ad23686b3b
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: tcproutes
+      version: v1alpha2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:23:57Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:56Z"
+    generateName: telemetries.telemetry.istio.io-
+    generation: 1
+    name: telemetries.telemetry.istio.io-5f5q4
+    resourceVersion: "7892"
+    uid: 37f7ed75-571d-4fad-814b-6ede54972d8b
+  spec:
+    resource:
+      group: telemetry.istio.io
+      resource: telemetries
+      version: v1alpha1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:23:56Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:01Z"
+    generateName: tlsroutes.gateway.networking.k8s.io-
+    generation: 1
+    name: tlsroutes.gateway.networking.k8s.io-xdb2g
+    resourceVersion: "7962"
+    uid: ebf200b5-aa60-4a26-9186-baf7c85139a7
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: tlsroutes
+      version: v1alpha2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:01Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:00Z"
+    generateName: udproutes.gateway.networking.k8s.io-
+    generation: 1
+    name: udproutes.gateway.networking.k8s.io-4php8
+    resourceVersion: "7944"
+    uid: 438498c8-d0ce-4ef5-bdf8-f45822cb5995
+  spec:
+    resource:
+      group: gateway.networking.k8s.io
+      resource: udproutes
+      version: v1alpha2
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:00Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:06Z"
+    generateName: updateinfos.nodemanagement.gke.io-
+    generation: 1
+    name: updateinfos.nodemanagement.gke.io-wm57d
+    resourceVersion: "4678"
+    uid: c744f1aa-201d-48b2-a332-5e83329e91e0
+  spec:
+    resource:
+      group: nodemanagement.gke.io
+      resource: updateinfos
+      version: v1alpha1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:23Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:45Z"
+    generateName: validatingwebhookconfigurations.admissionregistration.k8s.io-
+    generation: 1
+    name: validatingwebhookconfigurations.admissionregistration.k8s.pdn2p
+    resourceVersion: "4248"
+    uid: fd94cf85-a0df-42f8-896b-a75bd51fb20e
+  spec:
+    resource:
+      group: admissionregistration.k8s.io
+      resource: validatingwebhookconfigurations
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:42Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:11Z"
+    generateName: virtualservices.networking.istio.io-
+    generation: 1
+    name: virtualservices.networking.istio.io-9p5k2
+    resourceVersion: "8110"
+    uid: 86609c1c-03fd-4a28-a3e5-598bf6e337a8
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: virtualservices
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:12Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:14:41Z"
+    generateName: volumeattachments.storage.k8s.io-
+    generation: 1
+    name: volumeattachments.storage.k8s.io-kkm4m
+    resourceVersion: "2971"
+    uid: 78959c3a-8785-4402-9ca5-329bf9c44a8d
+  spec:
+    resource:
+      group: storage.k8s.io
+      resource: volumeattachments
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:15:54Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:00Z"
+    generateName: volumesnapshotclasses.snapshot.storage.k8s.io-
+    generation: 1
+    name: volumesnapshotclasses.snapshot.storage.k8s.io-sc7hl
+    resourceVersion: "4710"
+    uid: 1ed286ba-41ee-490d-b17b-6e87d15dc9be
+  spec:
+    resource:
+      group: snapshot.storage.k8s.io
+      resource: volumesnapshotclasses
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:18:26Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:02Z"
+    generateName: volumesnapshotcontents.snapshot.storage.k8s.io-
+    generation: 1
+    name: volumesnapshotcontents.snapshot.storage.k8s.io-9tmvh
+    resourceVersion: "3207"
+    uid: 8ae5e9b6-7da4-4f0a-861d-23418205130d
+  spec:
+    resource:
+      group: snapshot.storage.k8s.io
+      resource: volumesnapshotcontents
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:16:20Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:15:01Z"
+    generateName: volumesnapshots.snapshot.storage.k8s.io-
+    generation: 1
+    name: volumesnapshots.snapshot.storage.k8s.io-64zz7
+    resourceVersion: "4264"
+    uid: f42f7733-d9d1-4b20-8df9-e6c4217c1c89
+  spec:
+    resource:
+      group: snapshot.storage.k8s.io
+      resource: volumesnapshots
+      version: v1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:17:43Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:23:51Z"
+    generateName: wasmplugins.extensions.istio.io-
+    generation: 1
+    name: wasmplugins.extensions.istio.io-8rc7j
+    resourceVersion: "7839"
+    uid: dbf81cc6-fd82-43bc-be24-50a78d04d3ed
+  spec:
+    resource:
+      group: extensions.istio.io
+      resource: wasmplugins
+      version: v1alpha1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:23:52Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:09Z"
+    generateName: workloadentries.networking.istio.io-
+    generation: 1
+    name: workloadentries.networking.istio.io-mnjqq
+    resourceVersion: "8075"
+    uid: 717571c3-36cb-488a-9d9b-89f8e3a23610
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: workloadentries
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:10Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: migration.k8s.io/v1alpha1
+  kind: StorageVersionMigration
+  metadata:
+    creationTimestamp: "2022-10-11T15:24:10Z"
+    generateName: workloadgroups.networking.istio.io-
+    generation: 1
+    name: workloadgroups.networking.istio.io-jfjrj
+    resourceVersion: "8097"
+    uid: 61559673-c824-4aee-804a-e5be746e1424
+  spec:
+    resource:
+      group: networking.istio.io
+      resource: workloadgroups
+      version: v1beta1
+  status:
+    conditions:
+    - lastUpdateTime: "2022-10-11T15:24:11Z"
+      status: "True"
+      type: Succeeded
+- apiVersion: networking.istio.io/v1beta1
+  kind: VirtualService
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"VirtualService","metadata":{"annotations":{},"name":"istiod-vs","namespace":"istio-system"},"spec":{"gateways":["istiod-gateway"],"hosts":["*"],"tls":[{"match":[{"port":15012,"sniHosts":["*"]}],"route":[{"destination":{"host":"istiod.istio-system.svc.cluster.local","port":{"number":15012}}}]},{"match":[{"port":15017,"sniHosts":["*"]}],"route":[{"destination":{"host":"istiod.istio-system.svc.cluster.local","port":{"number":443}}}]}]}}
+    creationTimestamp: "2022-10-11T15:17:31Z"
+    generation: 1
+    name: istiod-vs
+    namespace: istio-system
+    resourceVersion: "4120"
+    uid: 2a39839a-d1bb-4698-95e6-4064c4eebf20
+  spec:
+    gateways:
+    - istiod-gateway
+    hosts:
+    - '*'
+    tls:
+    - match:
+      - port: 15012
+        sniHosts:
+        - '*'
+      route:
+      - destination:
+          host: istiod.istio-system.svc.cluster.local
+          port:
+            number: 15012
+    - match:
+      - port: 15017
+        sniHosts:
+        - '*'
+      route:
+      - destination:
+          host: istiod.istio-system.svc.cluster.local
+          port:
+            number: 443
+- apiVersion: networking.istio.io/v1beta1
+  kind: WorkloadEntry
+  metadata:
+    annotations:
+      istio.io/autoRegistrationGroup: mysql
+      istio.io/connectedAt: "2022-10-11T15:30:44.075627553Z"
+      istio.io/workloadController: istiod-b8fd96f55-w7lq6
+    creationTimestamp: "2022-10-11T15:30:44Z"
+    generation: 1
+    labels:
+      app: mysql
+    name: mysql-10.128.15.202-vm-network
+    namespace: test
+    ownerReferences:
+    - apiVersion: networking.istio.io/v1alpha3
+      controller: true
+      kind: WorkloadGroup
+      name: mysql
+      uid: 21df2af5-c117-4c00-83da-c255037a7337
+    resourceVersion: "11687"
+    uid: 04bbe6d1-a5da-42f9-b426-e9a74d0b4b83
+  spec:
+    address: 10.128.15.202
+    labels:
+      app: mysql
+    locality: us-central1/us-central1-c
+    network: vm-network
+    serviceAccount: mysql-vm-sa
+- apiVersion: networking.istio.io/v1beta1
+  kind: WorkloadGroup
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"networking.istio.io/v1alpha3","kind":"WorkloadGroup","metadata":{"annotations":{},"name":"mysql","namespace":"test"},"spec":{"metadata":{"labels":{"app":"mysql"}},"template":{"network":"vm-network","serviceAccount":"mysql-vm-sa"}}}
+    creationTimestamp: "2022-10-11T15:17:31Z"
+    generation: 1
+    name: mysql
+    namespace: test
+    resourceVersion: "4132"
+    uid: 21df2af5-c117-4c00-83da-c255037a7337
+  spec:
+    metadata:
+      labels:
+        app: mysql
+    template:
+      network: vm-network
+      serviceAccount: mysql-vm-sa
+kind: List
+metadata:
+  resourceVersion: ""

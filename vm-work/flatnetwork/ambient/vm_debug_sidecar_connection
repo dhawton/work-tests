@@ -1,0 +1,92 @@
+2022-10-11T15:54:41.571577Z	debug	envoy filter	original_dst: new connection accepted
+2022-10-11T15:54:41.571633Z	debug	envoy filter	tls inspector: new connection accepted
+2022-10-11T15:54:41.571686Z	debug	envoy filter	http inspector: new connection accepted
+2022-10-11T15:54:41.571746Z	debug	envoy conn_handler	[C102] new connection from 10.128.15.202:50160
+2022-10-11T15:54:41.571783Z	debug	envoy http	[C102] new stream
+2022-10-11T15:54:41.571832Z	debug	envoy http	[C102][S17899310970295516013] request headers complete (end_stream=true):
+':authority', 'helloworld.sample:5000'
+':path', '/hello'
+':method', 'GET'
+'user-agent', 'curl/7.81.0'
+'accept', '*/*'
+
+2022-10-11T15:54:41.571842Z	debug	envoy http	[C102][S17899310970295516013] request end stream
+2022-10-11T15:54:41.571859Z	debug	envoy connection	[C102] current connecting state: false
+2022-10-11T15:54:41.571940Z	debug	envoy filter	override with 3 ALPNs
+2022-10-11T15:54:41.571969Z	debug	envoy router	[C102][S17899310970295516013] cluster 'outbound|5000||helloworld.sample.svc.cluster.local' match for URL '/hello'
+2022-10-11T15:54:41.572023Z	debug	envoy router	[C102][S17899310970295516013] router decoding headers:
+':authority', 'helloworld.sample:5000'
+':path', '/hello'
+':method', 'GET'
+':scheme', 'http'
+'user-agent', 'curl/7.81.0'
+'accept', '*/*'
+'x-forwarded-proto', 'http'
+'x-request-id', '0cb55442-2f03-486f-bc0a-8a8e9e9a1e71'
+'x-envoy-decorator-operation', 'helloworld.sample.svc.cluster.local:5000/*'
+'x-envoy-peer-metadata', 'ChQKDkFQUF9DT05UQUlORVJTEgIaAAoYCgpDTFVTVEVSX0lEEgoaCGNsdXN0ZXIxCh8KDElOU1RBTkNFX0lQUxIPGg0xMC4xMjguMTUuMjAyChkKDUlTVElPX1ZFUlNJT04SCBoGMS4xNi4wCnkKBkxBQkVMUxJvKm0KDgoDYXBwEgcaBW15c3FsCioKH3NlcnZpY2UuaXN0aW8uaW8vY2Fub25pY2FsLW5hbWUSBxoFbXlzcWwKLwojc2VydmljZS5pc3Rpby5pby9jYW5vbmljYWwtcmV2aXNpb24SCBoGbGF0ZXN0ChIKB01FU0hfSUQSBxoFbWVzaDEKGwoETkFNRRITGhFkYW5pZWwtYW1iaWVudC12bQoTCglOQU1FU1BBQ0USBhoEdGVzdAraAQoRUExBVEZPUk1fTUVUQURBVEESxAEqwQEKJwoQZ2NwX2djZV9pbnN0YW5jZRITGhFkYW5pZWwtYW1iaWVudC12bQosChNnY3BfZ2NlX2luc3RhbmNlX2lkEhUaEzEyNjEwODc5MDU1MDA2NDEwMTUKHwoMZ2NwX2xvY2F0aW9uEg8aDXVzLWNlbnRyYWwxLWMKIQoLZ2NwX3Byb2plY3QSEhoQc29sby10ZXN0LTIzNjYyMgokChJnY3BfcHJvamVjdF9udW1iZXISDhoMOTY3MzU5MDA5MDI5ChgKDVdPUktMT0FEX05BTUUSBxoFbXlzcWw='
+'x-envoy-peer-metadata-id', 'sidecar~10.128.15.202~daniel-ambient-vm.test~test.svc.cluster.local'
+'x-envoy-attempt-count', '1'
+
+2022-10-11T15:54:41.572055Z	debug	envoy pool	queueing stream due to no available connections (ready=0 busy=0 connecting=0)
+2022-10-11T15:54:41.572060Z	debug	envoy pool	trying to create new connection
+2022-10-11T15:54:41.572066Z	debug	envoy pool	creating a new connection (connecting=0)
+2022-10-11T15:54:41.572119Z	debug	envoy connection	[C103] current connecting state: true
+2022-10-11T15:54:41.572125Z	debug	envoy client	[C103] connecting
+2022-10-11T15:54:41.572129Z	debug	envoy connection	[C103] connecting to 34.133.43.221:15443
+2022-10-11T15:54:41.572157Z	debug	envoy connection	[C103] connection in progress
+2022-10-11T15:54:41.574153Z	debug	envoy connection	[C103] connected
+2022-10-11T15:54:41.575070Z	debug	envoy connection	[C103] remote address:34.133.43.221:15443,TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.575086Z	debug	envoy connection	[C103] closing socket: 0
+2022-10-11T15:54:41.575091Z	debug	envoy connection	[C103] remote address:34.133.43.221:15443,TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.575106Z	debug	envoy client	[C103] disconnect. resetting 0 pending requests
+2022-10-11T15:54:41.575115Z	debug	envoy pool	[C103] client disconnected, failure reason: TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.575128Z	debug	envoy router	[C102][S17899310970295516013] upstream reset: reset reason: connection failure, transport failure reason: TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.575149Z	debug	envoy pool	invoking idle callbacks - is_draining_for_deletion_=false
+2022-10-11T15:54:41.575188Z	debug	envoy router	[C102][S17899310970295516013] performing retry
+2022-10-11T15:54:41.575219Z	debug	envoy pool	queueing stream due to no available connections (ready=0 busy=0 connecting=0)
+2022-10-11T15:54:41.575223Z	debug	envoy pool	trying to create new connection
+2022-10-11T15:54:41.575227Z	debug	envoy pool	creating a new connection (connecting=0)
+2022-10-11T15:54:41.575262Z	debug	envoy connection	[C104] current connecting state: true
+2022-10-11T15:54:41.575268Z	debug	envoy client	[C104] connecting
+2022-10-11T15:54:41.575271Z	debug	envoy connection	[C104] connecting to 34.133.43.221:15443
+2022-10-11T15:54:41.575298Z	debug	envoy connection	[C104] connection in progress
+2022-10-11T15:54:41.575739Z	debug	envoy connection	[C104] connected
+2022-10-11T15:54:41.576418Z	debug	envoy connection	[C104] remote address:34.133.43.221:15443,TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.576432Z	debug	envoy connection	[C104] closing socket: 0
+2022-10-11T15:54:41.576439Z	debug	envoy connection	[C104] remote address:34.133.43.221:15443,TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.576458Z	debug	envoy client	[C104] disconnect. resetting 0 pending requests
+2022-10-11T15:54:41.576465Z	debug	envoy pool	[C104] client disconnected, failure reason: TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.576473Z	debug	envoy router	[C102][S17899310970295516013] upstream reset: reset reason: connection failure, transport failure reason: TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.576487Z	debug	envoy pool	invoking idle callbacks - is_draining_for_deletion_=false
+2022-10-11T15:54:41.590637Z	debug	envoy router	[C102][S17899310970295516013] performing retry
+2022-10-11T15:54:41.590719Z	debug	envoy pool	queueing stream due to no available connections (ready=0 busy=0 connecting=0)
+2022-10-11T15:54:41.590728Z	debug	envoy pool	trying to create new connection
+2022-10-11T15:54:41.590732Z	debug	envoy pool	creating a new connection (connecting=0)
+2022-10-11T15:54:41.590799Z	debug	envoy connection	[C105] current connecting state: true
+2022-10-11T15:54:41.590805Z	debug	envoy client	[C105] connecting
+2022-10-11T15:54:41.590809Z	debug	envoy connection	[C105] connecting to 34.133.43.221:15443
+2022-10-11T15:54:41.590836Z	debug	envoy connection	[C105] connection in progress
+2022-10-11T15:54:41.591379Z	debug	envoy connection	[C105] connected
+2022-10-11T15:54:41.592163Z	debug	envoy connection	[C105] remote address:34.133.43.221:15443,TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.592181Z	debug	envoy connection	[C105] closing socket: 0
+2022-10-11T15:54:41.592186Z	debug	envoy connection	[C105] remote address:34.133.43.221:15443,TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.592201Z	debug	envoy client	[C105] disconnect. resetting 0 pending requests
+2022-10-11T15:54:41.592208Z	debug	envoy pool	[C105] client disconnected, failure reason: TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.592218Z	debug	envoy router	[C102][S17899310970295516013] upstream reset: reset reason: connection failure, transport failure reason: TLS error: 33554536:system library:OPENSSL_internal:Connection reset by peer
+2022-10-11T15:54:41.592263Z	debug	envoy http	[C102][S17899310970295516013] Sending local reply with details upstream_reset_before_response_started{connection_failure,TLS_error:_33554536:system_library:OPENSSL_internal:Connection_reset_by_peer}
+2022-10-11T15:54:41.592311Z	debug	envoy http	[C102][S17899310970295516013] encoding headers via codec (end_stream=false):
+':status', '503'
+'content-length', '218'
+'content-type', 'text/plain'
+'date', 'Tue, 11 Oct 2022 15:54:41 GMT'
+'server', 'envoy'
+
+2022-10-11T15:54:41.592461Z	debug	envoy wasm	wasm log stats_outbound stats_outbound: [extensions/stats/plugin.cc:696]::report() metricKey cache miss istio_requests_total , stat=24, recurrent=0
+2022-10-11T15:54:41.592487Z	debug	envoy wasm	wasm log stats_outbound stats_outbound: [extensions/stats/plugin.cc:696]::report() metricKey cache miss istio_response_bytes , stat=42, recurrent=0
+2022-10-11T15:54:41.594256Z	debug	envoy wasm	wasm log stats_outbound stats_outbound: [extensions/stats/plugin.cc:696]::report() metricKey cache miss istio_request_duration_milliseconds , stat=46, recurrent=0
+2022-10-11T15:54:41.595776Z	debug	envoy wasm	wasm log stats_outbound stats_outbound: [extensions/stats/plugin.cc:696]::report() metricKey cache miss istio_request_bytes , stat=50, recurrent=0
+2022-10-11T15:54:41.597313Z	debug	envoy pool	invoking idle callbacks - is_draining_for_deletion_=false
+2022-10-11T15:54:41.597540Z	debug	envoy connection	[C102] remote close
+2022-10-11T15:54:41.597552Z	debug	envoy connection	[C102] closing socket: 0
+2022-10-11T15:54:41.597584Z	debug	envoy conn_handler	[C102] adding to cleanup list

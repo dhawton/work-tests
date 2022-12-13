@@ -1,0 +1,266 @@
+Name:               gke-daniel-nonambient-default-pool-1cbe874a-clgb
+Roles:              <none>
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=n2-standard-2
+                    beta.kubernetes.io/os=linux
+                    cloud.google.com/gke-boot-disk=pd-standard
+                    cloud.google.com/gke-container-runtime=containerd
+                    cloud.google.com/gke-cpu-scaling-level=2
+                    cloud.google.com/gke-logging-variant=DEFAULT
+                    cloud.google.com/gke-max-pods-per-node=110
+                    cloud.google.com/gke-netd-ready=true
+                    cloud.google.com/gke-nodepool=default-pool
+                    cloud.google.com/gke-os-distribution=ubuntu
+                    cloud.google.com/machine-family=n2
+                    cloud.google.com/private-node=false
+                    failure-domain.beta.kubernetes.io/region=us-central1
+                    failure-domain.beta.kubernetes.io/zone=us-central1-c
+                    iam.gke.io/gke-metadata-server-enabled=true
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=gke-daniel-nonambient-default-pool-1cbe874a-clgb
+                    kubernetes.io/os=linux
+                    node.kubernetes.io/instance-type=n2-standard-2
+                    topology.gke.io/zone=us-central1-c
+                    topology.kubernetes.io/region=us-central1
+                    topology.kubernetes.io/zone=us-central1-c
+Annotations:        container.googleapis.com/instance_id: 1485594423112253241
+                    csi.volume.kubernetes.io/nodeid:
+                      {"pd.csi.storage.gke.io":"projects/solo-test-236622/zones/us-central1-c/instances/gke-daniel-nonambient-default-pool-1cbe874a-clgb"}
+                    node.alpha.kubernetes.io/ttl: 0
+                    node.gke.io/last-applied-node-labels:
+                      cloud.google.com/gke-boot-disk=pd-standard,cloud.google.com/gke-container-runtime=containerd,cloud.google.com/gke-cpu-scaling-level=2,clou...
+                    node.gke.io/last-applied-node-taints: 
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Tue, 11 Oct 2022 08:50:32 -0600
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  gke-daniel-nonambient-default-pool-1cbe874a-clgb
+  AcquireTime:     <unset>
+  RenewTime:       Tue, 11 Oct 2022 09:44:21 -0600
+Conditions:
+  Type                          Status  LastHeartbeatTime                 LastTransitionTime                Reason                          Message
+  ----                          ------  -----------------                 ------------------                ------                          -------
+  FrequentDockerRestart         False   Tue, 11 Oct 2022 09:40:43 -0600   Tue, 11 Oct 2022 08:50:34 -0600   NoFrequentDockerRestart         docker is functioning properly
+  FrequentContainerdRestart     False   Tue, 11 Oct 2022 09:40:43 -0600   Tue, 11 Oct 2022 08:50:34 -0600   NoFrequentContainerdRestart     containerd is functioning properly
+  FrequentUnregisterNetDevice   False   Tue, 11 Oct 2022 09:40:43 -0600   Tue, 11 Oct 2022 08:50:34 -0600   NoFrequentUnregisterNetDevice   node is functioning properly
+  KernelDeadlock                False   Tue, 11 Oct 2022 09:40:43 -0600   Tue, 11 Oct 2022 08:50:34 -0600   KernelHasNoDeadlock             kernel has no deadlock
+  ReadonlyFilesystem            False   Tue, 11 Oct 2022 09:40:43 -0600   Tue, 11 Oct 2022 08:50:34 -0600   FilesystemIsNotReadOnly         Filesystem is not read-only
+  CorruptDockerOverlay2         False   Tue, 11 Oct 2022 09:40:43 -0600   Tue, 11 Oct 2022 08:50:34 -0600   NoCorruptDockerOverlay2         docker overlay2 is functioning properly
+  FrequentKubeletRestart        False   Tue, 11 Oct 2022 09:40:43 -0600   Tue, 11 Oct 2022 08:50:34 -0600   NoFrequentKubeletRestart        kubelet is functioning properly
+  NetworkUnavailable            False   Tue, 11 Oct 2022 08:50:32 -0600   Tue, 11 Oct 2022 08:50:32 -0600   RouteCreated                    NodeController create implicit route
+  MemoryPressure                False   Tue, 11 Oct 2022 09:39:24 -0600   Tue, 11 Oct 2022 08:49:29 -0600   KubeletHasSufficientMemory      kubelet has sufficient memory available
+  DiskPressure                  False   Tue, 11 Oct 2022 09:39:24 -0600   Tue, 11 Oct 2022 08:49:29 -0600   KubeletHasNoDiskPressure        kubelet has no disk pressure
+  PIDPressure                   False   Tue, 11 Oct 2022 09:39:24 -0600   Tue, 11 Oct 2022 08:49:29 -0600   KubeletHasSufficientPID         kubelet has sufficient PID available
+  Ready                         True    Tue, 11 Oct 2022 09:39:24 -0600   Tue, 11 Oct 2022 08:50:52 -0600   KubeletReady                    kubelet is posting ready status. AppArmor enabled
+Addresses:
+  InternalIP:   10.128.15.196
+  ExternalIP:   34.133.179.70
+  InternalDNS:  gke-daniel-nonambient-default-pool-1cbe874a-clgb.c.solo-test-236622.internal
+  Hostname:     gke-daniel-nonambient-default-pool-1cbe874a-clgb.c.solo-test-236622.internal
+Capacity:
+  attachable-volumes-gce-pd:  127
+  cpu:                        2
+  ephemeral-storage:          101445540Ki
+  hugepages-1Gi:              0
+  hugepages-2Mi:              0
+  memory:                     8139240Ki
+  pods:                       110
+Allocatable:
+  attachable-volumes-gce-pd:  127
+  cpu:                        1930m
+  ephemeral-storage:          49468794726
+  hugepages-1Gi:              0
+  hugepages-2Mi:              0
+  memory:                     6174184Ki
+  pods:                       110
+System Info:
+  Machine ID:                 40d54c15774e6bf9da4c052df5085cb5
+  System UUID:                40d54c15-774e-6bf9-da4c-052df5085cb5
+  Boot ID:                    4aa174e3-b16e-4e68-b593-62b354356572
+  Kernel Version:             5.15.0-1010-gke
+  OS Image:                   Ubuntu 22.04 LTS
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  containerd://1.6.6
+  Kubelet Version:            v1.24.2-gke.1900
+  Kube-Proxy Version:         v1.24.2-gke.1900
+PodCIDR:                      10.48.0.0/24
+PodCIDRs:                     10.48.0.0/24
+ProviderID:                   gce://solo-test-236622/us-central1-c/gke-daniel-nonambient-default-pool-1cbe874a-clgb
+Non-terminated Pods:          (13 in total)
+  Namespace                   Name                                                           CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                                                           ------------  ----------  ---------------  -------------  ---
+  istio-system                istio-eastwestgateway-76f8655d4b-zj8dq                         100m (5%)     2 (103%)    128Mi (2%)       1Gi (16%)      48m
+  istio-system                istio-ingressgateway-78657896c5-nl846                          100m (5%)     2 (103%)    128Mi (2%)       1Gi (16%)      48m
+  kube-system                 event-exporter-gke-857959888b-qtlpp                            0 (0%)        0 (0%)      0 (0%)           0 (0%)         54m
+  kube-system                 fluentbit-gke-bnrm7                                            100m (5%)     0 (0%)      200Mi (3%)       500Mi (8%)     53m
+  kube-system                 gke-metadata-server-zxd6x                                      100m (5%)     100m (5%)   100Mi (1%)       100Mi (1%)     53m
+  kube-system                 gke-metrics-agent-cxpf4                                        8m (0%)       0 (0%)      110Mi (1%)       110Mi (1%)     53m
+  kube-system                 konnectivity-agent-54d56d8d98-46f5r                            10m (0%)      0 (0%)      30Mi (0%)        125Mi (2%)     53m
+  kube-system                 kube-dns-74bbfc7776-x2992                                      260m (13%)    0 (0%)      110Mi (1%)       210Mi (3%)     53m
+  kube-system                 kube-proxy-gke-daniel-nonambient-default-pool-1cbe874a-clgb    100m (5%)     0 (0%)      0 (0%)           0 (0%)         53m
+  kube-system                 l7-default-backend-6dc845c45d-zmmbn                            10m (0%)      0 (0%)      20Mi (0%)        0 (0%)         54m
+  kube-system                 netd-m4sz4                                                     0 (0%)        0 (0%)      0 (0%)           0 (0%)         53m
+  kube-system                 pdcsi-node-wk8hl                                               10m (0%)      0 (0%)      20Mi (0%)        100Mi (1%)     53m
+  sample                      helloworld-v1-77cb56d4b4-dfttf                                 200m (10%)    2 (103%)    128Mi (2%)       1Gi (16%)      47m
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource                   Requests     Limits
+  --------                   --------     ------
+  cpu                        998m (51%)   6100m (316%)
+  memory                     974Mi (16%)  4217Mi (69%)
+  ephemeral-storage          0 (0%)       0 (0%)
+  hugepages-1Gi              0 (0%)       0 (0%)
+  hugepages-2Mi              0 (0%)       0 (0%)
+  attachable-volumes-gce-pd  0            0
+Events:
+  Type     Reason                                  Age                From                               Message
+  ----     ------                                  ----               ----                               -------
+  Normal   Starting                                53m                kube-proxy                         
+  Normal   Starting                                56m                kubelet                            Starting kubelet.
+  Warning  InvalidDiskCapacity                     56m                kubelet                            invalid capacity 0 on image filesystem
+  Normal   NodeAllocatableEnforced                 56m                kubelet                            Updated Node Allocatable limit across pods
+  Normal   NodeHasNoDiskPressure                   55m (x7 over 56m)  kubelet                            Node gke-daniel-nonambient-default-pool-1cbe874a-clgb status is now: NodeHasNoDiskPressure
+  Normal   NodeHasSufficientPID                    55m (x7 over 56m)  kubelet                            Node gke-daniel-nonambient-default-pool-1cbe874a-clgb status is now: NodeHasSufficientPID
+  Normal   NodeHasSufficientMemory                 54m (x8 over 56m)  kubelet                            Node gke-daniel-nonambient-default-pool-1cbe874a-clgb status is now: NodeHasSufficientMemory
+  Normal   RegisteredNode                          53m                node-controller                    Node gke-daniel-nonambient-default-pool-1cbe874a-clgb event: Registered Node gke-daniel-nonambient-default-pool-1cbe874a-clgb in Controller
+  Warning  NodeRegistrationCheckerStart            53m                node-registration-checker-monitor  Tue Oct 11 14:48:04 UTC 2022 - ** Starting Node Registration Checker **
+  Warning  ContainerdStart                         53m (x2 over 53m)  systemd-monitor                    Starting containerd container runtime...
+  Warning  DockerStart                             53m (x2 over 53m)  systemd-monitor                    Starting Docker Application Container Engine...
+  Warning  KubeletStart                            53m                systemd-monitor                    Started Kubernetes kubelet.
+  Warning  NodeRegistrationCheckerDidNotRunChecks  49m                node-registration-checker-monitor  Tue Oct 11 14:55:04 UTC 2022 - **     Node ready and registered. **
+
+
+Name:               gke-daniel-nonambient-default-pool-1cbe874a-h5nv
+Roles:              <none>
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/instance-type=n2-standard-2
+                    beta.kubernetes.io/os=linux
+                    cloud.google.com/gke-boot-disk=pd-standard
+                    cloud.google.com/gke-container-runtime=containerd
+                    cloud.google.com/gke-cpu-scaling-level=2
+                    cloud.google.com/gke-logging-variant=DEFAULT
+                    cloud.google.com/gke-max-pods-per-node=110
+                    cloud.google.com/gke-netd-ready=true
+                    cloud.google.com/gke-nodepool=default-pool
+                    cloud.google.com/gke-os-distribution=ubuntu
+                    cloud.google.com/machine-family=n2
+                    cloud.google.com/private-node=false
+                    failure-domain.beta.kubernetes.io/region=us-central1
+                    failure-domain.beta.kubernetes.io/zone=us-central1-c
+                    iam.gke.io/gke-metadata-server-enabled=true
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=gke-daniel-nonambient-default-pool-1cbe874a-h5nv
+                    kubernetes.io/os=linux
+                    node.kubernetes.io/instance-type=n2-standard-2
+                    topology.gke.io/zone=us-central1-c
+                    topology.kubernetes.io/region=us-central1
+                    topology.kubernetes.io/zone=us-central1-c
+Annotations:        container.googleapis.com/instance_id: 4062346823848181561
+                    csi.volume.kubernetes.io/nodeid:
+                      {"pd.csi.storage.gke.io":"projects/solo-test-236622/zones/us-central1-c/instances/gke-daniel-nonambient-default-pool-1cbe874a-h5nv"}
+                    node.alpha.kubernetes.io/ttl: 0
+                    node.gke.io/last-applied-node-labels:
+                      cloud.google.com/gke-boot-disk=pd-standard,cloud.google.com/gke-container-runtime=containerd,cloud.google.com/gke-cpu-scaling-level=2,clou...
+                    node.gke.io/last-applied-node-taints: 
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Tue, 11 Oct 2022 08:50:32 -0600
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  gke-daniel-nonambient-default-pool-1cbe874a-h5nv
+  AcquireTime:     <unset>
+  RenewTime:       Tue, 11 Oct 2022 09:44:21 -0600
+Conditions:
+  Type                          Status  LastHeartbeatTime                 LastTransitionTime                Reason                          Message
+  ----                          ------  -----------------                 ------------------                ------                          -------
+  FrequentUnregisterNetDevice   False   Tue, 11 Oct 2022 09:40:39 -0600   Tue, 11 Oct 2022 08:50:32 -0600   NoFrequentUnregisterNetDevice   node is functioning properly
+  FrequentKubeletRestart        False   Tue, 11 Oct 2022 09:40:39 -0600   Tue, 11 Oct 2022 08:50:32 -0600   NoFrequentKubeletRestart        kubelet is functioning properly
+  FrequentDockerRestart         False   Tue, 11 Oct 2022 09:40:39 -0600   Tue, 11 Oct 2022 08:50:32 -0600   NoFrequentDockerRestart         docker is functioning properly
+  FrequentContainerdRestart     False   Tue, 11 Oct 2022 09:40:39 -0600   Tue, 11 Oct 2022 08:50:32 -0600   NoFrequentContainerdRestart     containerd is functioning properly
+  KernelDeadlock                False   Tue, 11 Oct 2022 09:40:39 -0600   Tue, 11 Oct 2022 08:50:32 -0600   KernelHasNoDeadlock             kernel has no deadlock
+  ReadonlyFilesystem            False   Tue, 11 Oct 2022 09:40:39 -0600   Tue, 11 Oct 2022 08:50:32 -0600   FilesystemIsNotReadOnly         Filesystem is not read-only
+  CorruptDockerOverlay2         False   Tue, 11 Oct 2022 09:40:39 -0600   Tue, 11 Oct 2022 08:50:32 -0600   NoCorruptDockerOverlay2         docker overlay2 is functioning properly
+  NetworkUnavailable            False   Tue, 11 Oct 2022 08:50:33 -0600   Tue, 11 Oct 2022 08:50:33 -0600   RouteCreated                    NodeController create implicit route
+  MemoryPressure                False   Tue, 11 Oct 2022 09:39:20 -0600   Tue, 11 Oct 2022 08:48:02 -0600   KubeletHasSufficientMemory      kubelet has sufficient memory available
+  DiskPressure                  False   Tue, 11 Oct 2022 09:39:20 -0600   Tue, 11 Oct 2022 08:48:02 -0600   KubeletHasNoDiskPressure        kubelet has no disk pressure
+  PIDPressure                   False   Tue, 11 Oct 2022 09:39:20 -0600   Tue, 11 Oct 2022 08:48:02 -0600   KubeletHasSufficientPID         kubelet has sufficient PID available
+  Ready                         True    Tue, 11 Oct 2022 09:39:20 -0600   Tue, 11 Oct 2022 08:50:52 -0600   KubeletReady                    kubelet is posting ready status. AppArmor enabled
+Addresses:
+  InternalIP:   10.128.15.197
+  ExternalIP:   35.239.53.60
+  InternalDNS:  gke-daniel-nonambient-default-pool-1cbe874a-h5nv.c.solo-test-236622.internal
+  Hostname:     gke-daniel-nonambient-default-pool-1cbe874a-h5nv.c.solo-test-236622.internal
+Capacity:
+  attachable-volumes-gce-pd:  127
+  cpu:                        2
+  ephemeral-storage:          101445540Ki
+  hugepages-1Gi:              0
+  hugepages-2Mi:              0
+  memory:                     8139232Ki
+  pods:                       110
+Allocatable:
+  attachable-volumes-gce-pd:  127
+  cpu:                        1930m
+  ephemeral-storage:          49468794726
+  hugepages-1Gi:              0
+  hugepages-2Mi:              0
+  memory:                     6174176Ki
+  pods:                       110
+System Info:
+  Machine ID:                 aa056e2fc51fa202a46f875213ec319d
+  System UUID:                aa056e2f-c51f-a202-a46f-875213ec319d
+  Boot ID:                    d314f24e-dde5-44fe-b6d4-b7a596b11c33
+  Kernel Version:             5.15.0-1010-gke
+  OS Image:                   Ubuntu 22.04 LTS
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  containerd://1.6.6
+  Kubelet Version:            v1.24.2-gke.1900
+  Kube-Proxy Version:         v1.24.2-gke.1900
+PodCIDR:                      10.48.1.0/24
+PodCIDRs:                     10.48.1.0/24
+ProviderID:                   gce://solo-test-236622/us-central1-c/gke-daniel-nonambient-default-pool-1cbe874a-h5nv
+Non-terminated Pods:          (13 in total)
+  Namespace                   Name                                                           CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                                                           ------------  ----------  ---------------  -------------  ---
+  istio-system                istiod-696647845f-lwwhg                                        500m (25%)    0 (0%)      2Gi (33%)        0 (0%)         48m
+  kube-system                 fluentbit-gke-7vxbk                                            100m (5%)     0 (0%)      200Mi (3%)       500Mi (8%)     53m
+  kube-system                 gke-metadata-server-vtzg7                                      100m (5%)     100m (5%)   100Mi (1%)       100Mi (1%)     53m
+  kube-system                 gke-metrics-agent-vnk49                                        8m (0%)       0 (0%)      110Mi (1%)       110Mi (1%)     53m
+  kube-system                 konnectivity-agent-54d56d8d98-v4bps                            10m (0%)      0 (0%)      30Mi (0%)        125Mi (2%)     54m
+  kube-system                 konnectivity-agent-autoscaler-7b4cb89b88-2fnbj                 10m (0%)      0 (0%)      10M (0%)         0 (0%)         54m
+  kube-system                 kube-dns-74bbfc7776-xsvj8                                      260m (13%)    0 (0%)      110Mi (1%)       210Mi (3%)     54m
+  kube-system                 kube-dns-autoscaler-9f89698b6-dtlxc                            20m (1%)      0 (0%)      10Mi (0%)        0 (0%)         54m
+  kube-system                 kube-proxy-gke-daniel-nonambient-default-pool-1cbe874a-h5nv    100m (5%)     0 (0%)      0 (0%)           0 (0%)         52m
+  kube-system                 metrics-server-v0.5.2-8d7dd9cb8-7dt7x                          48m (2%)      43m (2%)    105Mi (1%)       355Mi (5%)     53m
+  kube-system                 netd-zntk5                                                     0 (0%)        0 (0%)      0 (0%)           0 (0%)         53m
+  kube-system                 pdcsi-node-mfx4b                                               10m (0%)      0 (0%)      20Mi (0%)        100Mi (1%)     53m
+  sample                      helloworld-v2-79bf565586-jfd78                                 200m (10%)    2 (103%)    128Mi (2%)       1Gi (16%)      47m
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource                   Requests          Limits
+  --------                   --------          ------
+  cpu                        1366m (70%)       2143m (111%)
+  memory                     3009975936 (47%)  2524Mi (41%)
+  ephemeral-storage          0 (0%)            0 (0%)
+  hugepages-1Gi              0 (0%)            0 (0%)
+  hugepages-2Mi              0 (0%)            0 (0%)
+  attachable-volumes-gce-pd  0                 0
+Events:
+  Type     Reason                                  Age                From                               Message
+  ----     ------                                  ----               ----                               -------
+  Normal   Starting                                53m                kube-proxy                         
+  Normal   Starting                                56m                kubelet                            Starting kubelet.
+  Warning  InvalidDiskCapacity                     56m                kubelet                            invalid capacity 0 on image filesystem
+  Normal   NodeAllocatableEnforced                 56m                kubelet                            Updated Node Allocatable limit across pods
+  Normal   NodeHasNoDiskPressure                   54m (x7 over 56m)  kubelet                            Node gke-daniel-nonambient-default-pool-1cbe874a-h5nv status is now: NodeHasNoDiskPressure
+  Normal   NodeHasSufficientPID                    54m (x7 over 56m)  kubelet                            Node gke-daniel-nonambient-default-pool-1cbe874a-h5nv status is now: NodeHasSufficientPID
+  Normal   NodeHasSufficientMemory                 53m (x8 over 56m)  kubelet                            Node gke-daniel-nonambient-default-pool-1cbe874a-h5nv status is now: NodeHasSufficientMemory
+  Warning  NodeRegistrationCheckerStart            53m                node-registration-checker-monitor  Tue Oct 11 14:48:02 UTC 2022 - ** Starting Node Registration Checker **
+  Normal   RegisteredNode                          53m                node-controller                    Node gke-daniel-nonambient-default-pool-1cbe874a-h5nv event: Registered Node gke-daniel-nonambient-default-pool-1cbe874a-h5nv in Controller
+  Warning  ContainerdStart                         53m (x2 over 53m)  systemd-monitor                    Starting containerd container runtime...
+  Warning  DockerStart                             53m (x2 over 53m)  systemd-monitor                    Starting Docker Application Container Engine...
+  Warning  KubeletStart                            53m                systemd-monitor                    Started Kubernetes kubelet.
+  Warning  NodeRegistrationCheckerDidNotRunChecks  49m                node-registration-checker-monitor  Tue Oct 11 14:55:02 UTC 2022 - **     Node ready and registered. **

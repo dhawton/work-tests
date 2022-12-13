@@ -1,0 +1,88 @@
+2022-10-11T15:59:07.781300Z	debug	envoy filter	tls inspector: new connection accepted
+2022-10-11T15:59:07.781419Z	debug	envoy filter	tls:onServerName(), requestedServerName: outbound_.5000_._.helloworld.sample.svc.cluster.local
+2022-10-11T15:59:07.781485Z	debug	envoy filter	[C1331] new tcp proxy session
+2022-10-11T15:59:07.781514Z	debug	envoy filter	[C1331] Creating connection to cluster outbound_.5000_._.helloworld.sample.svc.cluster.local
+2022-10-11T15:59:07.781553Z	debug	envoy misc	Allocating TCP conn pool
+2022-10-11T15:59:07.781571Z	debug	envoy pool	trying to create new connection
+2022-10-11T15:59:07.781581Z	debug	envoy pool	creating a new connection (connecting=0)
+2022-10-11T15:59:07.781630Z	debug	envoy filter	[C1333] new tcp proxy session
+2022-10-11T15:59:07.781639Z	debug	envoy filter	[C1333] Creating connection to cluster tunnel
+2022-10-11T15:59:07.781668Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:59:07.781675Z	debug	envoy upstream	no healthy host for HTTP connection pool
+2022-10-11T15:59:07.781679Z	debug	envoy connection	[C1333] closing data_to_write=0 type=1
+2022-10-11T15:59:07.781682Z	debug	envoy connection	[C1333] closing socket: 1
+2022-10-11T15:59:07.781707Z	debug	envoy connection	[C1332] connecting to envoy://tunnel/10.72.0.10:5000
+2022-10-11T15:59:07.781719Z	debug	envoy io	user namespace handle 0x55a017b49000 connect to previously closed peer envoy://tunnel/10.72.0.10:5000.
+2022-10-11T15:59:07.781730Z	debug	envoy connection	[C1332] immediate connect error: Invalid argument
+2022-10-11T15:59:07.781742Z	debug	envoy conn_handler	[C1331] new connection from 10.72.0.1:60548
+2022-10-11T15:59:07.781755Z	debug	envoy connection	[C1332] raising immediate error
+2022-10-11T15:59:07.781757Z	debug	envoy connection	[C1332] closing socket: 0
+2022-10-11T15:59:07.781762Z	debug	envoy pool	[C1332] client disconnected, failure reason: immediate connect error: Invalid argument
+2022-10-11T15:59:07.782109Z	debug	envoy filter	[C1331] Creating connection to cluster outbound_.5000_._.helloworld.sample.svc.cluster.local
+2022-10-11T15:59:07.782198Z	debug	envoy connection	[C1331] closing data_to_write=0 type=1
+2022-10-11T15:59:07.782290Z	debug	envoy connection	[C1331] closing socket: 1
+2022-10-11T15:59:07.783675Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=44
+2022-10-11T15:59:07.783694Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=48
+2022-10-11T15:59:07.783697Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=52
+2022-10-11T15:59:07.783700Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=56
+2022-10-11T15:59:07.783707Z	debug	envoy conn_handler	[C1331] adding to cleanup list
+2022-10-11T15:59:07.783724Z	debug	envoy pool	invoking idle callbacks - is_draining_for_deletion_=false
+2022-10-11T15:59:07.801335Z	debug	envoy filter	tls inspector: new connection accepted
+2022-10-11T15:59:07.801431Z	debug	envoy filter	tls:onServerName(), requestedServerName: outbound_.5000_._.helloworld.sample.svc.cluster.local
+2022-10-11T15:59:07.801514Z	debug	envoy filter	[C1334] new tcp proxy session
+2022-10-11T15:59:07.801922Z	debug	envoy filter	[C1334] Creating connection to cluster outbound_.5000_._.helloworld.sample.svc.cluster.local
+2022-10-11T15:59:07.802007Z	debug	envoy misc	Allocating TCP conn pool
+2022-10-11T15:59:07.802171Z	debug	envoy pool	trying to create new connection
+2022-10-11T15:59:07.802200Z	debug	envoy pool	creating a new connection (connecting=0)
+2022-10-11T15:59:07.802290Z	debug	envoy filter	[C1336] new tcp proxy session
+2022-10-11T15:59:07.802461Z	debug	envoy filter	[C1336] Creating connection to cluster tunnel
+2022-10-11T15:59:07.802502Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:59:07.802623Z	debug	envoy upstream	no healthy host for HTTP connection pool
+2022-10-11T15:59:07.802655Z	debug	envoy connection	[C1336] closing data_to_write=0 type=1
+2022-10-11T15:59:07.802702Z	debug	envoy connection	[C1336] closing socket: 1
+2022-10-11T15:59:07.802753Z	debug	envoy connection	[C1335] connecting to envoy://tunnel/10.72.0.10:5000
+2022-10-11T15:59:07.802881Z	debug	envoy io	user namespace handle 0x55a017b48800 connect to previously closed peer envoy://tunnel/10.72.0.10:5000.
+2022-10-11T15:59:07.802910Z	debug	envoy connection	[C1335] immediate connect error: Invalid argument
+2022-10-11T15:59:07.802937Z	debug	envoy conn_handler	[C1334] new connection from 10.128.15.201:25243
+2022-10-11T15:59:07.802982Z	debug	envoy connection	[C1335] raising immediate error
+2022-10-11T15:59:07.803088Z	debug	envoy connection	[C1335] closing socket: 0
+2022-10-11T15:59:07.803116Z	debug	envoy pool	[C1335] client disconnected, failure reason: immediate connect error: Invalid argument
+2022-10-11T15:59:07.803155Z	debug	envoy filter	[C1334] Creating connection to cluster outbound_.5000_._.helloworld.sample.svc.cluster.local
+2022-10-11T15:59:07.803238Z	debug	envoy connection	[C1334] closing data_to_write=0 type=1
+2022-10-11T15:59:07.803261Z	debug	envoy connection	[C1334] closing socket: 1
+2022-10-11T15:59:07.803717Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=44
+2022-10-11T15:59:07.803866Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=48
+2022-10-11T15:59:07.803895Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=52
+2022-10-11T15:59:07.803911Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=56
+2022-10-11T15:59:07.803946Z	debug	envoy conn_handler	[C1334] adding to cleanup list
+2022-10-11T15:59:07.803973Z	debug	envoy pool	invoking idle callbacks - is_draining_for_deletion_=false
+2022-10-11T15:59:07.824650Z	debug	envoy filter	tls inspector: new connection accepted
+2022-10-11T15:59:07.825690Z	debug	envoy filter	tls:onServerName(), requestedServerName: outbound_.5000_._.helloworld.sample.svc.cluster.local
+2022-10-11T15:59:07.825763Z	debug	envoy filter	[C1337] new tcp proxy session
+2022-10-11T15:59:07.825787Z	debug	envoy filter	[C1337] Creating connection to cluster outbound_.5000_._.helloworld.sample.svc.cluster.local
+2022-10-11T15:59:07.825817Z	debug	envoy misc	Allocating TCP conn pool
+2022-10-11T15:59:07.825829Z	debug	envoy pool	trying to create new connection
+2022-10-11T15:59:07.825834Z	debug	envoy pool	creating a new connection (connecting=0)
+2022-10-11T15:59:07.825874Z	debug	envoy filter	[C1339] new tcp proxy session
+2022-10-11T15:59:07.825881Z	debug	envoy filter	[C1339] Creating connection to cluster tunnel
+2022-10-11T15:59:07.825888Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:59:07.825891Z	debug	envoy upstream	no healthy host for HTTP connection pool
+2022-10-11T15:59:07.825896Z	debug	envoy connection	[C1339] closing data_to_write=0 type=1
+2022-10-11T15:59:07.825900Z	debug	envoy connection	[C1339] closing socket: 1
+2022-10-11T15:59:07.825918Z	debug	envoy connection	[C1338] connecting to envoy://tunnel/10.72.0.11:5000
+2022-10-11T15:59:07.825923Z	debug	envoy io	user namespace handle 0x55a017b49000 connect to previously closed peer envoy://tunnel/10.72.0.11:5000.
+2022-10-11T15:59:07.825931Z	debug	envoy connection	[C1338] immediate connect error: Invalid argument
+2022-10-11T15:59:07.825941Z	debug	envoy conn_handler	[C1337] new connection from 10.128.15.201:31521
+2022-10-11T15:59:07.825955Z	debug	envoy connection	[C1338] raising immediate error
+2022-10-11T15:59:07.825957Z	debug	envoy connection	[C1338] closing socket: 0
+2022-10-11T15:59:07.825962Z	debug	envoy pool	[C1338] client disconnected, failure reason: immediate connect error: Invalid argument
+2022-10-11T15:59:07.825968Z	debug	envoy filter	[C1337] Creating connection to cluster outbound_.5000_._.helloworld.sample.svc.cluster.local
+2022-10-11T15:59:07.825972Z	debug	envoy connection	[C1337] closing data_to_write=0 type=1
+2022-10-11T15:59:07.825975Z	debug	envoy connection	[C1337] closing socket: 1
+2022-10-11T15:59:07.826767Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=28
+2022-10-11T15:59:07.826780Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=32
+2022-10-11T15:59:07.826783Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=36
+2022-10-11T15:59:07.826786Z	debug	envoy wasm	wasm log stats_outbound tcp_stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=40
+2022-10-11T15:59:07.826792Z	debug	envoy conn_handler	[C1337] adding to cleanup list
+2022-10-11T15:59:07.826805Z	debug	envoy pool	invoking idle callbacks - is_draining_for_deletion_=false
+2022-10-11T15:59:08.232019Z	debug	envoy main	flushing stats

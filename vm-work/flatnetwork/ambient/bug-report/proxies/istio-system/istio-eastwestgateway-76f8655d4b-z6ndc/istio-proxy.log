@@ -1,0 +1,90 @@
+2022-10-11T15:17:27.653946Z	info	FLAG: --concurrency="0"
+2022-10-11T15:17:27.653984Z	info	FLAG: --domain="istio-system.svc.cluster.local"
+2022-10-11T15:17:27.653992Z	info	FLAG: --help="false"
+2022-10-11T15:17:27.653996Z	info	FLAG: --log_as_json="false"
+2022-10-11T15:17:27.653999Z	info	FLAG: --log_caller=""
+2022-10-11T15:17:27.654002Z	info	FLAG: --log_output_level="default:info"
+2022-10-11T15:17:27.654005Z	info	FLAG: --log_rotate=""
+2022-10-11T15:17:27.654009Z	info	FLAG: --log_rotate_max_age="30"
+2022-10-11T15:17:27.654013Z	info	FLAG: --log_rotate_max_backups="1000"
+2022-10-11T15:17:27.654024Z	info	FLAG: --log_rotate_max_size="104857600"
+2022-10-11T15:17:27.654028Z	info	FLAG: --log_stacktrace_level="default:none"
+2022-10-11T15:17:27.654037Z	info	FLAG: --log_target="[stdout]"
+2022-10-11T15:17:27.654041Z	info	FLAG: --meshConfig="./etc/istio/config/mesh"
+2022-10-11T15:17:27.654045Z	info	FLAG: --outlierLogPath=""
+2022-10-11T15:17:27.654048Z	info	FLAG: --proxyComponentLogLevel="misc:error"
+2022-10-11T15:17:27.654058Z	info	FLAG: --proxyLogLevel="warning"
+2022-10-11T15:17:27.654069Z	info	FLAG: --serviceCluster="istio-proxy"
+2022-10-11T15:17:27.654073Z	info	FLAG: --stsPort="0"
+2022-10-11T15:17:27.654076Z	info	FLAG: --templateFile=""
+2022-10-11T15:17:27.654080Z	info	FLAG: --tokenManagerPlugin="GoogleTokenExchange"
+2022-10-11T15:17:27.654085Z	info	FLAG: --vklog="0"
+2022-10-11T15:17:27.654089Z	info	Version 1.16-dev-c316bcfa85b05391c196f004a15d1ccdc3b80697-dirty-Clean
+2022-10-11T15:17:27.654145Z	info	running as uid=1337 gid=1337
+2022-10-11T15:17:27.656330Z	info	Maximum file descriptors (ulimit -n): 1048576
+2022-10-11T15:17:27.656595Z	info	Proxy role	ips=[10.72.0.9] type=router id=istio-eastwestgateway-76f8655d4b-z6ndc.istio-system domain=istio-system.svc.cluster.local
+2022-10-11T15:17:27.656728Z	info	Apply proxy config from env {"proxyMetadata":{"ISTIO_META_ENABLE_HBONE":"true"},"meshId":"mesh1"}
+
+2022-10-11T15:17:27.660211Z	info	Effective config: binaryPath: /usr/local/bin/envoy
+configPath: ./etc/istio/proxy
+controlPlaneAuthPolicy: MUTUAL_TLS
+discoveryAddress: istiod.istio-system.svc:15012
+drainDuration: 45s
+meshId: mesh1
+parentShutdownDuration: 60s
+proxyAdminPort: 15000
+proxyMetadata:
+  ISTIO_META_ENABLE_HBONE: "true"
+serviceCluster: istio-proxy
+statNameLength: 189
+statusPort: 15020
+terminationDrainDuration: 5s
+tracing:
+  zipkin:
+    address: zipkin.istio-system:9411
+
+2022-10-11T15:17:27.660236Z	info	JWT policy is third-party-jwt
+2022-10-11T15:17:27.660241Z	info	using credential fetcher of JWT type in cluster.local trust domain
+2022-10-11T15:17:27.671597Z	info	platform detected is GCP
+2022-10-11T15:17:27.671927Z	info	Workload SDS socket not found. Starting Istio SDS Server
+2022-10-11T15:17:27.672027Z	info	CA Endpoint istiod.istio-system.svc:15012, provider Citadel
+2022-10-11T15:17:27.672118Z	info	Using CA istiod.istio-system.svc:15012 cert with certs: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:17:27.672260Z	info	citadelclient	Citadel client using custom root cert: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:17:27.672263Z	info	Opening status port 15020
+2022-10-11T15:17:27.685413Z	info	ads	All caches have been synced up in 52.077455ms, marking server ready
+2022-10-11T15:17:27.685839Z	info	xdsproxy	Initializing with upstream address "istiod.istio-system.svc:15012" and cluster "cluster1"
+2022-10-11T15:17:27.691380Z	info	sds	Starting SDS grpc server
+2022-10-11T15:17:27.691662Z	info	starting Http service at 127.0.0.1:15004
+2022-10-11T15:17:27.724492Z	warn	Error fetching GCP Metadata property gcp_gce_instance_created_by: metadata: GCE metadata "instance/attributes/created-by" not defined
+2022-10-11T15:17:27.725279Z	warn	Error fetching GCP Metadata property gcp_gce_instance_template: metadata: GCE metadata "instance/attributes/instance-template" not defined
+2022-10-11T15:17:27.727439Z	warn	Error fetching GCP Metadata property gcp_gce_instance: metadata: GCE metadata "instance/name" not defined
+2022-10-11T15:17:27.746305Z	info	Pilot SAN: [istiod.istio-system.svc]
+2022-10-11T15:17:27.748870Z	info	Starting proxy agent
+2022-10-11T15:17:27.749037Z	info	starting
+2022-10-11T15:17:27.749131Z	info	Envoy command: [-c etc/istio/proxy/envoy-rev.json --drain-time-s 45 --drain-strategy immediate --parent-shutdown-time-s 60 --local-address-ip-version v4 --file-flush-interval-msec 1000 --disable-hot-restart --log-format %Y-%m-%dT%T.%fZ	%l	envoy %n	%v -l warning --component-log-level misc:error]
+2022-10-11T15:17:27.771864Z	info	cache	generated new workload certificate	latency=85.121762ms ttl=23h59m59.228149391s resource=default
+2022-10-11T15:17:27.772099Z	info	cache	Root cert has changed, start rotating root cert
+2022-10-11T15:17:27.772190Z	info	ads	XDS: Incremental Pushing:0 ConnectedEndpoints:0 Version:
+2022-10-11T15:17:27.772309Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.22769554s
+2022-10-11T15:17:27.830754Z	info	xdsproxy	connected to upstream XDS server: istiod.istio-system.svc:15012
+2022-10-11T15:17:27.861956Z	info	ads	ADS: new connection for node:istio-eastwestgateway-76f8655d4b-z6ndc.istio-system-1
+2022-10-11T15:17:27.862149Z	info	cache	returned workload certificate from cache	ttl=23h59m59.13785781s
+2022-10-11T15:17:27.862630Z	info	ads	SDS: PUSH request for node:istio-eastwestgateway-76f8655d4b-z6ndc.istio-system resources:1 size:4.0kB resource:default
+2022-10-11T15:17:27.903172Z	info	ads	ADS: new connection for node:istio-eastwestgateway-76f8655d4b-z6ndc.istio-system-2
+2022-10-11T15:17:27.903425Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.096583693s
+2022-10-11T15:17:27.903646Z	info	ads	SDS: PUSH request for node:istio-eastwestgateway-76f8655d4b-z6ndc.istio-system resources:1 size:1.1kB resource:ROOTCA
+2022-10-11T15:17:28.702362Z	info	Readiness succeeded in 1.07650829s
+2022-10-11T15:17:28.703232Z	info	Envoy proxy is ready
+2022-10-11T15:21:10.367553Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:21:10.373224Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:21:10.410209Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:21:14.883946Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:21:14.909752Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:21:14.919203Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:23:47.764016Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:23:47.777514Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:23:47.789135Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:40:57.066346Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:40:57.089212Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+2022-10-11T15:40:57.100529Z	warning	envoy upstream	original_dst_load_balancer: No downstream connection or no original_dst.
+

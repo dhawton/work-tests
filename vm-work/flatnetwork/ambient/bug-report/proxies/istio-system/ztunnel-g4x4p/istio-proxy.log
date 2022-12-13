@@ -1,0 +1,100 @@
+2022-10-11T15:17:09.233852Z	info	FLAG: --concurrency="0"
+2022-10-11T15:17:09.233883Z	info	FLAG: --domain=""
+2022-10-11T15:17:09.233888Z	info	FLAG: --help="false"
+2022-10-11T15:17:09.233890Z	info	FLAG: --log_as_json="false"
+2022-10-11T15:17:09.233893Z	info	FLAG: --log_caller=""
+2022-10-11T15:17:09.233896Z	info	FLAG: --log_output_level="default:info"
+2022-10-11T15:17:09.233899Z	info	FLAG: --log_rotate=""
+2022-10-11T15:17:09.233902Z	info	FLAG: --log_rotate_max_age="30"
+2022-10-11T15:17:09.233904Z	info	FLAG: --log_rotate_max_backups="1000"
+2022-10-11T15:17:09.233907Z	info	FLAG: --log_rotate_max_size="104857600"
+2022-10-11T15:17:09.233910Z	info	FLAG: --log_stacktrace_level="default:none"
+2022-10-11T15:17:09.233918Z	info	FLAG: --log_target="[stdout]"
+2022-10-11T15:17:09.233922Z	info	FLAG: --meshConfig="./etc/istio/config/mesh"
+2022-10-11T15:17:09.233924Z	info	FLAG: --outlierLogPath=""
+2022-10-11T15:17:09.233927Z	info	FLAG: --proxyComponentLogLevel=""
+2022-10-11T15:17:09.233930Z	info	FLAG: --proxyLogLevel="warning,misc:error"
+2022-10-11T15:17:09.233933Z	info	FLAG: --serviceCluster="istio-proxy"
+2022-10-11T15:17:09.234079Z	info	FLAG: --stsPort="0"
+2022-10-11T15:17:09.234087Z	info	FLAG: --templateFile=""
+2022-10-11T15:17:09.234091Z	info	FLAG: --tokenManagerPlugin="GoogleTokenExchange"
+2022-10-11T15:17:09.234101Z	info	FLAG: --vklog="0"
+2022-10-11T15:17:09.234111Z	info	Version 1.16-dev-c316bcfa85b05391c196f004a15d1ccdc3b80697-dirty-Clean
+2022-10-11T15:17:09.234177Z	info	running as uid=0 gid=0
+2022-10-11T15:17:09.235634Z	info	Maximum file descriptors (ulimit -n): 1048576
+2022-10-11T15:17:09.235837Z	info	Proxy role	ips=[10.72.1.10 192.168.126.2 192.168.127.2] type=sidecar id=ztunnel-g4x4p.istio-system domain=istio-system.svc.cluster.local
+2022-10-11T15:17:09.235913Z	info	Apply mesh config from file ambientMesh:
+  mode: DEFAULT
+defaultConfig:
+  discoveryAddress: istiod.istio-system.svc:15012
+  meshId: mesh1
+  proxyMetadata:
+    ISTIO_META_ENABLE_HBONE: "true"
+  tracing:
+    zipkin:
+      address: zipkin.istio-system:9411
+defaultProviders:
+  metrics:
+  - prometheus
+enablePrometheusMerge: true
+extensionProviders:
+- name: prometheus
+  prometheus: {}
+rootNamespace: istio-system
+trustDomain: cluster.local
+2022-10-11T15:17:09.243729Z	info	Effective config: binaryPath: /usr/local/bin/envoy
+concurrency: 2
+configPath: ./etc/istio/proxy
+controlPlaneAuthPolicy: MUTUAL_TLS
+discoveryAddress: istiod.istio-system.svc:15012
+drainDuration: 45s
+meshId: mesh1
+parentShutdownDuration: 60s
+proxyAdminPort: 15000
+proxyMetadata:
+  ISTIO_META_ENABLE_HBONE: "true"
+serviceCluster: istio-proxy
+statNameLength: 189
+statusPort: 15020
+terminationDrainDuration: 5s
+tracing:
+  zipkin:
+    address: zipkin.istio-system:9411
+
+2022-10-11T15:17:09.243760Z	info	JWT policy is third-party-jwt
+2022-10-11T15:17:09.244820Z	info	using credential fetcher of TokenRequest type in cluster.local trust domain
+2022-10-11T15:17:09.246689Z	info	platform detected is GCP
+2022-10-11T15:17:09.246871Z	info	Workload SDS socket not found. Starting Istio SDS Server
+2022-10-11T15:17:09.246888Z	info	CA Endpoint istiod.istio-system.svc:15012, provider Citadel
+2022-10-11T15:17:09.247130Z	info	Using CA istiod.istio-system.svc:15012 cert with certs: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:17:09.247230Z	info	citadelclient	Citadel client using custom root cert: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:17:09.246932Z	info	Opening status port 15020
+2022-10-11T15:17:09.261314Z	info	ads	All caches have been synced up in 47.873707ms, marking server ready
+2022-10-11T15:17:09.261764Z	info	xdsproxy	Initializing with upstream address "istiod.istio-system.svc:15012" and cluster "cluster1"
+2022-10-11T15:17:09.263538Z	info	sds	Starting SDS grpc server
+2022-10-11T15:17:09.263655Z	info	starting Http service at 127.0.0.1:15004
+2022-10-11T15:17:09.279947Z	warn	Error fetching GCP Metadata property gcp_gce_instance_created_by: metadata: GCE metadata "instance/attributes/created-by" not defined
+2022-10-11T15:17:09.280912Z	warn	Error fetching GCP Metadata property gcp_gce_instance_template: metadata: GCE metadata "instance/attributes/instance-template" not defined
+2022-10-11T15:17:09.281713Z	warn	Error fetching GCP Metadata property gcp_gce_instance: metadata: GCE metadata "instance/name" not defined
+2022-10-11T15:17:09.299969Z	info	Pilot SAN: [istiod.istio-system.svc]
+2022-10-11T15:17:09.302631Z	info	Starting proxy agent
+2022-10-11T15:17:09.302761Z	info	starting
+2022-10-11T15:17:09.302831Z	info	Envoy command: [-c etc/istio/proxy/envoy-rev.json --drain-time-s 45 --drain-strategy immediate --parent-shutdown-time-s 60 --local-address-ip-version v4 --file-flush-interval-msec 1000 --disable-hot-restart --log-format %Y-%m-%dT%T.%fZ	%l	envoy %n	%v -l warning --component-log-level misc:error --concurrency 2]
+2022-10-11T15:17:09.422828Z	info	use delegate provider
+2022-10-11T15:17:09.423123Z	info	xdsproxy	connected to upstream XDS server: istiod.istio-system.svc:15012
+2022-10-11T15:17:09.481044Z	info	use delegate provider
+2022-10-11T15:17:09.486875Z	info	cache	generated new workload certificate	latency=224.212831ms ttl=23h59m59.513135741s resource=default
+2022-10-11T15:17:09.486914Z	info	cache	Root cert has changed, start rotating root cert
+2022-10-11T15:17:09.486932Z	info	ads	XDS: Incremental Pushing:0 ConnectedEndpoints:0 Version:
+2022-10-11T15:17:09.486979Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.513023508s
+2022-10-11T15:17:10.056061Z	info	Readiness succeeded in 857.879645ms
+2022-10-11T15:17:10.056575Z	info	Envoy proxy is ready
+2022-10-11T15:20:31.400172Z	warning	envoy config	Ignoring unwatched type URL type.googleapis.com/envoy.config.endpoint.v3.ClusterLoadAssignment
+2022-10-11T15:40:34.571881Z	info	ads	ADS: new connection for node:ztunnel-g4x4p.istio-system-1
+2022-10-11T15:40:34.572116Z	info	cache	returned workload trust anchor from cache	ttl=23h36m34.427893742s
+2022-10-11T15:40:34.572682Z	info	ads	SDS: PUSH request for node:ztunnel-g4x4p.istio-system resources:1 size:1.1kB resource:ROOTCA
+2022-10-11T15:40:34.611553Z	info	ads	ADS: new connection for node:ztunnel-g4x4p.istio-system-2
+2022-10-11T15:40:34.711520Z	info	created token for spiffe://cluster.local/ns/ambient/sa/sleep: eyJhbGciOiJSUzI1NiIsImtpZCI6ImdJVVRETDhXNTI2b2E3OTAzR0l2eVhGQ05uS3ZtUHVfX0hOLWlzRHBkQjQifQ.eyJhdWQiOlsiaXN0aW8tY2EiXSwiZXhwIjoxNjY1NTg5MjM0LCJpYXQiOjE2NjU1MDI4MzQsImlzcyI6Imh0dHBzOi8vY29udGFpbmVyLmdvb2dsZWFwaXMuY29tL3YxL3Byb2plY3RzL3NvbG8tdGVzdC0yMzY2MjIvbG9jYXRpb25zL3VzLWNlbnRyYWwxLWMvY2x1c3RlcnMvZGFuaWVsLWFtYmllbnQiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6ImFtYmllbnQiLCJwb2QiOnsibmFtZSI6InNsZWVwLTY5Y2ZiNDk2OGYtenFiNXQiLCJ1aWQiOiI1MzIwY2NmZi1kYTNmLTRkMWMtYWJiNC03ZjM3NGZhM2Y1OTIifSwic2VydmljZWFjY291bnQiOnsibmFtZSI6InNsZWVwIiwidWlkIjoiZDYwMzM0YTAtYzI3NC00YTVlLWEwMmItYzU1ZTE5ODY3MGYxIn19LCJuYmYiOjE2NjU1MDI4MzQsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDphbWJpZW50OnNsZWVwIn0.eiJfYjAexpqaHOT5whad9X_77I4RnLM44v7g7mNP_6Uhtub9JdkAGbflYTDdTNH6-G3JjRtxOamq7_ZsPPbWhTD2aJQklM6PKU9d9gj2hiR122_PpmuRPROCLvlZ5aZbQSVCpE1Ui-DR0OtzkAeTSTy7NjgZIVcR00R3HDiiTojzKmbZkW6sZLB00flzD4EIQDSHm591hA0bXP8eztdMWUKbKwhenctAa7jD3nqmBSMMLWy22_cOBUCiDFPk6I_0VRSlqDSHC4zweXkIR91u8YQznqTEg5-mcTyy8ipxU1Ri6cLQ4PbpYy_GCfc4gQna3QCfxnuZziudxv7GhWaGsA
+2022-10-11T15:40:34.722954Z	info	cache	generated new workload certificate	latency=111.257328ms ttl=23h59m59.277060978s resource=spiffe://cluster.local/ns/ambient/sa/sleep~sleep-69cfb4968f-zqb5t~5320ccff-da3f-4d1c-abb4-7f374fa3f592
+2022-10-11T15:40:34.723267Z	info	ads	SDS: PUSH request for node:ztunnel-g4x4p.istio-system resources:1 size:4.1kB resource:spiffe://cluster.local/ns/ambient/sa/sleep~sleep-69cfb4968f-zqb5t~5320ccff-da3f-4d1c-abb4-7f374fa3f592
+

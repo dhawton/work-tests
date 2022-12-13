@@ -1,0 +1,8 @@
+{
+ "allocated": "11208024",
+ "heap_size": "15728640",
+ "pageheap_unmapped": "0",
+ "pageheap_free": "2170880",
+ "total_thread_cache": "1320168",
+ "total_physical_bytes": "18350080"
+}

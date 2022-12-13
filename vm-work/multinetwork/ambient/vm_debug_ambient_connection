@@ -1,0 +1,32 @@
+2022-10-11T15:56:02.421322Z	debug	envoy filter	original_dst: new connection accepted
+2022-10-11T15:56:02.421388Z	debug	envoy filter	tls inspector: new connection accepted
+2022-10-11T15:56:02.421436Z	debug	envoy filter	http inspector: new connection accepted
+2022-10-11T15:56:02.421519Z	debug	envoy conn_handler	[C113] new connection from 10.128.15.202:54890
+2022-10-11T15:56:02.421562Z	debug	envoy http	[C113] new stream
+2022-10-11T15:56:02.421613Z	debug	envoy http	[C113][S147116211805135459] request headers complete (end_stream=true):
+':authority', 'helloworld.ambient:5000'
+':path', '/hello'
+':method', 'GET'
+'user-agent', 'curl/7.81.0'
+'accept', '*/*'
+
+2022-10-11T15:56:02.421626Z	debug	envoy http	[C113][S147116211805135459] request end stream
+2022-10-11T15:56:02.421645Z	debug	envoy connection	[C113] current connecting state: false
+2022-10-11T15:56:02.421745Z	debug	envoy filter	override with 3 ALPNs
+2022-10-11T15:56:02.421776Z	debug	envoy router	[C113][S147116211805135459] cluster 'outbound|5000||helloworld.ambient.svc.cluster.local' match for URL '/hello'
+2022-10-11T15:56:02.421806Z	debug	envoy upstream	no healthy host for HTTP connection pool
+2022-10-11T15:56:02.421830Z	debug	envoy http	[C113][S147116211805135459] Sending local reply with details no_healthy_upstream
+2022-10-11T15:56:02.421863Z	debug	envoy http	[C113][S147116211805135459] encoding headers via codec (end_stream=false):
+':status', '503'
+'content-length', '19'
+'content-type', 'text/plain'
+'date', 'Tue, 11 Oct 2022 15:56:01 GMT'
+'server', 'envoy'
+
+2022-10-11T15:56:02.421954Z	debug	envoy wasm	wasm log stats_outbound stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=16
+2022-10-11T15:56:02.421963Z	debug	envoy wasm	wasm log stats_outbound stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=18
+2022-10-11T15:56:02.421967Z	debug	envoy wasm	wasm log stats_outbound stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=22
+2022-10-11T15:56:02.421972Z	debug	envoy wasm	wasm log stats_outbound stats_outbound: [extensions/stats/plugin.cc:677]::report() metricKey cache hit , stat=26
+2022-10-11T15:56:02.422192Z	debug	envoy connection	[C113] remote close
+2022-10-11T15:56:02.422207Z	debug	envoy connection	[C113] closing socket: 0
+2022-10-11T15:56:02.422244Z	debug	envoy conn_handler	[C113] adding to cleanup list

@@ -1,0 +1,50 @@
+{
+ "layers": [
+  "global config",
+  "admin"
+ ],
+ "entries": {
+  "envoy.reloadable_features.http_reject_path_with_fragment": {
+   "layer_values": [
+    "false",
+    ""
+   ],
+   "final_value": "false"
+  },
+  "re2.max_program_size.error_level": {
+   "layer_values": [
+    "32768",
+    ""
+   ],
+   "final_value": "32768"
+  },
+  "envoy.deprecated_features:envoy.config.listener.v3.Listener.hidden_envoy_deprecated_use_original_dst": {
+   "final_value": "true",
+   "layer_values": [
+    "true",
+    ""
+   ]
+  },
+  "envoy.reloadable_features.no_extension_lookup_by_name": {
+   "final_value": "false",
+   "layer_values": [
+    "false",
+    ""
+   ]
+  },
+  "overload.global_downstream_max_connections": {
+   "final_value": "2147483647",
+   "layer_values": [
+    "2147483647",
+    ""
+   ]
+  },
+  "envoy.reloadable_features.internal_address": {
+   "final_value": "true",
+   "layer_values": [
+    "true",
+    ""
+   ]
+  }
+ }
+}

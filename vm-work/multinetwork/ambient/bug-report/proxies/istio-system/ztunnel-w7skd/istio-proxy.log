@@ -1,0 +1,118 @@
+2022-10-11T15:17:10.822586Z	info	FLAG: --concurrency="0"
+2022-10-11T15:17:10.822614Z	info	FLAG: --domain=""
+2022-10-11T15:17:10.822620Z	info	FLAG: --help="false"
+2022-10-11T15:17:10.822624Z	info	FLAG: --log_as_json="false"
+2022-10-11T15:17:10.822628Z	info	FLAG: --log_caller=""
+2022-10-11T15:17:10.822631Z	info	FLAG: --log_output_level="default:info"
+2022-10-11T15:17:10.822634Z	info	FLAG: --log_rotate=""
+2022-10-11T15:17:10.822637Z	info	FLAG: --log_rotate_max_age="30"
+2022-10-11T15:17:10.822641Z	info	FLAG: --log_rotate_max_backups="1000"
+2022-10-11T15:17:10.822665Z	info	FLAG: --log_rotate_max_size="104857600"
+2022-10-11T15:17:10.822712Z	info	FLAG: --log_stacktrace_level="default:none"
+2022-10-11T15:17:10.822754Z	info	FLAG: --log_target="[stdout]"
+2022-10-11T15:17:10.822771Z	info	FLAG: --meshConfig="./etc/istio/config/mesh"
+2022-10-11T15:17:10.822785Z	info	FLAG: --outlierLogPath=""
+2022-10-11T15:17:10.822798Z	info	FLAG: --proxyComponentLogLevel=""
+2022-10-11T15:17:10.822813Z	info	FLAG: --proxyLogLevel="warning,misc:error"
+2022-10-11T15:17:10.822836Z	info	FLAG: --serviceCluster="istio-proxy"
+2022-10-11T15:17:10.822852Z	info	FLAG: --stsPort="0"
+2022-10-11T15:17:10.822868Z	info	FLAG: --templateFile=""
+2022-10-11T15:17:10.822884Z	info	FLAG: --tokenManagerPlugin="GoogleTokenExchange"
+2022-10-11T15:17:10.822910Z	info	FLAG: --vklog="0"
+2022-10-11T15:17:10.822938Z	info	Version 1.16-dev-c316bcfa85b05391c196f004a15d1ccdc3b80697-dirty-Clean
+2022-10-11T15:17:10.823002Z	info	running as uid=0 gid=0
+2022-10-11T15:17:10.824781Z	info	Maximum file descriptors (ulimit -n): 1048576
+2022-10-11T15:17:10.825084Z	info	Proxy role	ips=[10.72.0.7 192.168.126.2 192.168.127.2] type=sidecar id=ztunnel-w7skd.istio-system domain=istio-system.svc.cluster.local
+2022-10-11T15:17:10.825178Z	info	Apply mesh config from file ambientMesh:
+  mode: DEFAULT
+defaultConfig:
+  discoveryAddress: istiod.istio-system.svc:15012
+  meshId: mesh1
+  proxyMetadata:
+    ISTIO_META_ENABLE_HBONE: "true"
+  tracing:
+    zipkin:
+      address: zipkin.istio-system:9411
+defaultProviders:
+  metrics:
+  - prometheus
+enablePrometheusMerge: true
+extensionProviders:
+- name: prometheus
+  prometheus: {}
+rootNamespace: istio-system
+trustDomain: cluster.local
+2022-10-11T15:17:10.827897Z	info	Effective config: binaryPath: /usr/local/bin/envoy
+concurrency: 2
+configPath: ./etc/istio/proxy
+controlPlaneAuthPolicy: MUTUAL_TLS
+discoveryAddress: istiod.istio-system.svc:15012
+drainDuration: 45s
+meshId: mesh1
+parentShutdownDuration: 60s
+proxyAdminPort: 15000
+proxyMetadata:
+  ISTIO_META_ENABLE_HBONE: "true"
+serviceCluster: istio-proxy
+statNameLength: 189
+statusPort: 15020
+terminationDrainDuration: 5s
+tracing:
+  zipkin:
+    address: zipkin.istio-system:9411
+
+2022-10-11T15:17:10.827925Z	info	JWT policy is third-party-jwt
+2022-10-11T15:17:10.829002Z	info	using credential fetcher of TokenRequest type in cluster.local trust domain
+2022-10-11T15:17:10.831108Z	info	platform detected is GCP
+2022-10-11T15:17:10.831192Z	info	Workload SDS socket not found. Starting Istio SDS Server
+2022-10-11T15:17:10.831208Z	info	CA Endpoint istiod.istio-system.svc:15012, provider Citadel
+2022-10-11T15:17:10.831229Z	info	Using CA istiod.istio-system.svc:15012 cert with certs: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:17:10.831303Z	info	citadelclient	Citadel client using custom root cert: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:17:10.835135Z	info	Opening status port 15020
+2022-10-11T15:17:10.850839Z	info	ads	All caches have been synced up in 54.479772ms, marking server ready
+2022-10-11T15:17:10.851222Z	info	xdsproxy	Initializing with upstream address "istiod.istio-system.svc:15012" and cluster "cluster1"
+2022-10-11T15:17:10.852076Z	info	sds	Starting SDS grpc server
+2022-10-11T15:17:10.852162Z	info	starting Http service at 127.0.0.1:15004
+2022-10-11T15:17:10.863419Z	warn	Error fetching GCP Metadata property gcp_gce_instance_created_by: metadata: GCE metadata "instance/attributes/created-by" not defined
+2022-10-11T15:17:10.865707Z	warn	Error fetching GCP Metadata property gcp_gce_instance: metadata: GCE metadata "instance/name" not defined
+2022-10-11T15:17:10.865947Z	warn	Error fetching GCP Metadata property gcp_gce_instance_template: metadata: GCE metadata "instance/attributes/instance-template" not defined
+2022-10-11T15:17:10.882874Z	info	Pilot SAN: [istiod.istio-system.svc]
+2022-10-11T15:17:10.885339Z	info	Starting proxy agent
+2022-10-11T15:17:10.885370Z	info	starting
+2022-10-11T15:17:10.885388Z	info	Envoy command: [-c etc/istio/proxy/envoy-rev.json --drain-time-s 45 --drain-strategy immediate --parent-shutdown-time-s 60 --local-address-ip-version v4 --file-flush-interval-msec 1000 --disable-hot-restart --log-format %Y-%m-%dT%T.%fZ	%l	envoy %n	%v -l warning --component-log-level misc:error --concurrency 2]
+2022-10-11T15:17:11.004867Z	info	use delegate provider
+2022-10-11T15:17:11.005024Z	info	xdsproxy	connected to upstream XDS server: istiod.istio-system.svc:15012
+2022-10-11T15:17:11.019828Z	info	use delegate provider
+2022-10-11T15:17:11.025010Z	info	ads	ADS: new connection for node:ztunnel-w7skd.istio-system-1
+2022-10-11T15:17:11.027693Z	info	cache	generated new workload certificate	latency=176.499822ms ttl=23h59m59.972333721s resource=default
+2022-10-11T15:17:11.027729Z	info	cache	Root cert has changed, start rotating root cert
+2022-10-11T15:17:11.027746Z	info	ads	XDS: Incremental Pushing:0 ConnectedEndpoints:1 Version:
+2022-10-11T15:17:11.027815Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.972188092s
+2022-10-11T15:17:11.192409Z	info	created token for spiffe://cluster.local/ns/sample/sa/default: eyJhbGciOiJSUzI1NiIsImtpZCI6ImdJVVRETDhXNTI2b2E3OTAzR0l2eVhGQ05uS3ZtUHVfX0hOLWlzRHBkQjQifQ.eyJhdWQiOlsiaXN0aW8tY2EiXSwiZXhwIjoxNjY1NTg3ODMxLCJpYXQiOjE2NjU1MDE0MzEsImlzcyI6Imh0dHBzOi8vY29udGFpbmVyLmdvb2dsZWFwaXMuY29tL3YxL3Byb2plY3RzL3NvbG8tdGVzdC0yMzY2MjIvbG9jYXRpb25zL3VzLWNlbnRyYWwxLWMvY2x1c3RlcnMvZGFuaWVsLWFtYmllbnQiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6InNhbXBsZSIsInBvZCI6eyJuYW1lIjoiaGVsbG93b3JsZC12MS03N2NiNTZkNGI0LXNiN253IiwidWlkIjoiN2JjMTE2ZmEtM2NhMC00Yjg1LTliZDYtMWE1MzAyOGNkMWRmIn0sInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJkZWZhdWx0IiwidWlkIjoiNGQ3MjFhMWEtNzExMy00NDFlLTgyMTgtYWJkMGMyNzkwOTQ5In19LCJuYmYiOjE2NjU1MDE0MzEsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpzYW1wbGU6ZGVmYXVsdCJ9.lX1seS6h4psItQxnCsoW-VEqGHCxGhUZa-LZU5eSMkwWssoMXLEgOENLW6kWzMPJ9uqy-rLNCUAyIDHuKB6J3fvAXp7L6kV-wqODvzEKb6DSCEHVP-y2UywWTpE2rA94J8cWH2_V-RzHPNGD7haRn3iqlkfU7apUjiAmctdClZaKudNALMk4aBaP4wh9a1xylpHvonMGVgYPj0jfrxthRDoNphldsNK3O9oev7-jD6VyZU95kON0C9KPLBt1WdZFL9aW6CO4AyvBG_aYsykEZKCOt4cOkn2DNXW5I_KvuKQsOTSTKpmObrUxIhlIYGk3bs2lNPLw0AJI5vgYXnj60A
+2022-10-11T15:17:11.199321Z	info	cache	generated new workload certificate	latency=171.478753ms ttl=23h59m59.800694358s resource=spiffe://cluster.local/ns/sample/sa/default~helloworld-v1-77cb56d4b4-sb7nw~7bc116fa-3ca0-4b85-9bd6-1a53028cd1df
+2022-10-11T15:17:11.200004Z	info	ads	SDS: PUSH request for node:ztunnel-w7skd.istio-system resources:1 size:4.1kB resource:spiffe://cluster.local/ns/sample/sa/default~helloworld-v1-77cb56d4b4-sb7nw~7bc116fa-3ca0-4b85-9bd6-1a53028cd1df
+2022-10-11T15:17:11.217721Z	info	ads	ADS: new connection for node:ztunnel-w7skd.istio-system-2
+2022-10-11T15:17:11.217900Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.782107207s
+2022-10-11T15:17:11.218174Z	info	ads	SDS: PUSH request for node:ztunnel-w7skd.istio-system resources:1 size:1.1kB resource:ROOTCA
+2022-10-11T15:17:11.258245Z	info	ads	ADS: new connection for node:ztunnel-w7skd.istio-system-3
+2022-10-11T15:17:11.353976Z	info	created token for spiffe://cluster.local/ns/sample/sa/default: eyJhbGciOiJSUzI1NiIsImtpZCI6ImdJVVRETDhXNTI2b2E3OTAzR0l2eVhGQ05uS3ZtUHVfX0hOLWlzRHBkQjQifQ.eyJhdWQiOlsiaXN0aW8tY2EiXSwiZXhwIjoxNjY1NTg3ODMxLCJpYXQiOjE2NjU1MDE0MzEsImlzcyI6Imh0dHBzOi8vY29udGFpbmVyLmdvb2dsZWFwaXMuY29tL3YxL3Byb2plY3RzL3NvbG8tdGVzdC0yMzY2MjIvbG9jYXRpb25zL3VzLWNlbnRyYWwxLWMvY2x1c3RlcnMvZGFuaWVsLWFtYmllbnQiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6InNhbXBsZSIsInBvZCI6eyJuYW1lIjoiaGVsbG93b3JsZC12Mi03OWJmNTY1NTg2LWtta2Y3IiwidWlkIjoiMDIyYWFlMjMtZWU1Zi00ZWFkLTg0OGYtMjEzNjVhYzU5NzRjIn0sInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJkZWZhdWx0IiwidWlkIjoiNGQ3MjFhMWEtNzExMy00NDFlLTgyMTgtYWJkMGMyNzkwOTQ5In19LCJuYmYiOjE2NjU1MDE0MzEsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpzYW1wbGU6ZGVmYXVsdCJ9.H4FYWXjD7nkf7qq7VEpIrPUdwS3QoKfgufXXVS95pFr_bOjUDi5Bu-kNLv0mJu2DsyHkgPqbaEFnzRiEYmj4_oXhSQRoMM59fjtYFqXhkU8sVMZmcVIoP_sgieNh7QNVYeKxTm_hUw7qe0YuH_ITKnwuk5ju278KrYXlIIZybWeG_ZAVyxuwOIC4Zux00jY965gfxY3yaPfb51f7E-cCs-0ke5FAZwqo8ikRC176DxemMttPhapbSzvyR9Ts3ayYI8-CvRUj6HDOMTdK9OjHKPkRQwzv-HAaxbK73HCmkpmxegXf3_S8f1BnfnBQgNitYb2jKYyJlQ1I8INL5qNIwg
+2022-10-11T15:17:11.360992Z	info	cache	generated new workload certificate	latency=102.492636ms ttl=23h59m59.639024288s resource=spiffe://cluster.local/ns/sample/sa/default~helloworld-v2-79bf565586-kmkf7~022aae23-ee5f-4ead-848f-21365ac5974c
+2022-10-11T15:17:11.361231Z	info	ads	SDS: PUSH request for node:ztunnel-w7skd.istio-system resources:1 size:4.1kB resource:spiffe://cluster.local/ns/sample/sa/default~helloworld-v2-79bf565586-kmkf7~022aae23-ee5f-4ead-848f-21365ac5974c
+2022-10-11T15:17:11.650317Z	info	Readiness succeeded in 860.549665ms
+2022-10-11T15:17:11.650832Z	info	Envoy proxy is ready
+2022-10-11T15:20:31.399661Z	warning	envoy config	Ignoring unwatched type URL type.googleapis.com/envoy.config.endpoint.v3.ClusterLoadAssignment
+2022-10-11T15:21:16.403910Z	info	ads	ADS: "@" ztunnel-w7skd.istio-system-1 terminated
+2022-10-11T15:21:16.404029Z	info	ads	ADS: "@" ztunnel-w7skd.istio-system-3 terminated with stream closed
+2022-10-11T15:21:16.404072Z	info	ads	ADS: "@" ztunnel-w7skd.istio-system-2 terminated
+2022-10-11T15:40:33.694933Z	info	ads	ADS: new connection for node:ztunnel-w7skd.istio-system-4
+2022-10-11T15:40:33.695067Z	info	cache	returned workload trust anchor from cache	ttl=23h36m37.304939386s
+2022-10-11T15:40:33.695120Z	info	ads	SDS: PUSH request for node:ztunnel-w7skd.istio-system resources:1 size:1.1kB resource:ROOTCA
+2022-10-11T15:40:33.735484Z	info	ads	ADS: new connection for node:ztunnel-w7skd.istio-system-5
+2022-10-11T15:40:33.775619Z	info	ads	ADS: new connection for node:ztunnel-w7skd.istio-system-6
+2022-10-11T15:40:33.885541Z	info	created token for spiffe://cluster.local/ns/ambient/sa/default: eyJhbGciOiJSUzI1NiIsImtpZCI6ImdJVVRETDhXNTI2b2E3OTAzR0l2eVhGQ05uS3ZtUHVfX0hOLWlzRHBkQjQifQ.eyJhdWQiOlsiaXN0aW8tY2EiXSwiZXhwIjoxNjY1NTg5MjMzLCJpYXQiOjE2NjU1MDI4MzMsImlzcyI6Imh0dHBzOi8vY29udGFpbmVyLmdvb2dsZWFwaXMuY29tL3YxL3Byb2plY3RzL3NvbG8tdGVzdC0yMzY2MjIvbG9jYXRpb25zL3VzLWNlbnRyYWwxLWMvY2x1c3RlcnMvZGFuaWVsLWFtYmllbnQiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6ImFtYmllbnQiLCJwb2QiOnsibmFtZSI6ImhlbGxvd29ybGQtdjEtNzdjYjU2ZDRiNC1sNm45ZiIsInVpZCI6ImRlYmM3ZmM5LTNlOGQtNGM2Yy05YzllLTUwM2M3NjVmY2E0NCJ9LCJzZXJ2aWNlYWNjb3VudCI6eyJuYW1lIjoiZGVmYXVsdCIsInVpZCI6IjNlZWQxMzI1LTI0ZWItNDhhYy04NzJjLWMyMWQyNTc1ZjQ3OCJ9fSwibmJmIjoxNjY1NTAyODMzLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6YW1iaWVudDpkZWZhdWx0In0.D53wDPZMK4DyZIAz-ZQEWi0kmuBnUznWg9VJ3ankTRCHCEu69xqwF5gWgmJAsdS7-8dEr-WNwhktCIshbeSLiPjmKFgwK491CO1js5LHYWfT1QRyuByxXHdGyhP2Mh4pRAwHhDZmJHksvg-oM1Snh2QJg0Wzy4v8A9YfMWzh6po4h4GpHJMcnYyHVawZQBm6v9RRqrom5keNDCvDmc5M104dFNAhsy-PFRH57MyCcea59aXIQYGoP0krhPKu6a4d0F8vzHcS9pFdr8E8sTVIWhfhHLcfvODQcAGs4xtAHf3PyWtG_931Xd7CRN-s0oUvg_dJViD_0Hua3lOI-BDZ9A
+2022-10-11T15:40:33.895521Z	info	cache	generated new workload certificate	latency=159.880772ms ttl=23h59m59.104514134s resource=spiffe://cluster.local/ns/ambient/sa/default~helloworld-v1-77cb56d4b4-l6n9f~debc7fc9-3e8d-4c6c-9c9e-503c765fca44
+2022-10-11T15:40:33.896084Z	info	ads	SDS: PUSH request for node:ztunnel-w7skd.istio-system resources:1 size:4.1kB resource:spiffe://cluster.local/ns/ambient/sa/default~helloworld-v1-77cb56d4b4-l6n9f~debc7fc9-3e8d-4c6c-9c9e-503c765fca44
+2022-10-11T15:40:34.267635Z	info	created token for spiffe://cluster.local/ns/ambient/sa/default: eyJhbGciOiJSUzI1NiIsImtpZCI6ImdJVVRETDhXNTI2b2E3OTAzR0l2eVhGQ05uS3ZtUHVfX0hOLWlzRHBkQjQifQ.eyJhdWQiOlsiaXN0aW8tY2EiXSwiZXhwIjoxNjY1NTg5MjM0LCJpYXQiOjE2NjU1MDI4MzQsImlzcyI6Imh0dHBzOi8vY29udGFpbmVyLmdvb2dsZWFwaXMuY29tL3YxL3Byb2plY3RzL3NvbG8tdGVzdC0yMzY2MjIvbG9jYXRpb25zL3VzLWNlbnRyYWwxLWMvY2x1c3RlcnMvZGFuaWVsLWFtYmllbnQiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6ImFtYmllbnQiLCJwb2QiOnsibmFtZSI6ImhlbGxvd29ybGQtdjItNzliZjU2NTU4Ni1tNm5sciIsInVpZCI6ImQ2YzU2NmRkLTgwODktNDk2Ni1hZWZiLTc2NDUwMDZjMzAxZCJ9LCJzZXJ2aWNlYWNjb3VudCI6eyJuYW1lIjoiZGVmYXVsdCIsInVpZCI6IjNlZWQxMzI1LTI0ZWItNDhhYy04NzJjLWMyMWQyNTc1ZjQ3OCJ9fSwibmJmIjoxNjY1NTAyODM0LCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6YW1iaWVudDpkZWZhdWx0In0.IIxe_9cBeSHKDfzYAmhYdSnzVMcphpKY7iWYTPdVTt-f6Ke8dlBa9mlF6PSqy_LWbVERA2BrbApGqGJiTJ-8hpxwtDXuthvUzzkgYrAaQnrMxEMn3D6FwPTxhPYDEhuRNTg1laytRji0sJZ_mPz5Q56hsKcuH2OLRTi5hHGPNbYzCujBazqKjge99435rF1FJW8Y3zKQy9UatNHQzKb78dejh8Tehps0YcIwZ8vEMtaLWstrmmtLjZB_UGNgD7vZkC6f1G3ULi71S-ev9_S5BacA34KAIIDluwFFJkTTVRmZShpSeECY2mBIc_AT7_9mrWMSt4h6yEuRkitIwnl2ow
+2022-10-11T15:40:34.274496Z	info	cache	generated new workload certificate	latency=378.810725ms ttl=23h59m59.725518318s resource=spiffe://cluster.local/ns/ambient/sa/default~helloworld-v2-79bf565586-m6nlr~d6c566dd-8089-4966-aefb-7645006c301d
+2022-10-11T15:40:34.274745Z	info	ads	SDS: PUSH request for node:ztunnel-w7skd.istio-system resources:1 size:4.1kB resource:spiffe://cluster.local/ns/ambient/sa/default~helloworld-v2-79bf565586-m6nlr~d6c566dd-8089-4966-aefb-7645006c301d
+

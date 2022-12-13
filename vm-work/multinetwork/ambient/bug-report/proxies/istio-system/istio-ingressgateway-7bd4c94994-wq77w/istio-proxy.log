@@ -1,0 +1,94 @@
+2022-10-11T15:17:13.111663Z	info	FLAG: --concurrency="0"
+2022-10-11T15:17:13.111713Z	info	FLAG: --domain="istio-system.svc.cluster.local"
+2022-10-11T15:17:13.111724Z	info	FLAG: --help="false"
+2022-10-11T15:17:13.111728Z	info	FLAG: --log_as_json="false"
+2022-10-11T15:17:13.111732Z	info	FLAG: --log_caller=""
+2022-10-11T15:17:13.111735Z	info	FLAG: --log_output_level="default:info"
+2022-10-11T15:17:13.111738Z	info	FLAG: --log_rotate=""
+2022-10-11T15:17:13.111742Z	info	FLAG: --log_rotate_max_age="30"
+2022-10-11T15:17:13.111745Z	info	FLAG: --log_rotate_max_backups="1000"
+2022-10-11T15:17:13.111748Z	info	FLAG: --log_rotate_max_size="104857600"
+2022-10-11T15:17:13.111758Z	info	FLAG: --log_stacktrace_level="default:none"
+2022-10-11T15:17:13.111767Z	info	FLAG: --log_target="[stdout]"
+2022-10-11T15:17:13.111771Z	info	FLAG: --meshConfig="./etc/istio/config/mesh"
+2022-10-11T15:17:13.111774Z	info	FLAG: --outlierLogPath=""
+2022-10-11T15:17:13.111778Z	info	FLAG: --proxyComponentLogLevel="misc:error"
+2022-10-11T15:17:13.111781Z	info	FLAG: --proxyLogLevel="warning"
+2022-10-11T15:17:13.111785Z	info	FLAG: --serviceCluster="istio-proxy"
+2022-10-11T15:17:13.111789Z	info	FLAG: --stsPort="0"
+2022-10-11T15:17:13.111793Z	info	FLAG: --templateFile=""
+2022-10-11T15:17:13.111799Z	info	FLAG: --tokenManagerPlugin="GoogleTokenExchange"
+2022-10-11T15:17:13.111803Z	info	FLAG: --vklog="0"
+2022-10-11T15:17:13.111808Z	info	Version 1.16-dev-c316bcfa85b05391c196f004a15d1ccdc3b80697-dirty-Clean
+2022-10-11T15:17:13.111863Z	info	running as uid=1337 gid=1337
+2022-10-11T15:17:13.113522Z	info	Maximum file descriptors (ulimit -n): 1048576
+2022-10-11T15:17:13.113716Z	info	Proxy role	ips=[10.72.0.8] type=router id=istio-ingressgateway-7bd4c94994-wq77w.istio-system domain=istio-system.svc.cluster.local
+2022-10-11T15:17:13.113802Z	info	Apply mesh config from file ambientMesh:
+  mode: DEFAULT
+defaultConfig:
+  discoveryAddress: istiod.istio-system.svc:15012
+  meshId: mesh1
+  proxyMetadata:
+    ISTIO_META_ENABLE_HBONE: "true"
+  tracing:
+    zipkin:
+      address: zipkin.istio-system:9411
+defaultProviders:
+  metrics:
+  - prometheus
+enablePrometheusMerge: true
+extensionProviders:
+- name: prometheus
+  prometheus: {}
+rootNamespace: istio-system
+trustDomain: cluster.local
+2022-10-11T15:17:13.118124Z	info	Effective config: binaryPath: /usr/local/bin/envoy
+configPath: ./etc/istio/proxy
+controlPlaneAuthPolicy: MUTUAL_TLS
+discoveryAddress: istiod.istio-system.svc:15012
+drainDuration: 45s
+meshId: mesh1
+parentShutdownDuration: 60s
+proxyAdminPort: 15000
+proxyMetadata:
+  ISTIO_META_ENABLE_HBONE: "true"
+serviceCluster: istio-proxy
+statNameLength: 189
+statusPort: 15020
+terminationDrainDuration: 5s
+tracing:
+  zipkin:
+    address: zipkin.istio-system:9411
+
+2022-10-11T15:17:13.118156Z	info	JWT policy is third-party-jwt
+2022-10-11T15:17:13.118162Z	info	using credential fetcher of JWT type in cluster.local trust domain
+2022-10-11T15:17:13.122507Z	info	platform detected is GCP
+2022-10-11T15:17:13.122606Z	info	Workload SDS socket not found. Starting Istio SDS Server
+2022-10-11T15:17:13.122624Z	info	CA Endpoint istiod.istio-system.svc:15012, provider Citadel
+2022-10-11T15:17:13.122646Z	info	Using CA istiod.istio-system.svc:15012 cert with certs: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:17:13.122741Z	info	citadelclient	Citadel client using custom root cert: var/run/secrets/istio/root-cert.pem
+2022-10-11T15:17:13.122903Z	info	Opening status port 15020
+2022-10-11T15:17:13.136226Z	info	ads	All caches have been synced up in 46.736712ms, marking server ready
+2022-10-11T15:17:13.136549Z	info	xdsproxy	Initializing with upstream address "istiod.istio-system.svc:15012" and cluster "cluster1"
+2022-10-11T15:17:13.147489Z	info	sds	Starting SDS grpc server
+2022-10-11T15:17:13.147723Z	info	starting Http service at 127.0.0.1:15004
+2022-10-11T15:17:13.175736Z	warn	Error fetching GCP Metadata property gcp_gce_instance_template: metadata: GCE metadata "instance/attributes/instance-template" not defined
+2022-10-11T15:17:13.177033Z	warn	Error fetching GCP Metadata property gcp_gce_instance_created_by: metadata: GCE metadata "instance/attributes/created-by" not defined
+2022-10-11T15:17:13.305064Z	info	Pilot SAN: [istiod.istio-system.svc]
+2022-10-11T15:17:13.308621Z	info	Starting proxy agent
+2022-10-11T15:17:13.308872Z	info	starting
+2022-10-11T15:17:13.309019Z	info	Envoy command: [-c etc/istio/proxy/envoy-rev.json --drain-time-s 45 --drain-strategy immediate --parent-shutdown-time-s 60 --local-address-ip-version v4 --file-flush-interval-msec 1000 --disable-hot-restart --log-format %Y-%m-%dT%T.%fZ	%l	envoy %n	%v -l warning --component-log-level misc:error]
+2022-10-11T15:17:13.434874Z	info	xdsproxy	connected to upstream XDS server: istiod.istio-system.svc:15012
+2022-10-11T15:17:13.467717Z	info	ads	ADS: new connection for node:istio-ingressgateway-7bd4c94994-wq77w.istio-system-1
+2022-10-11T15:17:13.498680Z	info	cache	generated new workload certificate	latency=361.231988ms ttl=23h59m59.501335233s resource=default
+2022-10-11T15:17:13.498723Z	info	cache	Root cert has changed, start rotating root cert
+2022-10-11T15:17:13.498742Z	info	ads	XDS: Incremental Pushing:0 ConnectedEndpoints:1 Version:
+2022-10-11T15:17:13.498807Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.501196223s
+2022-10-11T15:17:13.498826Z	info	cache	returned workload certificate from cache	ttl=23h59m59.501179418s
+2022-10-11T15:17:13.499191Z	info	ads	SDS: PUSH request for node:istio-ingressgateway-7bd4c94994-wq77w.istio-system resources:1 size:4.0kB resource:default
+2022-10-11T15:17:13.507178Z	info	ads	ADS: new connection for node:istio-ingressgateway-7bd4c94994-wq77w.istio-system-2
+2022-10-11T15:17:13.507331Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.492675674s
+2022-10-11T15:17:13.507552Z	info	ads	SDS: PUSH request for node:istio-ingressgateway-7bd4c94994-wq77w.istio-system resources:1 size:1.1kB resource:ROOTCA
+2022-10-11T15:17:14.660732Z	info	Readiness succeeded in 1.578358749s
+2022-10-11T15:17:14.661190Z	info	Envoy proxy is ready
+

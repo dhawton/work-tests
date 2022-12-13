@@ -1,0 +1,50 @@
+{
+ "entries": {
+  "overload.global_downstream_max_connections": {
+   "layer_values": [
+    "2147483647",
+    ""
+   ],
+   "final_value": "2147483647"
+  },
+  "envoy.reloadable_features.http_reject_path_with_fragment": {
+   "layer_values": [
+    "false",
+    ""
+   ],
+   "final_value": "false"
+  },
+  "envoy.reloadable_features.no_extension_lookup_by_name": {
+   "layer_values": [
+    "false",
+    ""
+   ],
+   "final_value": "false"
+  },
+  "envoy.deprecated_features:envoy.config.listener.v3.Listener.hidden_envoy_deprecated_use_original_dst": {
+   "final_value": "true",
+   "layer_values": [
+    "true",
+    ""
+   ]
+  },
+  "envoy.reloadable_features.require_strict_1xx_and_204_response_headers": {
+   "layer_values": [
+    "false",
+    ""
+   ],
+   "final_value": "false"
+  },
+  "re2.max_program_size.error_level": {
+   "final_value": "32768",
+   "layer_values": [
+    "32768",
+    ""
+   ]
+  }
+ },
+ "layers": [
+  "global config",
+  "admin"
+ ]
+}
