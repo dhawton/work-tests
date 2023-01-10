@@ -1,0 +1,104 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sleep
+  namespace: other
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sleep
+  namespace: other
+  labels:
+    app: sleep
+    service: sleep
+spec:
+  ports:
+  - port: 80
+    name: http
+  selector:
+    app: sleep
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sleep
+  namespace: other
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sleep
+  template:
+    metadata:
+      labels:
+        app: sleep
+    spec:
+      terminationGracePeriodSeconds: 0
+      serviceAccountName: sleep
+      containers:
+      - name: sleep
+        image: curlimages/curl
+        command: ["/bin/sleep", "infinity"]
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - mountPath: /etc/sleep/tls
+          name: secret-volume
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: sleep-secret
+          optional: true
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sleep2
+  namespace: other
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sleep2
+  namespace: other
+  labels:
+    app: sleep2
+    service: sleep2
+spec:
+  ports:
+  - port: 80
+    name: http
+  selector:
+    app: sleep2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sleep2
+  namespace: other
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sleep2
+  template:
+    metadata:
+      labels:
+        app: sleep2
+    spec:
+      terminationGracePeriodSeconds: 0
+      serviceAccountName: sleep2
+      containers:
+      - name: sleep2
+        image: curlimages/curl
+        command: ["/bin/sleep", "infinity"]
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - mountPath: /etc/sleep/tls
+          name: secret-volume
+      volumes:
+      - name: secret-volume
+        secret:
+          secretName: sleep-secret
+          optional: true
+---
