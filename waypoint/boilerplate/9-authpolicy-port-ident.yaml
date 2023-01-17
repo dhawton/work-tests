@@ -1,0 +1,33 @@
+
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: httpbin
+  namespace: test
+spec:
+  selector:
+    matchLabels:
+      app: httpbin
+  action: ALLOW
+  rules:
+  - to:
+    - operation:
+        paths: ["/put"]
+        methods: ["PUT"]
+    from:
+    - source:
+        principals: ["cluster.local/ns/other/sa/sleep"]
+  - to:
+    - operation:
+        paths: ["/get"]
+        ports: ["80"]
+    from:
+    - source:
+        principals: ["cluster.local/ns/other/sa/sleep"]
+  - from:
+    - source:
+        principals: ["cluster.local/ns/other/sa/sleep2"]
+    to:
+    - operation:
+        paths: ["/post"]
+        methods: ["POST"]

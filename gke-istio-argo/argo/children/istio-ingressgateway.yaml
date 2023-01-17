@@ -25,7 +25,7 @@ spec:
         
         # Labels to apply to all resources
         labels:
-          istio.io/rev: 1-12
+          istio.io/rev: 1-16-0
           istio: ingressgateway
   syncPolicy:
     automated: {}

@@ -1,0 +1,429 @@
+[2m2023-01-10T18:40:22.963585Z[0m [32m INFO[0m [2mztunnel[0m[2m:[0m running with config: Config {
+    window_size: 4194304,
+    connection_window_size: 4194304,
+    frame_size: 1048576,
+    socks5_addr: [::]:15080,
+    admin_addr: [::]:15000,
+    readiness_addr: [::]:15021,
+    inbound_addr: [::]:15008,
+    inbound_plaintext_addr: [::]:15006,
+    outbound_addr: [::]:15001,
+    local_node: Some(
+        "ambient-control-plane",
+    ),
+    ca_address: Some(
+        "https://istiod.istio-system.svc:15012",
+    ),
+    ca_root_cert: File(
+        "./var/run/secrets/istio/root-cert.pem",
+    ),
+    xds_address: Some(
+        "https://istiod.istio-system.svc:15012",
+    ),
+    xds_root_cert: File(
+        "./var/run/secrets/istio/root-cert.pem",
+    ),
+    local_xds_config: None,
+    xds_on_demand: false,
+    fake_ca: false,
+    auth: Token(
+        "./var/run/secrets/tokens/istio-token",
+    ),
+    termination_grace_period: 5s,
+    num_worker_threads: 2,
+    proxy_args: "proxy ztunnel",
+}
+[2m2023-01-10T18:40:22.963718Z[0m [32m INFO[0m [2mztunnel::readiness[0m[2m:[0m Task 'workload manager' complete (981.259µs), still awaiting 2 tasks
+[2m2023-01-10T18:40:22.963751Z[0m [32m INFO[0m [2mztunnel::proxy::inbound_passthrough[0m[2m:[0m listener established [3maddress[0m[2m=[0m[::]:15006 [3mcomponent[0m[2m=[0m"inbound plaintext" [3mtransparent[0m[2m=[0mtrue
+[2m2023-01-10T18:40:22.963758Z[0m [32m INFO[0m [2mztunnel::proxy::inbound[0m[2m:[0m listener established [3maddress[0m[2m=[0m[::]:15008 [3mcomponent[0m[2m=[0m"inbound" [3mtransparent[0m[2m=[0mtrue
+[2m2023-01-10T18:40:22.963764Z[0m [32m INFO[0m [2mztunnel::proxy::outbound[0m[2m:[0m listener established [3maddress[0m[2m=[0m[::]:15001 [3mcomponent[0m[2m=[0m"outbound" [3mtransparent[0m[2m=[0mtrue
+[2m2023-01-10T18:40:22.963769Z[0m [32m INFO[0m [2mztunnel::proxy::socks5[0m[2m:[0m listener established [3maddress[0m[2m=[0m[::]:15080 [3mcomponent[0m[2m=[0m"socks5"
+[2m2023-01-10T18:40:22.963773Z[0m [32m INFO[0m [2mztunnel::readiness[0m[2m:[0m Task 'proxy listeners' complete (1.037892ms), still awaiting 1 tasks
+[2m2023-01-10T18:40:22.963777Z[0m [32m INFO[0m [2mztunnel::admin[0m[2m:[0m listener established [3maddress[0m[2m=[0m[::]:15000 [3mcomponent[0m[2m=[0m"admin"
+[2m2023-01-10T18:40:22.963906Z[0m [32m INFO[0m [2mztunnel::readiness::server[0m[2m:[0m Serving readiness server at [::]:15021
+[2m2023-01-10T18:40:23.984814Z[0m [32m INFO[0m [2mztunnel::xds::client[0m[2m:[0m sending initial request [3mresources[0m[2m=[0m0 [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload"
+[2m2023-01-10T18:40:23.986282Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m1[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m Stream established
+[2m2023-01-10T18:40:23.986300Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m1[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m9
+[2m2023-01-10T18:40:23.986352Z[0m [32m INFO[0m [2mztunnel::readiness[0m[2m:[0m Task 'ads client' complete (1.023616075s), marking server ready
+[2m2023-01-10T18:40:24.196854Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m1[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m1
+[2m2023-01-10T18:40:24.480466Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m1[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m1
+[2m2023-01-10T18:40:25.288511Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m1[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m1
+[2m2023-01-10T18:40:27.367158Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m1[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m1
+[2m2023-01-10T18:41:00.258129Z[0m [33m WARN[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m1[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m XDS client error: gRPC error (Unknown error): error reading a body from connection: broken pipe, retrying
+[2m2023-01-10T18:41:00.259048Z[0m [33m WARN[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m2[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m XDS client error: gRPC connection error (The service is currently unavailable): error trying to connect: tcp connect error: Connection refused (os error 111), retrying in 20ms
+[2m2023-01-10T18:41:00.280844Z[0m [33m WARN[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m3[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m XDS client error: gRPC connection error (The service is currently unavailable): error trying to connect: tcp connect error: Connection refused (os error 111), retrying in 40ms
+[2m2023-01-10T18:41:00.322701Z[0m [33m WARN[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m4[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m XDS client error: gRPC connection error (The service is currently unavailable): error trying to connect: tcp connect error: Connection refused (os error 111), retrying in 80ms
+[2m2023-01-10T18:41:00.404446Z[0m [33m WARN[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m5[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m XDS client error: gRPC connection error (The service is currently unavailable): error trying to connect: tcp connect error: Connection refused (os error 111), retrying in 160ms
+[2m2023-01-10T18:41:00.570494Z[0m [32m INFO[0m [2mztunnel::xds::client[0m[2m:[0m sending initial request [3mresources[0m[2m=[0m13 [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload"
+[2m2023-01-10T18:41:00.617250Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m Stream established
+[2m2023-01-10T18:41:00.617281Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m13
+[2m2023-01-10T18:41:01.359024Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m0
+[2m2023-01-10T18:41:01.359049Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mztunnel::workload[0m[2m:[0m handling delete 10.244.1.8
+[2m2023-01-10T18:41:10.361501Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m13
+[2m2023-01-10T18:41:55.274480Z[0m [31mERROR[0m [2mztunnel::telemetry[0m[2m:[0m new log filter is debug
+[2m2023-01-10T18:41:55.274527Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 129 bytes
+[2m2023-01-10T18:41:55.274569Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m read eof
+[2m2023-01-10T18:41:57.945198Z[0m [34mDEBUG[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:41:57.945258Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 4 headers
+[2m2023-01-10T18:41:57.945270Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:41:57.945409Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 107 bytes
+[2m2023-01-10T18:42:00.997869Z[0m [34mDEBUG[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:42:00.997883Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 3 headers
+[2m2023-01-10T18:42:00.997885Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:42:00.997904Z[0m [31mERROR[0m [2mztunnel::telemetry[0m[2m:[0m new log filter is trace
+[2m2023-01-10T18:42:00.997916Z[0m [35mTRACE[0m [1mencode_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Server::encode status=200, body=Some(Known(27)), req_method=Some(POST)
+[2m2023-01-10T18:42:00.997922Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m buffer.queue [3mself.len[0m[2m=[0m102 [3mbuf.len[0m[2m=[0m27
+[2m2023-01-10T18:42:00.997951Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 129 bytes
+[2m2023-01-10T18:42:00.997953Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m maybe_notify; read_from_io blocked
+[2m2023-01-10T18:42:00.997954Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Init, writing: Init, keep_alive: Idle, allow_half_close: true }
+[2m2023-01-10T18:42:00.998001Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:42:00.998013Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 0 bytes
+[2m2023-01-10T18:42:00.998015Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m parse eof
+[2m2023-01-10T18:42:00.998016Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close_read()
+[2m2023-01-10T18:42:00.998018Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m read eof
+[2m2023-01-10T18:42:00.998031Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close_write()
+[2m2023-01-10T18:42:00.998033Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close_read()
+[2m2023-01-10T18:42:00.998034Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close_write()
+[2m2023-01-10T18:42:00.998035Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Closed, writing: Closed, keep_alive: Disabled, allow_half_close: true }
+[2m2023-01-10T18:42:00.998052Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m shut down IO complete
+[2m2023-01-10T18:42:07.945037Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:42:07.945048Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 116 bytes
+[2m2023-01-10T18:42:07.945058Z[0m [34mDEBUG[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:42:07.945063Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse [3mbytes[0m[2m=[0m116
+[2m2023-01-10T18:42:07.945068Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse Complete(116)
+[2m2023-01-10T18:42:07.945076Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 4 headers
+[2m2023-01-10T18:42:07.945080Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:42:07.945081Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m remote disabling keep-alive
+[2m2023-01-10T18:42:07.945088Z[0m [35mTRACE[0m [1mencode_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Server::encode status=200, body=Some(Known(6)), req_method=Some(GET)
+[2m2023-01-10T18:42:07.945094Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m buffer.queue [3mself.len[0m[2m=[0m101 [3mbuf.len[0m[2m=[0m6
+[2m2023-01-10T18:42:07.945116Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 107 bytes
+[2m2023-01-10T18:42:07.945118Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close()
+[2m2023-01-10T18:42:07.945119Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Closed, writing: Closed, keep_alive: Disabled, allow_half_close: true }
+[2m2023-01-10T18:42:07.945126Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m shut down IO complete
+[2m2023-01-10T18:42:10.363379Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mOpen
+[2m2023-01-10T18:42:10.363426Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:10.363477Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:10.363493Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m frame decoded from buffer
+[2m2023-01-10T18:42:10.363499Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mread.bytes[0m[2m=[0m17
+[2m2023-01-10T18:42:10.363515Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m17[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m decoding frame from 17B
+[2m2023-01-10T18:42:10.363526Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m17[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mframe.kind[0m[2m=[0mPing
+[2m2023-01-10T18:42:10.363541Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m received [3mframe[0m[2m=[0mPing { ack: false, payload: [0, 0, 0, 0, 0, 0, 0, 0] }
+[2m2023-01-10T18:42:10.363561Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m recv PING [3mframe[0m[2m=[0mPing { ack: false, payload: [0, 0, 0, 0, 0, 0, 0, 0] }
+[2m2023-01-10T18:42:10.363689Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mpoll_ready[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mPing { ack: true, payload: [0, 0, 0, 0, 0, 0, 0, 0] }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m send [3mframe[0m[2m=[0mPing { ack: true, payload: [0, 0, 0, 0, 0, 0, 0, 0] }
+[2m2023-01-10T18:42:10.363712Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpoll_ready[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mPing { ack: true, payload: [0, 0, 0, 0, 0, 0, 0, 0] }[1m}[0m[2m:[0m [2mh2::frame::ping[0m[2m:[0m encoding PING; ack=true len=8
+[2m2023-01-10T18:42:10.363741Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpoll_ready[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mPing { ack: true, payload: [0, 0, 0, 0, 0, 0, 0, 0] }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m encoded ping [3mrem[0m[2m=[0m17
+[2m2023-01-10T18:42:10.363763Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:10.363773Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:10.363798Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m poll_complete
+[2m2023-01-10T18:42:10.363806Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:10.363816Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m [3mqueued_data_frame[0m[2m=[0mfalse
+[2m2023-01-10T18:42:10.364071Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m flushing buffer
+[2m2023-01-10T18:42:17.944819Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:42:17.944830Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 116 bytes
+[2m2023-01-10T18:42:17.944834Z[0m [34mDEBUG[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:42:17.944841Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse [3mbytes[0m[2m=[0m116
+[2m2023-01-10T18:42:17.944846Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse Complete(116)
+[2m2023-01-10T18:42:17.944855Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 4 headers
+[2m2023-01-10T18:42:17.944858Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:42:17.944859Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m remote disabling keep-alive
+[2m2023-01-10T18:42:17.944866Z[0m [35mTRACE[0m [1mencode_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Server::encode status=200, body=Some(Known(6)), req_method=Some(GET)
+[2m2023-01-10T18:42:17.944872Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m buffer.queue [3mself.len[0m[2m=[0m101 [3mbuf.len[0m[2m=[0m6
+[2m2023-01-10T18:42:17.944901Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 107 bytes
+[2m2023-01-10T18:42:17.944904Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close()
+[2m2023-01-10T18:42:17.944906Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Closed, writing: Closed, keep_alive: Disabled, allow_half_close: true }
+[2m2023-01-10T18:42:17.944916Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m shut down IO complete
+[2m2023-01-10T18:42:20.392883Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mOpen
+[2m2023-01-10T18:42:20.392898Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:20.392938Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:20.392942Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m frame decoded from buffer
+[2m2023-01-10T18:42:20.392945Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mread.bytes[0m[2m=[0m529
+[2m2023-01-10T18:42:20.392951Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m529[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m decoding frame from 529B
+[2m2023-01-10T18:42:20.392955Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m529[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mframe.kind[0m[2m=[0mData
+[2m2023-01-10T18:42:20.392960Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m received [3mframe[0m[2m=[0mData { stream_id: StreamId(1) }
+[2m2023-01-10T18:42:20.392998Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m recv DATA [3mframe[0m[2m=[0mData { stream_id: StreamId(1) }
+[2m2023-01-10T18:42:20.393002Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::recv[0m[2m:[0m recv_data; size=520; connection=5236778; stream=2091050
+[2m2023-01-10T18:42:20.393004Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::flow_control[0m[2m:[0m send_data; sz=520; window=5236778; available=5242880
+[2m2023-01-10T18:42:20.393007Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::flow_control[0m[2m:[0m send_data; sz=520; window=2091050; available=2097152
+[2m2023-01-10T18:42:20.393011Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Open { local: Streaming, remote: Streaming } }; is_closed=false; pending_send_empty=true; buffered_send_data=0; num_recv=0; num_send=1
+[2m2023-01-10T18:42:20.393017Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:20.393019Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:20.393027Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m poll_complete
+[2m2023-01-10T18:42:20.393032Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:20.393036Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m flushing buffer
+[2m2023-01-10T18:42:20.393048Z[0m [35mTRACE[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mh2::proto::streams::recv[0m[2m:[0m release_capacity; size=520
+[2m2023-01-10T18:42:20.393052Z[0m [35mTRACE[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mh2::proto::streams::recv[0m[2m:[0m release_connection_capacity; size=520, connection in_flight_data=520
+[2m2023-01-10T18:42:20.393059Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m1
+[2m2023-01-10T18:42:20.393080Z[0m [34mDEBUG[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m sending response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3mnonce[0m[2m=[0m"0cd6697f-68eb-48b8-b244-b3f4cfe9778e" [3mtype[0m[2m=[0mAck
+[2m2023-01-10T18:42:20.393096Z[0m [34mDEBUG[0m [2mztunnel::xds::client[0m[2m:[0m sending request [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload"
+[2m2023-01-10T18:42:20.393101Z[0m [35mTRACE[0m [2mhyper::proto::h2[0m[2m:[0m send body chunk: 88 bytes, eos=false
+[2m2023-01-10T18:42:20.393105Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mbuffered[0m[2m=[0m88
+[2m2023-01-10T18:42:20.393110Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mrequested[0m[2m=[0m88 [3madditional[0m[2m=[0m87 [3mbuffered[0m[2m=[0m88 [3mwindow[0m[2m=[0m64804 [3mconn[0m[2m=[0m65534
+[2m2023-01-10T18:42:20.393114Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m assigning [3mcapacity[0m[2m=[0m87
+[2m2023-01-10T18:42:20.393118Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::stream[0m[2m:[0m   assigned capacity to stream; available=88; buffered=88; id=StreamId(1); max_buffer_size=1048576
+[2m2023-01-10T18:42:20.393121Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mavailable[0m[2m=[0m88 [3mrequested[0m[2m=[0m88 [3mbuffered[0m[2m=[0m88 [3mhas_unavailable[0m[2m=[0mtrue
+[2m2023-01-10T18:42:20.393127Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m Queue::push
+[2m2023-01-10T18:42:20.393129Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m  -> first entry
+[2m2023-01-10T18:42:20.393133Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mavailable[0m[2m=[0m88 [3mbuffered[0m[2m=[0m88
+[2m2023-01-10T18:42:20.393140Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m[1mPrioritize::queue_frame[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_send [3mstream.id[0m[2m=[0mStreamId(1)
+[2m2023-01-10T18:42:20.393143Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m[1mPrioritize::queue_frame[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m Queue::push
+[2m2023-01-10T18:42:20.393146Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m88 [3mrequested[0m[2m=[0m1[1m}[0m[2m:[0m[1mPrioritize::queue_frame[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m  -> already queued
+[2m2023-01-10T18:42:20.393149Z[0m [35mTRACE[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Open { local: Streaming, remote: Streaming } }; is_closed=false; pending_send_empty=false; buffered_send_data=88; num_recv=0; num_send=1
+[2m2023-01-10T18:42:20.393155Z[0m [35mTRACE[0m [1mreserve_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mrequested[0m[2m=[0m1 [3meffective[0m[2m=[0m89 [3mcurr[0m[2m=[0m88[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mrequested[0m[2m=[0m89 [3madditional[0m[2m=[0m1 [3mbuffered[0m[2m=[0m88 [3mwindow[0m[2m=[0m64804 [3mconn[0m[2m=[0m65447
+[2m2023-01-10T18:42:20.393161Z[0m [35mTRACE[0m [1mreserve_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mrequested[0m[2m=[0m1 [3meffective[0m[2m=[0m89 [3mcurr[0m[2m=[0m88[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m assigning [3mcapacity[0m[2m=[0m1
+[2m2023-01-10T18:42:20.393164Z[0m [35mTRACE[0m [1mreserve_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mrequested[0m[2m=[0m1 [3meffective[0m[2m=[0m89 [3mcurr[0m[2m=[0m88[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::stream[0m[2m:[0m   assigned capacity to stream; available=89; buffered=88; id=StreamId(1); max_buffer_size=1048576
+[2m2023-01-10T18:42:20.393167Z[0m [35mTRACE[0m [1mreserve_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mrequested[0m[2m=[0m1 [3meffective[0m[2m=[0m89 [3mcurr[0m[2m=[0m88[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::stream[0m[2m:[0m   notifying task
+[2m2023-01-10T18:42:20.393169Z[0m [35mTRACE[0m [1mreserve_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mrequested[0m[2m=[0m1 [3meffective[0m[2m=[0m89 [3mcurr[0m[2m=[0m88[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mavailable[0m[2m=[0m89 [3mrequested[0m[2m=[0m89 [3mbuffered[0m[2m=[0m88 [3mhas_unavailable[0m[2m=[0mtrue
+[2m2023-01-10T18:42:20.393173Z[0m [35mTRACE[0m [1mreserve_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mrequested[0m[2m=[0m1 [3meffective[0m[2m=[0m89 [3mcurr[0m[2m=[0m88[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m Queue::push
+[2m2023-01-10T18:42:20.393175Z[0m [35mTRACE[0m [1mreserve_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mrequested[0m[2m=[0m1 [3meffective[0m[2m=[0m89 [3mcurr[0m[2m=[0m88[1m}[0m[2m:[0m[1mtry_assign_capacity[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m  -> already queued
+[2m2023-01-10T18:42:20.393180Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mOpen
+[2m2023-01-10T18:42:20.393184Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:20.393189Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m poll_complete
+[2m2023-01-10T18:42:20.393191Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:20.393196Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Open { local: Streaming, remote: Streaming } }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mis_pending_reset[0m[2m=[0mfalse
+[2m2023-01-10T18:42:20.393200Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Open { local: Streaming, remote: Streaming } }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m data frame [3msz[0m[2m=[0m88 [3meos[0m[2m=[0mfalse [3mwindow[0m[2m=[0m89 [3mavailable[0m[2m=[0m89 [3mrequested[0m[2m=[0m89 [3mbuffered[0m[2m=[0m88
+[2m2023-01-10T18:42:20.393206Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Open { local: Streaming, remote: Streaming } }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m sending data frame [3mlen[0m[2m=[0m88
+[2m2023-01-10T18:42:20.393210Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Open { local: Streaming, remote: Streaming } }[1m}[0m[2m:[0m[1mupdating stream flow[0m[2m:[0m [2mh2::proto::streams::flow_control[0m[2m:[0m send_data; sz=88; window=64804; available=89
+[2m2023-01-10T18:42:20.393214Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Open { local: Streaming, remote: Streaming } }[1m}[0m[2m:[0m[1mupdating stream flow[0m[2m:[0m [2mh2::proto::streams::stream[0m[2m:[0m   notifying task
+[2m2023-01-10T18:42:20.393218Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Open { local: Streaming, remote: Streaming } }[1m}[0m[2m:[0m[1mupdating connection flow[0m[2m:[0m [2mh2::proto::streams::flow_control[0m[2m:[0m send_data; sz=88; window=65535; available=65534
+[2m2023-01-10T18:42:20.393221Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Open { local: Streaming, remote: Streaming } }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m pop_frame; frame=Data { stream_id: StreamId(1) }
+[2m2023-01-10T18:42:20.393224Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Open { local: Streaming, remote: Streaming } }[1m}[0m[2m:[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Open { local: Streaming, remote: Streaming } }; is_closed=false; pending_send_empty=true; buffered_send_data=0; num_recv=0; num_send=1
+[2m2023-01-10T18:42:20.393227Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m writing [3mframe[0m[2m=[0mData { stream_id: StreamId(1) }
+[2m2023-01-10T18:42:20.393230Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mData { stream_id: StreamId(1) }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m send [3mframe[0m[2m=[0mData { stream_id: StreamId(1) }
+[2m2023-01-10T18:42:20.393236Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mtry_reclaim_frame[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m reclaimed [3mframe[0m[2m=[0mData { stream_id: StreamId(1) } [3msz[0m[2m=[0m0
+[2m2023-01-10T18:42:20.393239Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:20.393242Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m [3mqueued_data_frame[0m[2m=[0mfalse
+[2m2023-01-10T18:42:20.393305Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m flushing buffer
+[2m2023-01-10T18:42:20.393353Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mOpen
+[2m2023-01-10T18:42:20.393357Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:20.393362Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:20.393365Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m frame decoded from buffer
+[2m2023-01-10T18:42:20.393367Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mread.bytes[0m[2m=[0m13
+[2m2023-01-10T18:42:20.393371Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m13[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m decoding frame from 13B
+[2m2023-01-10T18:42:20.393374Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m13[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mframe.kind[0m[2m=[0mWindowUpdate
+[2m2023-01-10T18:42:20.393377Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m received [3mframe[0m[2m=[0mWindowUpdate { stream_id: StreamId(0), size_increment: 88 }
+[2m2023-01-10T18:42:20.393382Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m recv WINDOW_UPDATE [3mframe[0m[2m=[0mWindowUpdate { stream_id: StreamId(0), size_increment: 88 }
+[2m2023-01-10T18:42:20.393385Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::flow_control[0m[2m:[0m inc_window; sz=88; old=65447; new=65535
+[2m2023-01-10T18:42:20.393390Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:20.393394Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:20.393395Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m frame decoded from buffer
+[2m2023-01-10T18:42:20.393397Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mread.bytes[0m[2m=[0m17
+[2m2023-01-10T18:42:20.393400Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m17[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m decoding frame from 17B
+[2m2023-01-10T18:42:20.393402Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m17[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mframe.kind[0m[2m=[0mPing
+[2m2023-01-10T18:42:20.393404Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m received [3mframe[0m[2m=[0mPing { ack: false, payload: [2, 4, 16, 16, 9, 14, 7, 7] }
+[2m2023-01-10T18:42:20.393407Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m recv PING [3mframe[0m[2m=[0mPing { ack: false, payload: [2, 4, 16, 16, 9, 14, 7, 7] }
+[2m2023-01-10T18:42:20.393413Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mpoll_ready[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mPing { ack: true, payload: [2, 4, 16, 16, 9, 14, 7, 7] }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m send [3mframe[0m[2m=[0mPing { ack: true, payload: [2, 4, 16, 16, 9, 14, 7, 7] }
+[2m2023-01-10T18:42:20.393417Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpoll_ready[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mPing { ack: true, payload: [2, 4, 16, 16, 9, 14, 7, 7] }[1m}[0m[2m:[0m [2mh2::frame::ping[0m[2m:[0m encoding PING; ack=true len=8
+[2m2023-01-10T18:42:20.393420Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpoll_ready[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mPing { ack: true, payload: [2, 4, 16, 16, 9, 14, 7, 7] }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m encoded ping [3mrem[0m[2m=[0m17
+[2m2023-01-10T18:42:20.393423Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:20.393425Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:20.393429Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m poll_complete
+[2m2023-01-10T18:42:20.393430Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:20.393432Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m [3mqueued_data_frame[0m[2m=[0mfalse
+[2m2023-01-10T18:42:20.393456Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m flushing buffer
+[2m2023-01-10T18:42:27.945523Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:42:27.945556Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 116 bytes
+[2m2023-01-10T18:42:27.945570Z[0m [34mDEBUG[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:42:27.945584Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse [3mbytes[0m[2m=[0m116
+[2m2023-01-10T18:42:27.945598Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse Complete(116)
+[2m2023-01-10T18:42:27.945628Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 4 headers
+[2m2023-01-10T18:42:27.945638Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:42:27.945645Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m remote disabling keep-alive
+[2m2023-01-10T18:42:27.945664Z[0m [35mTRACE[0m [1mencode_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Server::encode status=200, body=Some(Known(6)), req_method=Some(GET)
+[2m2023-01-10T18:42:27.945689Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m buffer.queue [3mself.len[0m[2m=[0m101 [3mbuf.len[0m[2m=[0m6
+[2m2023-01-10T18:42:27.945823Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 107 bytes
+[2m2023-01-10T18:42:27.945836Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close()
+[2m2023-01-10T18:42:27.945845Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Closed, writing: Closed, keep_alive: Disabled, allow_half_close: true }
+[2m2023-01-10T18:42:27.945915Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m shut down IO complete
+[2m2023-01-10T18:42:30.570697Z[0m [35mTRACE[0m [2mhyper::client::pool[0m[2m:[0m idle interval checking for expired
+[2m2023-01-10T18:42:30.570706Z[0m [35mTRACE[0m [2mhyper::client::pool[0m[2m:[0m idle interval evicting expired for ("https", istiod.istio-system.svc:15012)
+[2m2023-01-10T18:42:30.570712Z[0m [35mTRACE[0m [2mhyper::proto::h2::client[0m[2m:[0m client::dispatch::Sender dropped
+[2m2023-01-10T18:42:37.946238Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:42:37.946286Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 116 bytes
+[2m2023-01-10T18:42:37.946305Z[0m [34mDEBUG[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:42:37.946325Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse [3mbytes[0m[2m=[0m116
+[2m2023-01-10T18:42:37.946344Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse Complete(116)
+[2m2023-01-10T18:42:37.946382Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 4 headers
+[2m2023-01-10T18:42:37.946469Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:42:37.946519Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m remote disabling keep-alive
+[2m2023-01-10T18:42:37.946555Z[0m [35mTRACE[0m [1mencode_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Server::encode status=200, body=Some(Known(6)), req_method=Some(GET)
+[2m2023-01-10T18:42:37.946578Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m buffer.queue [3mself.len[0m[2m=[0m101 [3mbuf.len[0m[2m=[0m6
+[2m2023-01-10T18:42:37.946695Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 107 bytes
+[2m2023-01-10T18:42:37.946710Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close()
+[2m2023-01-10T18:42:37.946718Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Closed, writing: Closed, keep_alive: Disabled, allow_half_close: true }
+[2m2023-01-10T18:42:37.946762Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m shut down IO complete
+[2m2023-01-10T18:42:47.945549Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:42:47.945563Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Init, writing: Init, keep_alive: Busy, allow_half_close: true }
+[2m2023-01-10T18:42:47.945580Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:42:47.945593Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 116 bytes
+[2m2023-01-10T18:42:47.945615Z[0m [34mDEBUG[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:42:47.945623Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse [3mbytes[0m[2m=[0m116
+[2m2023-01-10T18:42:47.945631Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse Complete(116)
+[2m2023-01-10T18:42:47.945647Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 4 headers
+[2m2023-01-10T18:42:47.945652Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:42:47.945654Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m remote disabling keep-alive
+[2m2023-01-10T18:42:47.945661Z[0m [35mTRACE[0m [1mencode_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Server::encode status=200, body=Some(Known(6)), req_method=Some(GET)
+[2m2023-01-10T18:42:47.945667Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m buffer.queue [3mself.len[0m[2m=[0m101 [3mbuf.len[0m[2m=[0m6
+[2m2023-01-10T18:42:47.945702Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 107 bytes
+[2m2023-01-10T18:42:47.945707Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close()
+[2m2023-01-10T18:42:47.945709Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Closed, writing: Closed, keep_alive: Disabled, allow_half_close: true }
+[2m2023-01-10T18:42:47.945723Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m shut down IO complete
+[2m2023-01-10T18:42:50.394192Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mOpen
+[2m2023-01-10T18:42:50.394255Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:50.394400Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:50.394437Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m frame decoded from buffer
+[2m2023-01-10T18:42:50.394467Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mread.bytes[0m[2m=[0m17
+[2m2023-01-10T18:42:50.394497Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m17[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m decoding frame from 17B
+[2m2023-01-10T18:42:50.394515Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m17[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mframe.kind[0m[2m=[0mPing
+[2m2023-01-10T18:42:50.394538Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m received [3mframe[0m[2m=[0mPing { ack: false, payload: [0, 0, 0, 0, 0, 0, 0, 0] }
+[2m2023-01-10T18:42:50.394566Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m recv PING [3mframe[0m[2m=[0mPing { ack: false, payload: [0, 0, 0, 0, 0, 0, 0, 0] }
+[2m2023-01-10T18:42:50.394597Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mpoll_ready[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mPing { ack: true, payload: [0, 0, 0, 0, 0, 0, 0, 0] }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m send [3mframe[0m[2m=[0mPing { ack: true, payload: [0, 0, 0, 0, 0, 0, 0, 0] }
+[2m2023-01-10T18:42:50.394615Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpoll_ready[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mPing { ack: true, payload: [0, 0, 0, 0, 0, 0, 0, 0] }[1m}[0m[2m:[0m [2mh2::frame::ping[0m[2m:[0m encoding PING; ack=true len=8
+[2m2023-01-10T18:42:50.394632Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpoll_ready[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mPing { ack: true, payload: [0, 0, 0, 0, 0, 0, 0, 0] }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m encoded ping [3mrem[0m[2m=[0m17
+[2m2023-01-10T18:42:50.394655Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:50.394665Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:50.394697Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m poll_complete
+[2m2023-01-10T18:42:50.394706Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:50.394722Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m [3mqueued_data_frame[0m[2m=[0mfalse
+[2m2023-01-10T18:42:50.394953Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m flushing buffer
+[2m2023-01-10T18:42:53.740820Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mOpen
+[2m2023-01-10T18:42:53.740844Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:53.740866Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:53.740874Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m frame decoded from buffer
+[2m2023-01-10T18:42:53.740877Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mread.bytes[0m[2m=[0m545
+[2m2023-01-10T18:42:53.740884Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m545[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m decoding frame from 545B
+[2m2023-01-10T18:42:53.740888Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m[1mFramedRead::decode_frame[0m[1m{[0m[3moffset[0m[2m=[0m545[1m}[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m [3mframe.kind[0m[2m=[0mData
+[2m2023-01-10T18:42:53.740894Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m received [3mframe[0m[2m=[0mData { stream_id: StreamId(1) }
+[2m2023-01-10T18:42:53.740901Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m recv DATA [3mframe[0m[2m=[0mData { stream_id: StreamId(1) }
+[2m2023-01-10T18:42:53.740904Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::recv[0m[2m:[0m recv_data; size=536; connection=5236258; stream=2090530
+[2m2023-01-10T18:42:53.740908Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::flow_control[0m[2m:[0m send_data; sz=536; window=5236258; available=5242880
+[2m2023-01-10T18:42:53.740911Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::flow_control[0m[2m:[0m send_data; sz=536; window=2090530; available=2097152
+[2m2023-01-10T18:42:53.740916Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Open { local: Streaming, remote: Streaming } }; is_closed=false; pending_send_empty=true; buffered_send_data=0; num_recv=0; num_send=1
+[2m2023-01-10T18:42:53.740923Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:53.740925Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mtokio_util::codec::framed_impl[0m[2m:[0m attempting to decode a frame
+[2m2023-01-10T18:42:53.740932Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m poll_complete
+[2m2023-01-10T18:42:53.740935Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:53.740939Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m flushing buffer
+[2m2023-01-10T18:42:53.740952Z[0m [35mTRACE[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mh2::proto::streams::recv[0m[2m:[0m release_capacity; size=536
+[2m2023-01-10T18:42:53.740957Z[0m [35mTRACE[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mh2::proto::streams::recv[0m[2m:[0m release_connection_capacity; size=536, connection in_flight_data=536
+[2m2023-01-10T18:42:53.740968Z[0m [32m INFO[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mztunnel::xds::client[0m[2m:[0m received response [3mtype_url[0m[2m=[0m"type.googleapis.com/istio.workload.Workload" [3msize[0m[2m=[0m1
+thread 'main' panicked at 'called `Result::unwrap()` on an `Err` value: Decode(DecodeError { description: "unexpected end group tag", stack: [("Workload", "rbac")] })', /home/prow/go/src/istio.io/ztunnel/src/xds/client.rs:555:47
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+[2m2023-01-10T18:42:53.741085Z[0m [35mTRACE[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mh2::proto::streams::streams[0m[2m:[0m drop_stream_ref; stream=Stream { id: StreamId(1), state: State { inner: Open { local: Streaming, remote: Streaming } }, is_counted: true, ref_count: 2, next_pending_send: None, is_pending_send: false, send_flow: FlowControl { window_size: Window(64716), available: Window(1) }, requested_send_capacity: 1, buffered_send_data: 0, send_task: Some(Waker { data: 0x7f5388000ef0, vtable: 0x55fe4ffe2a70 }), pending_send: Deque { indices: None }, next_pending_send_capacity: None, is_pending_send_capacity: false, send_capacity_inc: true, next_open: None, is_pending_open: false, is_pending_push: false, next_pending_accept: None, is_pending_accept: false, recv_flow: FlowControl { window_size: Window(2089994), available: Window(2097152) }, in_flight_recv_data: 0, next_window_update: None, is_pending_window_update: false, reset_at: None, next_reset_expire: None, pending_recv: Deque { indices: None }, recv_task: None, pending_push_promises: Queue { indices: None, _p: PhantomData<h2::proto::streams::stream::NextAccept> }, content_length: Omitted }
+[2m2023-01-10T18:42:53.741104Z[0m [35mTRACE[0m [1mxds[0m[1m{[0m[3mid[0m[2m=[0m6[1m}[0m[2m:[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Open { local: Streaming, remote: Streaming } }; is_closed=false; pending_send_empty=true; buffered_send_data=0; num_recv=0; num_send=1
+[2m2023-01-10T18:42:53.741135Z[0m [33m WARN[0m [2mztunnel::xds::client[0m[2m:[0m outbound stream complete
+[2m2023-01-10T18:42:53.741144Z[0m [35mTRACE[0m [2mhyper::proto::h2[0m[2m:[0m send body eos
+[2m2023-01-10T18:42:53.741148Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m0 [3mrequested[0m[2m=[0m0[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mbuffered[0m[2m=[0m0
+[2m2023-01-10T18:42:53.741151Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m0 [3mrequested[0m[2m=[0m0[1m}[0m[2m:[0m [2mh2::proto::streams::state[0m[2m:[0m send_close: Open => HalfClosedLocal(Streaming)
+[2m2023-01-10T18:42:53.741157Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m0 [3mrequested[0m[2m=[0m0[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mavailable[0m[2m=[0m0 [3mbuffered[0m[2m=[0m0
+[2m2023-01-10T18:42:53.741163Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m0 [3mrequested[0m[2m=[0m0[1m}[0m[2m:[0m[1mPrioritize::queue_frame[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_send [3mstream.id[0m[2m=[0mStreamId(1)
+[2m2023-01-10T18:42:53.741168Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m0 [3mrequested[0m[2m=[0m0[1m}[0m[2m:[0m[1mPrioritize::queue_frame[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m Queue::push
+[2m2023-01-10T18:42:53.741171Z[0m [35mTRACE[0m [1msend_data[0m[1m{[0m[3msz[0m[2m=[0m0 [3mrequested[0m[2m=[0m0[1m}[0m[2m:[0m[1mPrioritize::queue_frame[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1)[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m  -> first entry
+[2m2023-01-10T18:42:53.741175Z[0m [35mTRACE[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: HalfClosedLocal(Streaming) }; is_closed=false; pending_send_empty=false; buffered_send_data=0; num_recv=0; num_send=1
+[2m2023-01-10T18:42:53.741177Z[0m [35mTRACE[0m [2mh2::proto::streams::streams[0m[2m:[0m drop_stream_ref; stream=Stream { id: StreamId(1), state: State { inner: HalfClosedLocal(Streaming) }, is_counted: true, ref_count: 1, next_pending_send: None, is_pending_send: true, send_flow: FlowControl { window_size: Window(64716), available: Window(0) }, requested_send_capacity: 0, buffered_send_data: 0, send_task: Some(Waker { data: 0x7f5388000ef0, vtable: 0x55fe4ffe2a70 }), pending_send: Deque { indices: Some(Indices { head: 1, tail: 1 }) }, next_pending_send_capacity: None, is_pending_send_capacity: false, send_capacity_inc: true, next_open: None, is_pending_open: false, is_pending_push: false, next_pending_accept: None, is_pending_accept: false, recv_flow: FlowControl { window_size: Window(2089994), available: Window(2097152) }, in_flight_recv_data: 0, next_window_update: None, is_pending_window_update: false, reset_at: None, next_reset_expire: None, pending_recv: Deque { indices: None }, recv_task: None, pending_push_promises: Queue { indices: None, _p: PhantomData<h2::proto::streams::stream::NextAccept> }, content_length: Omitted }
+[2m2023-01-10T18:42:53.741183Z[0m [35mTRACE[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_send [3mstream.id[0m[2m=[0mStreamId(1)
+[2m2023-01-10T18:42:53.741184Z[0m [35mTRACE[0m [2mh2::proto::streams::store[0m[2m:[0m Queue::push
+[2m2023-01-10T18:42:53.741186Z[0m [35mTRACE[0m [2mh2::proto::streams::store[0m[2m:[0m  -> already queued
+[2m2023-01-10T18:42:53.741188Z[0m [35mTRACE[0m [2mh2::proto::streams::recv[0m[2m:[0m enqueue_reset_expiration; StreamId(1)
+[2m2023-01-10T18:42:53.741190Z[0m [35mTRACE[0m [2mh2::proto::streams::store[0m[2m:[0m Queue::push
+[2m2023-01-10T18:42:53.741192Z[0m [35mTRACE[0m [2mh2::proto::streams::store[0m[2m:[0m  -> first entry
+[2m2023-01-10T18:42:53.741195Z[0m [35mTRACE[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Closed(ScheduledLibraryReset(CANCEL)) }; is_closed=false; pending_send_empty=false; buffered_send_data=0; num_recv=0; num_send=1
+[2m2023-01-10T18:42:53.741201Z[0m [35mTRACE[0m [2mhyper::client::pool[0m[2m:[0m pool closed, canceling idle interval
+[2m2023-01-10T18:42:53.741206Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mOpen
+[2m2023-01-10T18:42:53.741211Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedRead::poll_next[0m[2m:[0m [2mh2::codec::framed_read[0m[2m:[0m poll
+[2m2023-01-10T18:42:53.741217Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m poll_complete
+[2m2023-01-10T18:42:53.741219Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:53.741225Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mis_pending_reset[0m[2m=[0mtrue
+[2m2023-01-10T18:42:53.741230Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m data frame [3msz[0m[2m=[0m0 [3meos[0m[2m=[0mtrue [3mwindow[0m[2m=[0m0 [3mavailable[0m[2m=[0m0 [3mrequested[0m[2m=[0m0 [3mbuffered[0m[2m=[0m0
+[2m2023-01-10T18:42:53.741235Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m sending data frame [3mlen[0m[2m=[0m0
+[2m2023-01-10T18:42:53.741239Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m[1mupdating stream flow[0m[2m:[0m [2mh2::proto::streams::flow_control[0m[2m:[0m send_data; sz=0; window=64716; available=0
+[2m2023-01-10T18:42:53.741243Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m[1mupdating connection flow[0m[2m:[0m [2mh2::proto::streams::flow_control[0m[2m:[0m send_data; sz=0; window=65535; available=65535
+[2m2023-01-10T18:42:53.741246Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m pop_frame; frame=Data { stream_id: StreamId(1), flags: (0x1: END_STREAM) }
+[2m2023-01-10T18:42:53.741250Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m Queue::push
+[2m2023-01-10T18:42:53.741253Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::store[0m[2m:[0m  -> first entry
+[2m2023-01-10T18:42:53.741256Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Closed(ScheduledLibraryReset(CANCEL)) }; is_closed=true; pending_send_empty=true; buffered_send_data=0; num_recv=0; num_send=1
+[2m2023-01-10T18:42:53.741259Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::counts[0m[2m:[0m dec_num_streams; stream=StreamId(1)
+[2m2023-01-10T18:42:53.741265Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m writing [3mframe[0m[2m=[0mData { stream_id: StreamId(1), flags: (0x1: END_STREAM) }
+[2m2023-01-10T18:42:53.741269Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mData { stream_id: StreamId(1), flags: (0x1: END_STREAM) }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m send [3mframe[0m[2m=[0mData { stream_id: StreamId(1), flags: (0x1: END_STREAM) }
+[2m2023-01-10T18:42:53.741274Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mtry_reclaim_frame[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m reclaimed [3mframe[0m[2m=[0mData { stream_id: StreamId(1), flags: (0x1: END_STREAM) } [3msz[0m[2m=[0m0
+[2m2023-01-10T18:42:53.741278Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:53.741281Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m [3mis_pending_reset[0m[2m=[0mtrue
+[2m2023-01-10T18:42:53.741286Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m pop_frame; frame=Reset { stream_id: StreamId(1), error_code: CANCEL }
+[2m2023-01-10T18:42:53.741290Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mpop_frame[0m[2m:[0m[1mpopped[0m[1m{[0m[3mstream.id[0m[2m=[0mStreamId(1) [3mstream.state[0m[2m=[0mState { inner: Closed(ScheduledLibraryReset(CANCEL)) }[1m}[0m[2m:[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Closed(Error(Reset(StreamId(1), CANCEL, Library))) }; is_closed=true; pending_send_empty=true; buffered_send_data=0; num_recv=0; num_send=0
+[2m2023-01-10T18:42:53.741294Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m writing [3mframe[0m[2m=[0mReset { stream_id: StreamId(1), error_code: CANCEL }
+[2m2023-01-10T18:42:53.741297Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mReset { stream_id: StreamId(1), error_code: CANCEL }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m send [3mframe[0m[2m=[0mReset { stream_id: StreamId(1), error_code: CANCEL }
+[2m2023-01-10T18:42:53.741300Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mReset { stream_id: StreamId(1), error_code: CANCEL }[1m}[0m[2m:[0m [2mh2::frame::reset[0m[2m:[0m encoding RESET; id=StreamId(1) code=CANCEL
+[2m2023-01-10T18:42:53.741303Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mReset { stream_id: StreamId(1), error_code: CANCEL }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m encoded reset [3mrem[0m[2m=[0m22
+[2m2023-01-10T18:42:53.741306Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::streams::prioritize[0m[2m:[0m schedule_pending_open
+[2m2023-01-10T18:42:53.741309Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m [3mqueued_data_frame[0m[2m=[0mfalse
+[2m2023-01-10T18:42:53.741374Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m flushing buffer
+[2m2023-01-10T18:42:53.741382Z[0m [35mTRACE[0m [2mhyper::proto::h2::client[0m[2m:[0m send_request dropped, starting conn shutdown
+[2m2023-01-10T18:42:53.741385Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mOpen
+[2m2023-01-10T18:42:53.741390Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mGoAway { error_code: NO_ERROR, last_stream_id: StreamId(0) }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m send [3mframe[0m[2m=[0mGoAway { error_code: NO_ERROR, last_stream_id: StreamId(0) }
+[2m2023-01-10T18:42:53.741394Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mGoAway { error_code: NO_ERROR, last_stream_id: StreamId(0) }[1m}[0m[2m:[0m [2mh2::frame::go_away[0m[2m:[0m encoding GO_AWAY; code=NO_ERROR
+[2m2023-01-10T18:42:53.741397Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::buffer[0m[1m{[0m[3mframe[0m[2m=[0mGoAway { error_code: NO_ERROR, last_stream_id: StreamId(0) }[1m}[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m encoded go_away [3mrem[0m[2m=[0m17
+[2m2023-01-10T18:42:53.741400Z[0m [34mDEBUG[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m Connection::poll; connection error [3merror[0m[2m=[0mGoAway(b"", NO_ERROR, Library)
+[2m2023-01-10T18:42:53.741404Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m     -> already going away
+[2m2023-01-10T18:42:53.741406Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mClosing(NO_ERROR, Library)
+[2m2023-01-10T18:42:53.741408Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m connection closing after flush
+[2m2023-01-10T18:42:53.741410Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m [3mqueued_data_frame[0m[2m=[0mfalse
+[2m2023-01-10T18:42:53.741441Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m[1mFramedWrite::flush[0m[2m:[0m [2mh2::codec::framed_write[0m[2m:[0m flushing buffer
+[2m2023-01-10T18:42:53.741498Z[0m [35mTRACE[0m [1mpoll[0m[2m:[0m [2mh2::proto::connection[0m[2m:[0m [3mconnection.state[0m[2m=[0mClosed(NO_ERROR, Library)
+[2m2023-01-10T18:42:53.741503Z[0m [35mTRACE[0m [2mh2::proto::streams::streams[0m[2m:[0m Streams::recv_eof
+[2m2023-01-10T18:42:53.741510Z[0m [35mTRACE[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Closed(Error(Reset(StreamId(1), CANCEL, Library))) }; is_closed=true; pending_send_empty=true; buffered_send_data=0; num_recv=0; num_send=0
+[2m2023-01-10T18:42:53.741513Z[0m [35mTRACE[0m [2mh2::proto::streams::counts[0m[2m:[0m transition_after; stream=StreamId(1); state=State { inner: Closed(Error(Reset(StreamId(1), CANCEL, Library))) }; is_closed=true; pending_send_empty=true; buffered_send_data=0; num_recv=0; num_send=0
+[2m2023-01-10T18:42:57.945657Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:42:57.945718Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 116 bytes
+[2m2023-01-10T18:42:57.945739Z[0m [34mDEBUG[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:42:57.945758Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse [3mbytes[0m[2m=[0m116
+[2m2023-01-10T18:42:57.945778Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse Complete(116)
+[2m2023-01-10T18:42:57.945818Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 4 headers
+[2m2023-01-10T18:42:57.945835Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:42:57.945844Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m remote disabling keep-alive
+[2m2023-01-10T18:42:57.945871Z[0m [35mTRACE[0m [1mencode_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Server::encode status=200, body=Some(Known(6)), req_method=Some(GET)
+[2m2023-01-10T18:42:57.945898Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m buffer.queue [3mself.len[0m[2m=[0m101 [3mbuf.len[0m[2m=[0m6
+[2m2023-01-10T18:42:57.946025Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 107 bytes
+[2m2023-01-10T18:42:57.946117Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close()
+[2m2023-01-10T18:42:57.946124Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Closed, writing: Closed, keep_alive: Disabled, allow_half_close: true }
+[2m2023-01-10T18:42:57.946227Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m shut down IO complete
+[2m2023-01-10T18:43:07.946154Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:43:07.946187Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Init, writing: Init, keep_alive: Busy, allow_half_close: true }
+[2m2023-01-10T18:43:07.946281Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:43:07.946322Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 116 bytes
+[2m2023-01-10T18:43:07.946342Z[0m [34mDEBUG[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:43:07.946442Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse [3mbytes[0m[2m=[0m116
+[2m2023-01-10T18:43:07.946465Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse Complete(116)
+[2m2023-01-10T18:43:07.946502Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 4 headers
+[2m2023-01-10T18:43:07.946520Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:43:07.946529Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m remote disabling keep-alive
+[2m2023-01-10T18:43:07.946559Z[0m [35mTRACE[0m [1mencode_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Server::encode status=200, body=Some(Known(6)), req_method=Some(GET)
+[2m2023-01-10T18:43:07.946581Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m buffer.queue [3mself.len[0m[2m=[0m101 [3mbuf.len[0m[2m=[0m6
+[2m2023-01-10T18:43:07.946732Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 107 bytes
+[2m2023-01-10T18:43:07.946749Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close()
+[2m2023-01-10T18:43:07.946758Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Closed, writing: Closed, keep_alive: Disabled, allow_half_close: true }
+[2m2023-01-10T18:43:07.946810Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m shut down IO complete
+[2m2023-01-10T18:43:17.945710Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:43:17.945806Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Init, writing: Init, keep_alive: Busy, allow_half_close: true }
+[2m2023-01-10T18:43:17.945838Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:43:17.945858Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 116 bytes
+[2m2023-01-10T18:43:17.945880Z[0m [34mDEBUG[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:43:17.945899Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse [3mbytes[0m[2m=[0m116
+[2m2023-01-10T18:43:17.945920Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse Complete(116)
+[2m2023-01-10T18:43:17.945957Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 4 headers
+[2m2023-01-10T18:43:17.945983Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:43:17.945994Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m remote disabling keep-alive
+[2m2023-01-10T18:43:17.946021Z[0m [35mTRACE[0m [1mencode_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Server::encode status=200, body=Some(Known(6)), req_method=Some(GET)
+[2m2023-01-10T18:43:17.946045Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m buffer.queue [3mself.len[0m[2m=[0m101 [3mbuf.len[0m[2m=[0m6
+[2m2023-01-10T18:43:17.946193Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 107 bytes
+[2m2023-01-10T18:43:17.946211Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m State::close()
+[2m2023-01-10T18:43:17.946219Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Closed, writing: Closed, keep_alive: Disabled, allow_half_close: true }
+[2m2023-01-10T18:43:17.946263Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m shut down IO complete
+[2m2023-01-10T18:43:22.449472Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:43:22.449481Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m flushed({role=server}): State { reading: Init, writing: Init, keep_alive: Busy, allow_half_close: true }
+[2m2023-01-10T18:43:22.449486Z[0m [35mTRACE[0m [2mhyper::proto::h1::conn[0m[2m:[0m Conn::read_head
+[2m2023-01-10T18:43:22.449488Z[0m [35mTRACE[0m [2mhyper::proto::h1::io[0m[2m:[0m received 98 bytes
+[2m2023-01-10T18:43:22.449493Z[0m [34mDEBUG[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m setting h1 header read timeout timer
+[2m2023-01-10T18:43:22.449497Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse [3mbytes[0m[2m=[0m98
+[2m2023-01-10T18:43:22.449501Z[0m [35mTRACE[0m [1mparse_headers[0m[2m:[0m [2mhyper::proto::h1::role[0m[2m:[0m Request.parse Complete(98)
+[2m2023-01-10T18:43:22.449508Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 3 headers
+[2m2023-01-10T18:43:22.449511Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is empty
+[2m2023-01-10T18:43:22.449524Z[0m [31mERROR[0m [2mztunnel::telemetry[0m[2m:[0m new log filter is info

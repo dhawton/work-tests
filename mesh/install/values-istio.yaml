@@ -1,0 +1,14 @@
+managedInstallations:
+  controlPlane:
+    enabled: true
+    overrides: {}
+  defaultRevision: true
+  enabled: true
+  images:
+    hub: us-docker.pkg.dev/gloo-mesh/istio-1cf99a48c9d8
+    tag: 1.15.3-solo
+  northSouthGateways:
+  - enabled: true
+    name: istio-ingressgateway
+    overrides: {}
+  revision: 1-15
